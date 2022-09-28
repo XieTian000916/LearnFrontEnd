@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejister Now!</title>
+    <link rel="stylesheet" href="rejister.css">
+    <script src="../../../Learn_jQuery/jquery-3.6.0.min.js"></script>
+    <script src="rejister.js"></script>
+</head>
+
+<body>
+    <div class="rej_box">
+        <h1>Rejister NOW!</h1>
+        <div class="uname_box">
+            <div class="title">用户名：</div>
+            <input type="text" placeholder="请输入用户名，可使用字母、数字和下划线" class="uname">
+            <span class="test unamenotice"></span>
+        </div>
+        <div class="psw_box">
+            <div class="title">密码：</div>
+            <input type="text" placeholder="8-16位密码，由字母、数字和下划线组成" class="psw">
+            <span class="test pswnotice"></span>
+        </div>
+        <div class="tel_box">
+            <div class="title">手机号码：</div>
+            <input type="text" placeholder="请输入手机号" class="tel">
+            <button>获取验证码</button>
+            <span class="test telnotice"></span>
+        </div>
+        <div class="varicode_box">
+            <div class="title">验证码：</div>
+            <input type="text" placeholder="请输入验证码" class="vericode">
+        </div>
+        <div class="agree_box">
+            <input type="checkbox" class="agree">
+            <span>我已阅读并同意</span>
+            <a href="javascript:;">《用户协议》</a>
+        </div>
+        <div class="rej_btn">注 册</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div>隐式迭代</div>
+    <div>隐式迭代</div>
+    <div>隐式迭代</div>
+    <ul>
+        <li>隐式迭代</li>
+        <li>隐式迭代</li>
+        <li>隐式迭代</li>
+    </ul>
+    <script>
+        $(function () {
+            // 隐式迭代
+            // 遍历内部DOM元素（伪数组存储）的过程就叫隐式迭代
+            // 给匹配到的元素进行循环遍历，执行相应的方法，不用手动循环遍历
+            $('div').css('backgroundColor', 'pink');
+            $('ul li').css('color', 'plum');
+        })
+    </script>
+</body>
+
+</html>

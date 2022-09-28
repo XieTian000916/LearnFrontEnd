@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="raidenshogun">雷电将军</button>
+    <button id="eula">优菈</button><br>
+    <img src="../../CSS 就业班/imgs/Raiden Shogun.jpg" alt="" title="一心净土">
+    <script>
+        var jiangjun = document.getElementById('raidenshogun');
+        var youla = document.getElementById('eula');
+        var tupian = document.querySelector('img');
+
+        jiangjun.onclick = function () {
+            tupian.src = '../../CSS 就业班/imgs/Raiden Shogun.jpg';
+            tupian.title = '一心净土'
+        }
+        youla.onclick = function () {
+            tupian.src = '../../CSS 就业班/imgs/Eula.jpg'
+            tupian.title = '浪花骑士'
+        }
+    </script>
+</body>
+
+</html>

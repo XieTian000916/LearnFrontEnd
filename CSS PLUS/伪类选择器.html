@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.a：link 未点击过的原始状态*/
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /*2.a：visited 点击过的链接 */
+        a:visited {
+            color: red;
+        }
+
+        /* 3.a：hover 鼠标悬停在链接上变色 */
+        a:hover {
+            color: aqua;
+        }
+
+        /* 4.a：active 鼠标按下未弹起时 */
+        a:active {
+            color: orange;
+        }
+
+        /* 为确保生效要按LVHA的顺序来写 */
+        /* ：focus一般用于选取获得焦点的表单元素 */
+        input:focus {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.baidu.com" target="_blank">this is a link</a><br>
+    <a href="https://www.qq.com" target="_blank">this is link</a><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text">
+</body>
+
+</html>

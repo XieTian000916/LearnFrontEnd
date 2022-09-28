@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 分支语句:不同条件执行不同代码获得不同结果
+        // 1、if语句
+        // 语法结构：
+        // if (条件表达式) {
+        //     执行语句
+        // }
+        // if中的表达式结果为真，执行大括号中的语句，为假则执行后面的语句
+        if (3 > 5) {
+            alert(3 > 5);
+        }
+
+
+
+        // 双分支语句
+        //       if (表达式1) {
+        //           执行语句1;
+        //       } else {        else后不跟小括号
+        //           执行语句2;
+        //       }
+
+
+
+        if (3 > 5) {
+            alert('3 > 5');
+        } else {
+            alert('3 < 5');
+        }
+
+
+        // 多分支语句if else if
+        //     if (条件1) {
+        //         语句1
+        //     } else if (条件2) {
+        //         语句2
+        //     } else if (条件n) {
+        //         语句n
+        //     } else {
+        //         最后语句
+        //     }
+
+
+        // 多分支语句switch
+        //          switch (表达式) {
+        //              case value1:
+        //                  执行语句1
+        //                  break;
+        //              case value2:
+        //                  执行语句2
+        //                  break;
+        //              case value3:
+        //                  执行语句3
+        //                  break;
+        //              case valueN:
+        //                  执行语句N
+        //                  break;
+        //              default:
+        //                  break;
+        //          }
+        // 表达式的值与value中的值进行匹配，匹配执行后即退出，全无匹配则执行default中的语句。
+        switch (6) {
+            case 1://case中的值与表达式的值进行匹配时要求全等===
+                console.log('这是1');
+                break;//没有break则不跳出分支语句，不再匹配直接执行下一句，直到遇break退出
+            case 2:
+                console.log('这是2');
+                break;
+            case 3:
+                console.log('这是3');
+                break;
+            default:
+                console.log('无匹配结果');
+                break;
+        }
+        // 适用于针对变量设置一系列特定值的选项，><=的判断用if更合适
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

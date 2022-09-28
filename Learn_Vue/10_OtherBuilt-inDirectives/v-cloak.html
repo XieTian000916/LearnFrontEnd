@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>directive v-cloak</title>
+    <style>
+        [v-cloak] {
+            /* 在vue接管容器时，v-cloak属性会被立即删除，加在其上的隐藏属性也会失效 */
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 在网页脚本加载存在延迟时，v-cloak能够隐藏未经修饰的代码 -->
+        <h1 v-cloak>Learn {{lang}}.js</h1>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                lang: "Vue"
+            },
+        })
+    </script>
+</body>
+
+</html>

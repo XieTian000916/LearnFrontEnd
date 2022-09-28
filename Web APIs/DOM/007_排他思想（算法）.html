@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: defult;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 若有一组元素，想要某一个元素实现某种样式，需要先排除其他元素 -->
+    <!-- 1、先清除所有元素的样式 -->
+    <!-- 2、再给自己单独设置样式 -->
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+        var btn = document.getElementsByTagName('button');
+
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                for (var j = 0; j < btn.length; j++) { // 遍历所有按钮，清除指定样式
+                    btn[j].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'pink';
+                // 给当前按钮设置样式
+            }
+        }
+    </script>
+</body>
+
+</html>

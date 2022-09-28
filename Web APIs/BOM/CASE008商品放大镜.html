@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .preview {
+            position: relative;
+            width: 470px;
+            height: 556px;
+            border: 1px solid #666;
+            cursor: move;
+        }
+
+
+        .preview>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background-color: rgba(5, 39, 175, .2);
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 490px;
+            width: 658px;
+            height: 778.4px;
+            border: 1px solid #666;
+            overflow: hidden;
+        }
+
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        // 页面加载完后运行js
+        window.addEventListener('DOMContentLoaded', function () {
+            var preview_box = document.querySelector('.preview');
+            var mask = document.querySelector('.mask');
+            var big = document.querySelector('.big');
+
+            // 鼠标经过商品图显示遮罩和放大镜
+            preview_box.addEventListener('mouseover', function () {
+                mask.style.display = 'block';
+                big.style.display = 'block';
+            });
+            // 鼠标离开后隐藏
+            preview_box.addEventListener('mouseout', function () {
+                mask.style.display = 'none';
+                big.style.display = 'none';
+            });
+            // 遮罩跟随鼠标
+            preview_box.addEventListener('mousemove', function (e) {
+                // 1.获取盒子内鼠标位置
+                var x = e.pageX - this.offsetLeft;
+                var y = e.pageY - this.offsetTop;
+                // 2.鼠标位置给到遮罩
+                var moveX = x - mask.offsetWidth / 2;// 减掉遮罩长宽的一半使鼠标处于遮罩中心
+                var moveY = y - mask.offsetHeight / 2;// 减掉遮罩长宽的一半使鼠标处于遮罩中心
+                // 把遮罩层移动范围限制在商品图片内
+                if (moveX <= 0) {
+                    moveX = 0;
+                } else if (moveX >= preview_box.offsetWidth - mask.offsetWidth) {
+                    moveX = preview_box.offsetWidth - mask.offsetWidth;
+                }
+                if (moveY <= 0) {
+                    moveY = 0;
+                } else if (moveY >= preview_box.offsetHeight - mask.offsetHeight) {
+                    moveY = preview_box.offsetHeight - mask.offsetHeight;
+                }
+                mask.style.left = moveX + 'px';
+                mask.style.top = moveY + 'px';
+                // 放大镜效果制作
+                // 大图移动距离=遮罩移动距离*大图最大移动距离/遮罩最大移动距离
+
+                // 遮罩的移动距离
+                // moveX
+                // moveY
+
+                // 大图最大移动距离
+                var bigIMG = document.querySelector('.bigIMG');
+                var bigIMGMaxX = bigIMG.offsetWidth - big.offsetWidth;
+                var bigIMGMaxY = bigIMG.offsetHeight - big.offsetHeight;
+
+                // 遮罩最大移动距离
+                var moveXMax = preview_box.offsetWidth - mask.offsetWidth;
+                var moveYMax = preview_box.offsetHeight - mask.offsetHeight;
+
+                // 大图移动距离
+                var bigIMGX = moveX * bigIMGMaxX / moveXMax;
+                var bigIMGY = moveY * bigIMGMaxY / moveYMax;
+
+                bigIMG.style.left = -bigIMGX + 'px';
+                bigIMG.style.top = -bigIMGY + 'px';
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="preview">
+        <img src="img/iphone.jpg" alt="">
+        <div class="mask"></div>
+        <div class="big"><img src="img/iphone.jpg" alt="" class="bigIMG"></div>
+    </div>
+</body>
+
+</html>

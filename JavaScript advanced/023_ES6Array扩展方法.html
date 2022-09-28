@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数方法：Array.from()
+        // 将类数组或可遍历对象转换为真正的数组
+        let arrayLike = {
+            "0": "a",
+            "1": "b",
+            "2": "c",
+            length: 3
+        };
+        let array = Array.from(arrayLike);
+        console.log(array);
+
+        console.log(Array.from("apple"));
+        console.log(Array.from([1, 2, 3]));
+        // 后可跟回调函数
+        console.log(Array.from([1, 2, 3], num => num * 2));
+
+
+
+        // 实例方法find()
+        // 找出第一个符合条件的数组成员，没找到返回undefined
+        let arr = [{
+            id: 1,
+            uname: "zhangsan"
+        }, {
+            id: 2,
+            uname: "lisi"
+        }, {
+            id: 3,
+            uname: "wangwu"
+        }];
+        let target = arr.find((item, index) => item.id == 1);
+        console.log(target);
+
+        // 实例方法findIndex()
+        // 找出第一个符合条件的数组成员的索引号
+        let findIndex_arr = [7, 666, 114514];
+        let indexFound = findIndex_arr.findIndex(value => value > 100);
+        console.log(indexFound);
+
+        // 实例方法includes()
+        // 查询数组中是否存在元素，返回布尔值
+        let include_arr = [1, 2, 3];
+        let ifInclude = include_arr.includes("1"); //注意数据类型
+        console.log(ifInclude); // false
+    </script>
+</body>
+
+</html>

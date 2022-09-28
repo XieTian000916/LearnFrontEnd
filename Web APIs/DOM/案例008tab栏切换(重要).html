@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0
+        }
+
+        .clearfix {
+            *zoom: 1
+        }
+
+        .tab {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        ul {
+            background-color: #ccc;
+            border-bottom: 3px solid #c81623;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 200px;
+            /* margin: 0 50px; */
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul .defult {
+            background-color: #c81623;
+        }
+
+        .tab_con .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul class="clearfix">
+                <li class="defult">商品介绍</li>
+                <li>规格与参数</li>
+                <li>售后保障</li>
+                <li>商品评价(1w+)</li>
+                <li>社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">广告图</div>
+            <div class="item">
+                商品名称：<br>
+                尺寸：<br>
+                重量：<br>
+                上市时间：<br>
+                。。。。。。
+            </div>
+            <div class="item">
+                全国联保
+            </div>
+            <div class="item">
+                <h3>用户114514：</h3>
+                <p>已经买了一车了，孩子很喜欢，敏感肌也能用！</p>
+            </div>
+            <div class="item">没有社区唉</div>
+        </div>
+    </div>
+    <script>
+        var libar = document.querySelector('ul').getElementsByTagName('li');
+        var item = document.querySelectorAll('.item');
+        for (var i = 0; i < libar.length; i++) {
+            libar[i].setAttribute('index', i)
+            libar[i].onclick = function () {
+                for (var j = 0; j < libar.length; j++) {
+                    libar[j].removeAttribute('class');
+                }
+                this.setAttribute('class', 'defult');
+                var index = this.getAttribute('index');
+                for (var k = 0; k < item.length; k++) {
+                    item[k].style.display = 'none';// 隐藏所有盒子
+                }
+                item[index].style.display = 'block';// 显示指定盒子
+            }
+        }
+    </script>
+</body>
+
+</html>

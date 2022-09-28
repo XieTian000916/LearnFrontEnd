@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(imgs/jpGirls1.jpg) no-repeat center top;
+            background-size: cover;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            /* width: 100px; */
+            height: 100px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul {
+            position: absolute;
+            left: 50%;
+            bottom: 0px;
+            overflow: hidden;
+            margin-left: -350px;
+            /* width: 705px; */
+            height: 100px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="choose">
+        <li><img src="imgs/jpGirls1.jpg" alt=""></li>
+        <li><img src="imgs/jpGirls2.jpg" alt=""></li>
+        <li><img src="imgs/jpGirls3.jpg" alt=""></li>
+        <li><img src="imgs/jpGirls4.jpg" alt=""></li>
+    </ul>
+    <script>
+        var choosePic = document.querySelector('.choose').querySelectorAll('img');
+        for (var i = 0; i < choosePic.length; i++) {
+            choosePic[i].onclick = function () {
+                document.body.style.backgroundImage='url('+this.src+')'
+            }
+        }
+    </script>
+</body>
+
+</html>

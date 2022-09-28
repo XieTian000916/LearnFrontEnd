@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .QRcode {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            margin-top: -100px;
+            margin-left: -100px;
+            background-color: peachpuff;
+        }
+
+        .btn {
+            position: absolute;
+            top: 0px;
+            left: -20px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background-color: papayawhip;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="QRcode">
+        this is a QRcode
+        <span class="btn">x</span>
+    </div>
+    <script>
+        var anniu = document.querySelector('span')
+        var erweima = document.querySelector('div')
+        anniu.onclick = function () {
+            erweima.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

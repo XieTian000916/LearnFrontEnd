@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data = [{
+            id: 1,
+            name: "Fruit",
+            goods: [{
+                id: 11,
+                gName: "apple"
+            }, {
+                id: 12,
+                gName: "pear"
+            }, {
+                id: 13,
+                gName: "orange"
+            }]
+        }, {
+            id: 2,
+            name: "shoes",
+            goods: [{
+                id: 21,
+                gName: "Nike"
+            }, {
+                id: 22,
+                gName: "Adidas"
+            }, {
+                id: 23,
+                gName: "ANTA"
+            }]
+        }];
+        // 实现输入索引号返回数据对象
+        function findID(json, id) {
+            let op = {};
+            json.forEach(function (item) {
+                // console.log(item);
+                if (item.id == id) {
+                    // console.log(item);
+                    op = item;
+                } else if (item.goods && item.goods.length > 0) {
+                    op = findID(item.goods, id);
+                }
+            });
+            return op;
+        }
+        console.log(findID(data, 1));
+        console.log(findID(data, 11));
+        console.log(findID(data, 2));
+        console.log(findID(data, 22));
+    </script>
+</body>
+
+</html>

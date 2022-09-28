@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛇皮信息表</title>
+</head>
+<body>
+    <h3>提瓦特人口信息登记系统</h3>
+    <table width="500">
+        <tr>  <!--性别-->
+            <td>性别</td>
+            <td>
+                <form action="xxx.php" method="get">
+                    <input type="radio" name="gender" value="man" id="nan"><label for="nan">男</label>
+                    <input type="radio" name="gender" value="woman" id="nv"><label for="nv">女</label>
+                </form>
+            </td>
+        </tr>
+
+        <tr>  <!--生日信息-->
+            <td>生日</td>
+            <td>
+                <form>
+                    <input type="date" value="birth">
+                </form>
+            </td>
+        </tr>
+
+        <tr>  <!--所在地-->
+            <td>所在地</td>
+            <td>
+                <form>
+                    <input type="text" name="area">
+                </form>
+            </td>
+        </tr>
+
+        <tr>  <!--婚姻状况-->
+            <td>婚姻状况</td>
+            <td>
+                <form>
+                    <input type="radio" name="hunfou" id="hunyin"><label for="hunyin">未婚</label>
+                    <input type="radio" name="hunfou" id="hunyin1"><label for="hunyin1">离异</label>
+                    <input type="radio" name="hunfou" id="hunyin2"><label for="hunyin2">丧偶</label>
+                </form>
+            </td>
+        </tr>
+        
+        <tr><!-- 学历栏 -->
+            <td>学历</td>
+            <td>
+                <form>
+                    <select>
+                        <option>--请选择--</option>
+                        <option>小学</option>
+                        <option>初中</option>
+                        <option>高中</option>
+                        <option>本科</option>
+                        <option>研究生</option>
+                        <option>博士</option>
+                        <option>博士后</option>
+                    </select>
+                </form>
+            </td>
+        </tr>
+
+        <tr> <!--国籍-->
+            <td>国籍</td>
+            <td>
+                <form>
+                    <input type="checkbox" name="type" id="md"><label for="ll">蒙德</label>
+                    <input type="checkbox" name="type" id="ly"><label for="rq">璃月</label> <br>
+                    <input type="checkbox" name="type" id="dq"><label for="aj">稻妻</label>
+                    <input type="checkbox" name="type" id="xm"><label for="trd">须弥</label> <br>
+                    <input type="checkbox" name="type" id="fd"><label for="fd">枫丹</label>
+                    <input type="checkbox" name="type" id="nt"><label for="nt">纳塔</label> <br>
+                    <input type="checkbox" name="type" id="zd"><label for="zd">至冬</label>
+                </form>
+            </td>
+        </tr>
+
+        <tr> <!--输入uid-->
+            <td>UID</td>
+            <td>
+                <form>
+                    <input type="text">
+                </form>
+            </td>
+        </tr>
+
+        <tr> <!--信息确认-->
+            <td></td>
+            <td>
+                <form>
+                    <input type="checkbox" id="p" checked="checked"><label for="p">我承诺以上为本人真实信息</label>
+                </form>
+            </td>
+        </tr>
+
+        <tr> <!--天理通道-->
+            <td></td>
+            <td>
+                <form>
+                    <a href="#">我是天理，无需登记</a>
+                </form>
+            </td>
+        </tr>
+
+        <tr> <!--提交按钮-->
+            <td></td>
+            <td>
+                <form>
+                    <input type="submit" value="提交信息">
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

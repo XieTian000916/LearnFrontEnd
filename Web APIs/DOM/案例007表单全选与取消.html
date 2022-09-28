@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="none_all">
+                </th>
+                <th>商品</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="">
+                </td>
+                <td>iPhone</td>
+                <td>8499</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="">
+                </td>
+                <td>iPad Pro</td>
+                <td>5799</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPad Air</td>
+                <td>4999</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="">
+                </td>
+                <td>Apple Watch</td>
+                <td>3299</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var check = document.querySelector('tbody').getElementsByTagName('input');
+        var main_check = document.getElementById('none_all');
+
+        main_check.onclick = function () {
+            for (var i = 0; i < check.length; i++) {
+                check[i].checked = this.checked;
+            }
+        }
+        for (var i = 0; i < check.length; i++) {
+            check[i].onclick = function () {
+                // 定义一个变量存放全选按钮状态
+                var flag = true;
+                for (var i = 0; i < check.length; i++) {
+                    if (!check[i].checked) {
+                        flag = false;
+                        break;// 有一个未选中即可退出循环，提高执行效率
+                    }
+                }
+                main_check.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

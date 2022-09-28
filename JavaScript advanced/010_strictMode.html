@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 严格模式消除了js语法中一些不合理的地方，减少了一些怪异行为 -->
+    <!-- 消除了代码运行的一些不安全之处，保证代码运行安全 -->
+    <!-- 提高编译器效率，增加运行速度 -->
+    <!-- 禁用了在ECMAScri的未来版本中可能会定义的一些语法 -->
+
+    <!-- 仅支持IE10以后的版本 -->
+    <!-- 严格模式可以应用到整个脚本也可以在个别函数内开启 -->
+    <script>
+        // 为整个脚本开启
+        // 1.
+        "use strict";
+        // 2.
+        // (function(){
+        //     "use strict"; 
+        // })();
+
+        // 为个别函数开启
+        // function fn() {
+        //     'use strict';
+        // }
+
+
+        // 不声明直接赋值会报错
+        // num = 10;
+
+        let num = 10;
+        // 已声明变量不能随意删除
+        // delete num;
+
+        function fn() {
+            console.log(this);
+        }
+        fn(); // 全局作用域中this不再指向window而是undefined
+
+        function StrictObj() {
+            this.test = 'shishican'
+        }
+        // 严格模式下构造函数不加New调用会报错
+        // StrictObj();// 无法给undefined指定test属性
+        let test = new StrictObj();
+        console.log(test.test);
+
+        // 定时器的this还是指向window
+        setTimeout(function () {
+            console.log(this);
+        }, 2000);
+
+        // 事件、对象还是指向调用者
+
+
+        // 函数不能有重名的参数
+        // function noDuplicateName(a, a) {
+        //     console.log(a + a);
+        // }
+        // noDuplicateName(1, 2);
+
+        // 严格模式禁止了不在脚本或者函数层面上的函数声明
+        if (true) {
+                function f() { } // !!! 语法错误
+                f();
+            }
+
+            for (var i = 0; i < 5; i++) {
+                function f2() { } // !!! 语法错误
+                f2();
+            }
+
+            function baz() { // 合法
+                function eit() { } // 同样合法
+            }
+    </script>
+</body>
+
+</html>

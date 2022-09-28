@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .head {
+            display: flex;
+            width: 1200px;
+            height: 50px;
+            margin: 200px auto 0px;
+            background-color: #ddd;
+        }
+
+        .head>div {
+            flex: 1;
+            height: 100%;
+            line-height: 50px;
+        }
+
+        .items {
+            display: flex;
+            flex-flow: column nowrap;
+            width: 1200px;
+            margin: 10px auto 0;
+        }
+
+        .items>li {
+            display: flex;
+            margin: 30px 0;
+        }
+
+        .items>li>div {
+            flex: 1;
+        }
+
+        .items>li .num {
+            display: flex;
+        }
+
+        .items>li .num .decrease,
+        .items>li .num .increase {
+            color: #fff;
+            text-align: center;
+            background-color: #c81623;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            border-radius: 3px;
+        }
+
+        .items>li>div>input.num_text {
+            width: 45px;
+            height: 25px;
+            /* margin: 0 -6px 0; */
+            text-align: center;
+        }
+
+        .items li .oprate {
+            color: #c81623;
+            cursor: pointer;
+        }
+
+        .pay_box {
+            /* position: relative; */
+            display: flex;
+            width: 1200px;
+            height: 50px;
+            margin: 0 auto;
+            /* background-color: pink; */
+        }
+
+        .pay_box>div {
+            flex: 1;
+            height: 100%;
+            line-height: 50px;
+        }
+
+        .pay_box .checkbox {
+            flex: .6;
+        }
+
+        .pay_box .del_chosen {
+            flex: 1;
+            /* font-size: 16px; */
+            cursor: pointer;
+        }
+
+        .pay_box .del_all {
+            flex: 3;
+            cursor: pointer;
+        }
+
+        .pay_box .price_sum {
+            flex: 1.2;
+        }
+
+        .pay_box .pay {
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: 700;
+            background-color: #c81623;
+            color: white;
+            cursor: pointer;
+            flex: .6;
+        }
+
+        .checked_bgc {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="" class="checkall"> 全选
+        </div>
+        <div class="goods">商品名称</div>
+        <div class="price">单价</div>
+        <div class="num">数量</div>
+        <div class="sum">小计</div>
+        <div class="oprate">操作</div>
+    </div>
+    <ul class="items">
+        <li>
+            <div class="checkbox">
+                <input type="checkbox" name="" id="" class="check">
+            </div>
+            <div class="goods">商品名称</div>
+            <div class="price">￥10.00</div>
+            <div class="num">
+                <a href="javascript:;" class="decrease">-</a>
+                <input type="text" class="num_text" value="1">
+                <a href="javascript:;" class="increase">+</a>
+            </div>
+            <div class="sum">￥10.00</div>
+            <div class="oprate">删除</div>
+        </li>
+        <li>
+            <div class="checkbox">
+                <input type="checkbox" name="" id="" class="check">
+            </div>
+            <div class="goods">商品名称</div>
+            <div class="price">￥69.00</div>
+            <div class="num">
+                <a href="javascript:;" class="decrease">-</a>
+                <input type="text" class="num_text" value="1">
+                <a href="javascript:;" class="increase">+</a>
+            </div>
+            <div class="sum">￥69.00</div>
+            <div class="oprate">删除</div>
+        </li>
+        <li>
+            <div class="checkbox">
+                <input type="checkbox" name="" id="" class="check">
+            </div>
+            <div class="goods">商品名称</div>
+            <div class="price">￥114514.00</div>
+            <div class="num">
+                <a href="javascript:;" class="decrease">-</a>
+                <input type="text" class="num_text" value="1">
+                <a href="javascript:;" class="increase">+</a>
+            </div>
+            <div class="sum">￥114514.00</div>
+            <div class="oprate">删除</div>
+        </li>
+    </ul>
+    <div class="pay_box">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="" class="checkall"> 全选
+        </div>
+        <div class="del_chosen">删除选中商品</div>
+        <div class="del_all">清空购物车</div>
+        <div class="goods_sum">
+            <span>共选择</span>
+            <span style="color: #c81623" class="sum_num">0</span>
+            <span>件商品</span>
+        </div>
+        <div class="price_sum">
+            <span>总价:</span>
+            <span style="color: #c81623;" class="sum_price">￥0</span>
+        </div>
+        <div class="pay">支 付</div>
+    </div>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $('.checkall').change(function () {
+                $('.check , .checkall').prop('checked', $(this).prop('checked'));
+                sumGoodsAndPrice();
+                // console.log($('.checkall').prop('checked'));
+                if ($('.checkall').prop('checked') == true) {
+                    $('.items').find('li').addClass('checked_bgc');
+                } else {
+                    $('.items').find('li').removeClass('checked_bgc');
+                }
+                // sumGoodsAndPrice();
+            });
+        });
+        $('.check').change(function () {
+            // $('.check:checked').length   被选择的复选框的个数
+            // $('.check').length           复选框的个数
+            if ($('.check:checked').length === $('.check').length) {
+                $('.checkall').prop('checked', true);
+            } else {
+                $('.checkall').prop('checked', false);
+            }
+
+            sumGoodsAndPrice();
+
+            if ($(this).prop('checked')) {
+                $(this).parents('li').addClass('checked_bgc');
+            } else {
+                $(this).parents('li').removeClass('checked_bgc');
+            }
+        });
+        $('.increase').click(function () {
+            var n = $(this).siblings('.num_text').val();
+            // if(n==1){
+            //     return false;
+            // }
+            n++;
+            $(this).siblings('.num_text').val(n);
+
+            // 修改小计
+            var price = $(this).parent().siblings('.price').text();
+            price = price.substr(1);
+            $(this).parent().siblings('.sum').text('￥' + (price * n).toFixed(2));
+
+            // 修改总计
+            sumGoodsAndPrice();
+        });
+        $('.decrease').click(function () {
+            var n = $(this).siblings('.num_text').val();
+            // if (n == 1) {
+            //     return false;
+            // }
+            // n--;
+            n == 0 ? n : n--;
+            $(this).siblings('.num_text').val(n);
+
+
+            // 修改小计
+            var price = $(this).parent().siblings('.price').text();
+            price = price.substr(1);
+            $(this).parent().siblings('.sum').text('￥' + (price * n).toFixed(2));
+
+            // 修改总计
+            sumGoodsAndPrice();
+        });
+        // 修改文本框时同步变化
+        $('.num_text').change(function () {
+            var n = $(this).val();
+            var price = $(this).parent().siblings('.price').text();
+            price = price.substr(1);
+            $(this).parent().siblings('.sum').text('￥' + (price * n).toFixed(2));
+
+            sumGoodsAndPrice();
+        });
+
+
+        // 商品总计与总价
+        // function sumAllGoodsAndPrice() {
+        //     var count = 0;
+        //     var money = 0;
+        //     $('.num_text').each(function (i, ele) {
+        //         count += parseInt($(ele).val());
+        //     });
+        //     $('.pay_box .goods_sum .sum_num').text(count);
+        //     $('.items .sum').each(function (i, ele) {
+        //         money += parseFloat($(ele).text().substr(1));
+        //     });
+        //     $('.pay_box .price_sum .sum_price').text('￥' + money.toFixed(2));
+        // }
+        function sumGoodsAndPrice() {
+            var count = 0;
+            var money = 0;
+            $('.items .check:checked').each(function (i, ele) {
+                // console.log(ele);
+                count += parseInt($(ele).parent('.checkbox').siblings('.num').find('.num_text').val());
+                money += parseFloat($(ele).parent('.checkbox').siblings('.sum').text().substr(1));
+            })
+            $('.pay_box .goods_sum .sum_num').text(count);
+            $('.pay_box .price_sum .sum_price').text('￥' + money.toFixed(2));
+        }
+
+
+        // 删除商品
+        // 商品后的删除按钮
+        $('.items li .oprate').click(function () {
+            $(this).parent('li').remove();
+            sumGoodsAndPrice();
+        });
+        // 删除选中的商品
+        $('.pay_box .del_chosen').click(function () {
+            $('.items .check:checked').parents('li').remove();
+            sumGoodsAndPrice();
+        });
+        // 删除全部商品
+        $('.pay_box .del_all').click(function () {
+            $('.items').empty();
+            sumGoodsAndPrice();
+            $('.checkall').prop('checked', false);
+        })
+    </script>
+</body>
+
+</html>

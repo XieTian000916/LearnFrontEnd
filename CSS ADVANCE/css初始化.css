@@ -1,0 +1,70 @@
+/* 所有标签内外边距清零 */
+* {
+    margin: 0;
+    padding: 0
+}
+
+/* 斜体的文字不倾斜 */
+em,
+i {
+    font-style: normal
+}
+
+/* 去除li标签前的小圆点 */
+li {
+    list-style: none
+}
+
+img {
+    border: 0;
+    /* 照顾低版本浏览器兼容性 */
+    vertical-align: middle
+        /* 取消图片底侧有空白缝隙的问题 */
+}
+
+button {
+    /* 鼠标经过按钮时变为小手，提示可点击 */
+    cursor: pointer
+}
+
+a {
+    /* 设置链接颜色并取消链接下划线 */
+    color: #666;
+    text-decoration: none
+}
+
+a:hover {
+    /* 鼠标经过字体变色 */
+    color: #c81623
+}
+
+button,
+input {
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+}
+
+body {
+    /* css3写法 文字放大抗锯齿 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666
+}
+
+.hide,
+.none {
+    display: none
+}
+
+/* 清除浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}

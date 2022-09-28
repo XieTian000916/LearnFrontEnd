@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 取消表单轮廓线 */
+        input,
+        textarea {
+            outline: none;
+        }
+
+        /* 防止拖拽文本域，打乱网页结构 */
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <!-- 默认为经典白色箭头指针 -->
+        <li style="cursor: default;">TEST鼠标样式测试</li>
+        <!-- pointer 小手 -->
+        <li style="cursor: pointer;">TEST鼠标样式测试</li>
+        <!-- move 移动 四个方向的组合箭头 -->
+        <li style="cursor: move;">TEST鼠标样式测试</li>
+        <!-- text 文本样式 I -->
+        <li style="cursor: text;">TEST鼠标样式测试</li>
+        <!-- not allowed 禁止符号 -->
+        <li style="cursor: not-allowed;">TEST鼠标样式测试</li>
+    </ul>
+
+    <input type="text" placeholder="请在此输入..."><br>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+</body>
+
+</html>

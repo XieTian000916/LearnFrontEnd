@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>click</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="type">type</div>
+    <a href="https://www.baidu.com">百度</a>
+    <script>
+        var div = document.querySelector('div');
+        // div.addEventListener('click', function(event){console.log(event); });
+
+        // 1、event即一个事件对象，写在侦听函数的小括号中，可看作形参
+        // 2、有事件才有事件对象，系统自动创建，无需传递参数
+        // 3、事件对象是一系列事件相关数据的集合，和事件有关
+        // 点击事件就包含鼠标的相关信息（鼠标位置等），键盘事件就包含键盘相关信息（按下哪个键等）
+        // 4、事件对象可以自由命名
+        div.addEventListener('click', function (eve) { console.log(eve); });
+
+
+        // 常用属性target
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            console.log(e.target);
+            // this指向绑定事件的元素，target指向触发事件的元素
+            console.log(this);
+        });
+
+        // 常用属性type 返回事件的类型
+        var div2 = document.querySelector('.type');
+        div2.addEventListener('click', fn);
+        div2.addEventListener('mouseover', fn);
+        div2.addEventListener('mouseout', fn);
+        function fn(e){
+            console.log(e.type);
+        }
+
+
+        // 阻止默认行为（事件）   链接不跳转或提交按钮不提交
+        var a=document.querySelector('a');
+        a.addEventListener('click', function(e){
+            e.preventDefault();   // dom标准写法
+        })
+    </script>
+</body>
+
+</html>

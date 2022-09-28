@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        div {
+            position: relative;
+            margin: 0 auto;
+            width: 1146px;
+            height: 717px;
+            /* background-color: pink; */
+            overflow: hidden;
+        }
+
+        span {
+            display: block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+            background-color: rgba(0, 0, 0, .4);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        span:hover {
+            color: lightsalmon;
+        }
+
+        .arrow_l {
+            /* display: none; */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 0 25px 25px 0;
+            z-index: 999;
+        }
+
+        .arrow_r {
+            /* display: none; */
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            border-radius: 25px 0 0 25px;
+            z-index: 999;
+        }
+
+        ul {
+            /* ul上进行动画须加定位 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500%;
+        }
+
+        ul>li {
+            float: left;
+        }
+
+        ol {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        ol>li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin-right: 10px;
+            background-color: rgba(255, 255, 255, .6);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .current {
+            background-color: lightsalmon;
+        }
+    </style>
+
+    <script src="011_animation.js"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            // 获取被操作元素
+            var swiper_box = document.querySelector('.swiper_box');
+            var arrow_l = document.querySelector('.arrow_l');
+            var arrow_r = document.querySelector('.arrow_r');
+            var boxWidth = swiper_box.offsetWidth;
+
+
+            // 鼠标移入轮播图显示左右箭头
+            swiper_box.addEventListener('mouseenter', function () {
+                //     arrow_l.style.display = 'block';
+                //     arrow_r.style.display = 'block';
+                clearInterval(timer);
+                timer = null;// 定时器设为空保证清除
+            });
+            swiper_box.addEventListener('mouseout', function () {
+                //     arrow_l.style.display = 'none';
+                //     arrow_r.style.display = 'none';
+                timer = setInterval(function () {
+                    arrow_r.click();
+                }, 3000);
+            });
+
+            // 动态生成小圆点
+            var ul = swiper_box.querySelector('ul');
+            var ol = swiper_box.querySelector('ol');
+            for (var i = 0; i < ul.children.length; i++) {
+                var li = document.createElement('li');
+                // 记录索引号，方便后续动画调用
+                li.setAttribute('data-index', i);
+                ol.appendChild(li);
+                if (i == 0) {
+                    li.className = 'current';
+                }
+                // 生成小圆圈的同时绑定点击事件
+                li.addEventListener('click', function () {
+                    for (var j = 0; j < ol.children.length; j++) {
+                        ol.children[j].className = '';
+                    }
+                    this.className = 'current';
+                    // 添加轮播动画
+                    var index = this.getAttribute('data-index');
+                    // 点击后将index的值同步给按钮和小圆点
+                    click_times = index;
+                    circle_num = index;
+                    // console.log(index);
+                    // console.log(boxWidth);
+                    animate(ul, -index * boxWidth);
+                });
+            }
+            // 克隆第一张图片达到“无缝切换效果”
+            var firstImgFake = ul.children[0].cloneNode(true);
+            ul.appendChild(firstImgFake);
+            // 两侧箭头的点击事件
+            // 右箭头
+            var click_times = 0;
+            var circle_num = 0;
+            // 安装节流阀
+            var flag = true;
+            arrow_r.addEventListener('click', function () {
+                if (flag) {
+                    flag = false;
+                    if (click_times == ul.children.length - 1) {
+                        ul.style.left = '0';
+                        click_times = 0;
+                    }
+                    click_times++;
+                    animate(ul, -click_times * boxWidth, function () {
+                        // 动画结束后关闭节流阀
+                        flag = true;
+                    });
+
+                    // 小圆圈的选中状态同步变化
+                    circle_num++;
+                    if (circle_num == ol.children.length) {
+                        circle_num = 0;
+                    }
+                    for (var i = 0; i < ol.children.length; i++) {
+                        ol.children[i].className = '';
+                    }
+                    ol.children[circle_num].className = 'current';
+                }
+            });
+            // 左箭头
+            arrow_l.addEventListener('click', function () {
+                if (flag) {
+                    flag = false;
+                    if (click_times == 0) {
+                        click_times = ul.children.length - 1;
+                        ul.style.left = -click_times * boxWidth + 'px';
+                    }
+                    click_times--;
+                    animate(ul, -click_times * boxWidth, function () {
+                        flag = true;
+                    });
+
+                    // 小圆圈的选中状态同步变化
+                    circle_num--;
+                    if (circle_num < 0) {
+                        circle_num = ol.children.length - 1;
+                    }
+                    for (var i = 0; i < ol.children.length; i++) {
+                        ol.children[i].className = '';
+                    }
+                    ol.children[circle_num].className = 'current';
+                }
+            });
+            var timer = setInterval(function () {
+                arrow_r.click();
+            }, 3000);
+        })
+    </script>
+</head>
+
+<body>
+    <div class="swiper_box">
+        <span class="arrow_l"> ← </span>
+        <span class="arrow_r"> → </span>
+        <ul class="swiper_slide">
+            <li>
+                <a href="https://ys.mihoyo.com/main/" target="_blank"><img src="img/yuanshen_swiper_slide_1.jpg"></a>
+            </li>
+            <li>
+                <a href="https://ys.mihoyo.com/main/" target="_blank"><img src="img/yuanshen_swiper_slide_2.jpg"></a>
+            </li>
+            <li>
+                <a href="https://ys.mihoyo.com/main/" target="_blank"><img src="img/yuanshen_swiper_slide_3.jpg"></a>
+            </li>
+            <li>
+                <a href="https://ys.mihoyo.com/main/" target="_blank"><img src="img/yuanshen_swiper_slide_4.jpg"></a>
+            </li>
+        </ul>
+        <ol>
+
+        </ol>
+    </div>
+</body>
+
+</html>

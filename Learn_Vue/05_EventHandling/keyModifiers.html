@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key modifiers</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- vue中常用的按键别名
+        .enter
+        .tab    (recommended to use with keydown)
+        .delete (captures both “Delete” and “Backspace” keys)
+        .esc
+        .space
+        .up
+        .down
+        .left
+        .right
+    -->
+    <!-- 系统修饰键 
+        用法特殊：
+        1、配合keyup使用：按下修饰键的同时按下其他键再释放其他键事件才被触发
+        2、配合keydown使用：正常触发
+        .ctrl
+        .alt
+        .shift
+        .meta
+        注意：在 Mac 系统键盘上，meta 对应 command 键 (⌘)。
+        在 Windows 系统键盘 meta 对应 Windows 徽标键 (⊞)。
+        在 Sun 操作系统键盘上，meta 对应实心宝石键 (◆)。
+        在其他特定键盘上，尤其在 MIT 和 Lisp 机器的键盘、以及其后继产品，比如 Knight 键盘、space-cadet 键盘，meta 被标记为“META”。
+        在 Symbolics 键盘上，meta 被标记为“META”或者“Meta”。
+    -->
+    <!-- 自定义按键（不推荐）
+        Vue.config.keyCodes.自定义按键名 = 键码 
+    -->
+
+    <div id="root">
+        <h1>Learn {{txt}}</h1>
+        <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo($event)">
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                txt: "Vue.js"
+            },
+            methods: {
+                showInfo(e) {
+                    // if (e.keyCode !== 13) { return } // js原生写法
+                    alert(e.target.value);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

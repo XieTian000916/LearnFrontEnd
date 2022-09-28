@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="password" name="" id="">
+    <button>显示密码</button>
+    <script>
+        var btn = document.querySelector('button');
+        var miamkuang = document.querySelector('input');
+        var count = 0;
+        btn.onclick = function () {
+            if (count % 2 == 0) {
+                btn.innerHTML = '隐藏密码';
+                miamkuang.type = 'text';
+                count++;
+            } else {
+                btn.innerHTML = '显示密码';
+                miamkuang.type = 'password';
+                count++;
+            }
+        }
+    </script>
+</body>
+
+</html>

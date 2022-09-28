@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .w {
+            width: 1380px;
+            margin: 0 auto;
+        }
+
+        .slider-bar {
+            position: absolute;
+            right: 0;
+            top: 300px;
+            margin-right: 20px;
+            width: 30px;
+            height: 120px;
+            background-color: pink;
+        }
+
+        .header {
+            margin: 50px auto;
+            height: 30px;
+            background-color: #666;
+        }
+
+        .banner {
+            margin: 50px auto;
+            height: 500px;
+            background-color: green;
+        }
+
+        .main {
+            height: 1500px;
+            background-color: royalblue;
+        }
+
+        .back {
+            display: none;
+            width: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="back">↑</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">横幅区域</div>
+    <div class="main w">主体区域</div>
+    <script>
+        var slider_bar = document.querySelector('.slider-bar');
+        var back = document.querySelector('.back')
+        var header = document.querySelector('.header');
+        var banner = document.querySelector('.banner')
+        var main = document.querySelector('.main');
+        // console.log(back);
+        var bannerTop = banner.offsetTop;
+        var mainTop = main.offsetTop;
+        var slider_bar_newTop = slider_bar.offsetTop - bannerTop;
+        document.addEventListener('scroll', function () {
+            // console.log(1);
+            if (window.pageYOffset >= bannerTop) {
+                slider_bar.style.position = 'fixed';
+                slider_bar.style.top = slider_bar_newTop + 'px';
+            } else {
+                slider_bar.style.position = 'absolute';
+                slider_bar.style.top = '300px';
+            }
+            if (window.pageYOffset >= mainTop) {
+                back.style.display = 'block';
+            } else {
+                back.style.display = 'none';
+            }
+        });
+        back.addEventListener('click', function () {
+            // 滚动回顶部
+            // document.body.scrollTop = 0;
+            // document.documentElement.scrollTop = 0;
+
+            // 平滑回顶效果
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+        });
+    </script>
+</body>
+
+</html>

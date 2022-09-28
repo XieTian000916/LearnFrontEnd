@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>stop</button>
+    <script>
+        // 语法：setTimeout（调用函数，延时时间）；
+        // 1、window在调用时可省略
+        // 延时时间的单位是毫秒，省略不写默认0延时
+        // 函数可以写在setTimeout里，也可以写在外面
+        // function timerbomb() {
+        //     alert('BOM!!!');
+        // }
+        // setTimeout(timerbomb, 5000);
+        // 页面中有多个定时器时经常给定时器添加标识符
+        // var timer1 = setTimeout(timerbomb, 8000);
+        // var timer2 = setTimeout(timerbomb, 10000);
+
+
+        // 停止定时器   window.clearTimeout(定时器ID)
+        var btn=document.querySelector('button');
+        var timer=setTimeout(function(){alert('太晚了，爆炸了')},5000);
+        btn.addEventListener("click",function(){
+            window.clearTimeout(timer);
+        });
+    </script>
+</body>
+
+</html>

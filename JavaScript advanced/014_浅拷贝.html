@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let exp = {
+            bojName: "example",
+            id: 114514,
+            msg: {
+                line: "a~a~a~aaaaa~~~",
+                age: 6
+            }
+        }
+
+        // 循环遍历浅拷贝
+        let o = {};
+        for (k in exp) {
+            o[k] = exp[k]
+        }
+        console.log(o);
+        // 浅拷贝的值修改后会影响源对象
+        o.msg.age=666;
+        console.log(exp);
+
+        console.log("----------------------------------------------");
+
+        // ES6语法糖
+        let obj = {};
+        // Object.assign(要拷贝的对象，源对象)
+        Object.assign(obj, exp);
+        console.log(obj);
+    </script>
+</body>
+
+</html>

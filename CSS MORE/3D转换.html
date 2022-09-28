@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-translate</title>
+    <style>
+        /* translateZ 盒子沿着Z轴移动 */
+        /* 正值为向外，负值向内（相对屏幕） */
+        /* translaZ的单位一般为px */
+        /* 3D移动有简写版本 transform：translate3d（x，y，z） */
+        /* xyz的值不省略，不改变则写0 */
+        .father {
+            width: 100%;
+            height: 100%;
+            /* 呈现3d效果加透视生效 */
+            /* 透视写到被观察元素的父盒子上 */
+            perspective: 200px;
+        }
+
+        .son {
+            margin: 100px auto 0;
+            width: 600px;
+            height: 600px;
+            background-color: pink;
+            transform: translate3d(0, 0, -500px);
+        }
+
+        .rotatebox {
+            perspective: 800px;
+        }
+
+        .rotatebox img {
+            margin: 100px 0 100px 100px;
+        }
+
+        .rotatebox img:first-child {
+            width: 375px;
+            height: 375px;
+            transition: all 1s;
+        }
+
+        .rotatebox img:first-child:hover {
+            transform: rotateX(30deg);
+        }
+
+        .rotatebox img:last-child {
+            width: 375px;
+            height: 375px;
+            transition: all 1s;
+        }
+
+        .rotatebox img:last-child:hover {
+            transform: rotateY(45deg);
+        }
+
+        /* rotateZ即为平面旋转 */
+
+        .box_mix{
+            perspective: 1000px;
+            position: relative;
+            margin: 500px 0;
+            width: 500px;
+            height: 500px;
+            left: 50%;
+            transform: translate(-50%,0);
+            background-color: cornflowerblue;
+            transition: all 2s;
+            /* tr...-style写给父盒子，在转动时子盒子仍保持3d效果生效 */
+            transform-style: preserve-3d;
+        }
+        .box_mix .inbox {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+            transform: rotateX(60deg);
+        }
+        .box_mix:hover {
+            transform: rotateY(-60deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="rotatebox">
+        <img src="imgs/Raiden Shogun.jpg" alt="">
+        <img src="imgs/Eula.jpg" alt="">
+    </div>
+    <div class="box_mix">
+        <div class="inbox"></div>
+    </div>
+</body>
+
+</html>

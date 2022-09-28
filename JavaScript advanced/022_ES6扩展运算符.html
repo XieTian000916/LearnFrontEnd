@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>111</div>
+    <div>222</div>
+    <div>333</div>
+
+    <!-- Array的扩展方法 -->
+    <!-- 扩展运算符可以将数组或对象转为用逗号分隔的参数序列 -->
+    <script>
+        let arr = [1, 2, 3];
+        console.log(...arr); // 1 2 3
+        // 实际输出过程是
+        // ...arr输出 1, 2, 3
+        // 参数序列的逗号被当作console,log方法的参数分隔符去除
+        // console.log(1, 2, 3)输出 1 2 3
+
+        // 扩展运算符合并数组
+        let arr1 = [1, 2, 3];
+        let arr2 = [4, 5, 6];
+        let arr3 = [...arr1, ...arr2];
+        console.log(arr3);
+        // 或用push方法
+        arr1.push(...arr2);
+        console.log(arr1);
+
+        // 扩展运算符将伪数组转换为真数组
+        let = divs = document.getElementsByTagName("div")
+        console.log(divs);
+        let arr_div = [...divs];
+        console.log(arr_div);
+    </script>
+</body>
+
+</html>

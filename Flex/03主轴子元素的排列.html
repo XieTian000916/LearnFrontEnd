@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* justify-content   设置主轴上子元素的排列方式 */
+        div {
+            display: flex;
+            width: 1200px;
+            height: 800px;
+            background-color: pink;
+            /* 默认值，从头开始排列 */
+            /* justify-content: flex-start; */
+
+            /* 从主轴末尾开始排列 */
+            /* justify-content: flex-end; */
+
+            /* 在主轴上居中摆放 */
+            /* justify-content: center; */
+
+            /* 平均分配间隙排开 */
+            /* justify-content: space-around; */
+
+            /* 左右挤满，中间留空 */
+            /* justify-content: space-between; */
+
+            /* 均等间隙，左右不挤满，不均分 */
+            justify-content: space-evenly;
+        }
+
+        div span {
+            width: 200px;
+            height: 200px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="https://www.bilibili.com" title="哔哩哔哩" target="_blank">Bilibili</a>
+    <div data-index="1">这是div</div>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        // 获取属性值
+        console.log($('a').prop('href'));
+        // 更改属性值
+        $('a').prop('title', '哔哩哔哩弹幕网');
+
+        // 获取元素的自定义的属性
+        console.log($('div').attr('data-index'));
+        // 设置属性值
+        $('div').attr('data-index', '2');// 更改
+        $('div').attr('data-num', '2');// 加入新的
+    </script>
+</body>
+
+</html>

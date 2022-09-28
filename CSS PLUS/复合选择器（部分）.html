@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器，层层向下查找 */
+        ol li {
+            color: green;
+        }
+
+        /* 写出祖宗标签可直接定位孙子（哈哈哈） */
+        ol a {
+            color: green;
+        }
+
+        /* 多组同名标签用不同class名定向更改，此时不再需要祖先标签名 */
+        .sec li {
+            color: slateblue;
+        }
+
+        /* 子选择器，只选下一代中指定内容，区别于后代选择器的全选功能 */
+        .sec>a {
+            color: aqua;
+        }
+
+        /* 并集选择器，同时选择多组标签定义样式 */
+        div,
+        p,
+        span,
+        .pig li {
+            color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>olli</li>
+        <li>olli</li>
+        <li>olli</li>
+        <li><a href="#">olli</a></li>
+    </ol>
+    <ul class="fir">
+        <li>ulli</li>
+        <li>ulli</li>
+        <li>ulli</li>
+    </ul>
+    <ul class="sec">
+        <li>ulli</li>
+        <li>ulli</li>
+        <li>ulli</li>
+        <li><a href="#">ulli</a></li>
+        <a href="#">ulli</a>
+    </ul>
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>小猪佩奇</li>
+        <li>猪爸爸</li>
+        <li>猪妈妈</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 起步价13元，超出3Km每公里5元（不足按照1Km计算）
+        // 堵车额外加收10元
+        let startPrice = 13;
+        let sumPrice = 0;
+        let taxi = (function () {
+            return {
+                normal: function (i) {
+                    if (i <= 3) {
+                        sumPrice = startPrice;
+                    } else {
+                        sumPrice = startPrice + 5 * (Math.ceil(i - 3));
+                    }
+                    return sumPrice;
+                },
+                // 堵车加钱！
+                jamed: function (flag) {
+                    return flag ? sumPrice + 10 : sumPrice;
+                }
+            }
+        })();
+        console.log(taxi.normal(3));
+        console.log(taxi.jamed(true));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画案例-热点图</title>
+    <style>
+        .map {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 580px;
+            height: 580px;
+            background: url(imgs/map_zhejiang.jpg);
+        }
+
+        .dot {
+            position: absolute;
+            top: 66px;
+            left: 275px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        @keyframes bowen {
+            0% {}
+
+            70% {
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 80px;
+                height: 80px;
+                opacity: 0;
+            }
+        }
+
+        .map div[class^=palse] {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px red;
+            border-radius: 50%;
+            animation: bowen 3s linear infinite;
+        }
+
+        .map .dot .palse2 {
+            animation-delay: 1s;
+        }
+
+        .map .dot .palse3 {
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="dot">
+            <div class="palse1"></div>
+            <div class="palse2"></div>
+            <div class="palse3"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

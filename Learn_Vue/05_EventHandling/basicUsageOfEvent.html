@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic usage of event</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Learn {{txt}}</h1>
+        <button v-on:click="btn1">click here1</button>
+        <!-- 使用$event作为占位符，防止传参丢失点击事件 -->
+        <button @click="btn2($event,666)">click here2</button><!-- 简写 -->
+        <!-- @click="demo"与@click="demo($event)效果一致但后者更灵活（推荐）" -->
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                txt: "Vue.js",
+            },
+            // 函数写在methods中，避免无意义的数据代理的发生
+            methods: {
+                btn1(e) {
+                    alert("clicked button");
+                },
+                btn2(e, num) {
+                    console.log(num);
+                    console.log(e);
+                    alert("clicked button");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.wapper {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: start;
+			width: 1000px;
+			height: 800px;
+			transform: translate(-50%, -50%);
+			border: 2px dotted pink;
+		}
+
+		#left {
+			display: flex;
+			flex-flow: column nowrap;
+			width: 100px;
+			height: 100%;
+			flex: 1;
+		}
+
+		#left>li {
+			flex: 1;
+			width: 100%;
+			line-height: 267px;
+			text-align: center;
+		}
+
+		/* #left>li:hover{
+            background-color: plum;
+        } */
+		#content {
+			flex: 4;
+			/* border: 2px solid red; */
+		}
+
+		#content>div {
+			position: absolute;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wapper">
+		<div id="left">
+			<li>雷电将军</li>
+			<li>优菈</li>
+			<li>九条裟罗</li>
+		</div>
+		<div id="content">
+			<div style="z-index: 1">
+				<img src="img/RaidenShogun.jpg" alt="" />
+			</div>
+			<div>
+				<img src="img/Eula.jpg" alt="" />
+			</div>
+			<div>
+				<img src="img/KujoSara.jpg" alt="" />
+			</div>
+		</div>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script>
+			$("#left>li")
+				.eq(2)
+				.siblings("li")
+				.css("border-bottom", "2px dotted pink");
+
+			$("#left>li").mouseover(function () {
+				var index = $(this).index();
+				$('#left>li').css("backgroundColor", "");
+				$(this).css("backgroundColor", "plum");
+				$("#content>div").eq(index).show();
+				$("#content>div").eq(index).siblings().hide();
+			});
+		</script>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        // 当遇到引用多个js库，使用$或jQuery符号会相互冲突
+        // 可以释放jQuery对$的控制权，用户自定义
+        var zidingyi=jQuery.noConflict();
+        // 这时可以使用zidingyi来代替jQuery和$符号
+        console.log(zidingyi(document));
+    </script>
+</body>
+</html>

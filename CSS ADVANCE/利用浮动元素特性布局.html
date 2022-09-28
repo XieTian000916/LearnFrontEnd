@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 0 auto;
+            padding: 20px 20px 0 20px;
+            width: 900px;
+            height: 360px;
+            background-color: pink;
+        }
+        /* 利用浮动元素不覆盖文字的特性简单布局 */
+        .box .imgs {
+            float: left;
+            width: 630px;
+            height: 340px;
+            background: url(img/spirit.png) -755px -1370px;
+        }
+
+        .box .desc {
+            margin-top: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="imgs"></div>
+        <div class="desc">Redmi K50 天玑8100 | 2k直屏 | 5500mAh电池</div>
+    </div>
+</body>
+
+</html>

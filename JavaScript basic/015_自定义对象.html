@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JavaScript中对象是一组 ！无序 ！的 相关属性和方法的集合
+        // 所有事物都可以是对象，如字符串、数值、数组、函数等
+        // 属性：事物的特征在对象中用属性表示（常用名词）
+        // 方法：事物的行为在对象中用方法表示（常用动词）
+
+        // 用数组保存多种信息有时会引起歧义，这时可以用到对象
+
+
+        // 创建对象的三种方式
+        // 1、利用字面量创建
+        // var obj={};   创建了一个空对象
+        var obj = {
+            dogname: 'coco',
+            type: 'alaska',
+            age: 5,
+            color: 'redbrown',
+            sklls: 'bark',
+            sayHi: function () {
+                console.log('wolf~');
+            }
+        }
+
+        // 2、利用new Object创建对象
+        var obj2 = new Object();
+        obj2.uname = 'TonyStark';
+        obj2.sex = 'male';
+        obj2.sklls = 'money';
+        obj2.sayHi = function () {
+            console.log('hi~');
+        }
+
+        // 3、构造函数创建对象
+        // 上面的方法一次只创建一个对象，其中的属性和方法大多相同，只能复制更多，比较麻烦
+        // 可以利用函数方法重复这些相同代码，这个函数就称为构造函数
+        // 语法：
+        // 写法
+        //     function 构造函数名(){
+        //         this.属性=值;
+        //         this.方法=function(){
+
+        //         }
+        //     }
+        // 使用
+        //     new 构造函数名();
+        function Obj(name, age, sex) { // 构造函数名首字母大写以区分于一般函数
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.skills = function (power) {
+                console.log(power);
+            }
+        }
+        var antMan = new Obj('ScootLang', 30, 'male'); // 调用函数返回的是一个对象
+        // console.log(typeof antMan);
+        // console.log(antMan.name);
+        // console.log(antMan.age);
+        // antMan.skills('shrink');
+
+
+
+
+        // 调用对象
+
+        // 调用属性
+        // （1）对象名.属性名
+        console.log(obj.dogname);
+        // （2）对象名['属性名']
+        console.log(obj['age']);
+
+        // 调用方法
+        // 对象名.方法名()
+        obj.sayHi();
+
+        console.log('-------------------------');
+
+        // for...in遍历对象
+        // 使用for...in时，变量名习惯设置为k或key
+        for (var k in obj) { // 变量只定义，不赋值
+            // console.log(k); // 打印输出变量，得到属性名
+            // console.log(obj[k]); // 打印对象名[变量]，得到属性值
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

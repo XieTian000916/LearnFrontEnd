@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">唐伯虎</button>
+    <script>
+        // 事件的组成：事件源、事件类型、事件处理程序，也称事件三要素
+        // 事件源指事件被触发的对象   此案例中为按钮
+        var anniu = document.getElementById('btn');
+        // 事件类型指 什么事件被如何触发，此案例中为鼠标点击触发(onclick)
+        // 事件处理程序 通过一个函数赋值的方式完成
+        anniu.onclick = function () {
+            alert('秋香');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conditional rendering</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 使用v-show做条件渲染 -->
+        <!-- 用true或者false控制元素的显示和隐藏（不改变DOM结构） -->
+        <!-- 也可以使用表达式来代替true和false -->
+        <!-- 高频显隐切换场景建议使用此指令 -->
+        <h1 v-show="n===1">Learn Vue.js</h1>
+
+        <!-- 使用v-if做条件渲染 -->
+        <!-- v-if 会改变DOM结构 -->
+        <!-- 所以可能会出现拿不到节点的状况 -->
+        <h1 v-if="n===2">next will be React.js</h1>
+
+        <!-- v-if和v-else-if -->
+        <!-- v-if和v-else-if是一整个代码块，不允许其他代码加塞！！！否则失效 -->
+        <h1 v-if="n===3">after that,Vue3?</h1>
+        <h1 v-else-if="n===4">or Python?</h1>
+        <h1 v-else-if="n===5">when can I find a job...</h1>
+        <!-- v-else后不需加条件，用法逻辑同if(){}else{} -->
+        <!-- <h1 v-else>ha~ha</h1> -->
+
+        <!-- 与v-if 和 template一起使用（template不能与v-show搭配） -->
+        <!-- Vue在解析时会自动去除该标签 -->
+        <!-- 实现代码块一同显隐 -->
+        <template v-if="n===6">
+            <h1>HTML5</h1>
+            <h1>CSS3</h1>
+            <h1>JavaScript</h1>
+        </template>
+
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                n: 1
+            },
+        })
+    </script>
+</body>
+
+</html>

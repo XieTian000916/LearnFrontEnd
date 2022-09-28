@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 传统注册事件方法需要在前面加on
+        document.addEventListener('keyup', function () { console.log('我弹起了'); });
+        // down的优先级高于press
+        document.addEventListener('keydown', function () { console.log('我按下了down'); });
+        // press对功能键无效 tab,caps,shift,ctrl,↑，↓，←，→...
+        document.addEventListener('keypress', function () { console.log('我按下了press'); });
+    </script>
+</body>
+
+</html>

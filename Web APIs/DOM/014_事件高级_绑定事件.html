@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>onclick</button>
+    <button>addElementListener</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+        // 旧方法：同一个元素的一个事件只能设置一个处理函数
+        btns[0].onclick = function () {
+            alert('First Alert');
+        }
+        // 第二个处理函数会覆盖第一个
+        btns[0].onclick = function () {
+            alert('Second Alert');
+        }
+
+        // 方法监听注册方式
+        // 一个事件可以注册多个监听器
+        // 按顺序执行
+        btns[1].addEventListener('click', function () { alert('First Alert'); })
+        btns[1].addEventListener('click', function () { alert('Second Alert'); })
+    </script>
+</body>
+
+</html>

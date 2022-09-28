@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="begin">开始</button>
+    <button class="stop">停止</button>
+    <script>
+        // steInterval 间隔固定时间执行某一操作
+        // 语法：steInterval(调用函数，间隔时间)
+        // setInterval(function(){
+        //     console.log('持续输出');
+        // },1000);
+
+        // 清除定时器
+        var start=document.querySelector('.begin');
+        var hold=document.querySelector('.stop');
+        var timer=null// 把timer写成全局变量，定义为空对象，计时器也是一个对象,不给值容易出问题
+        start.addEventListener('click', function(){
+            timer=setInterval(function(){
+                console.log('正在输出');
+            }, 1000);
+        });
+        hold.addEventListener('click', function(){
+            clearInterval(timer);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 82px;
+    line-height: 82px;
+}
+
+/* 登录界面主体 start */
+.login {
+    height: 486px;
+    background-color: #7e00ff;
+}
+
+.login .login_bd {
+    position: relative;
+    height: 100%;
+    background: url(../images/loginbg.png) no-repeat;
+}
+
+.login .login_bd .login_pannel {
+    position: absolute;
+    top: 62px;
+    right: 115px;
+    width: 380px;
+    height: 362px;
+    background-color: #fff;
+}
+
+.login .login_bd .login_pannel .login_choice {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login .login_bd .login_pannel .login_choice span {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.login .login_bd .login_pannel .login_choice span:last-child {
+    border-left: 1px solid #cfcdcd;
+    color: #c81623;
+}
+
+.login .login_bd .login_pannel .warming {
+    width: 300px;
+    margin: 20px auto 0;
+    padding-left: 10px;
+    font-size: 12px;
+    border: 1px solid #f5eecf;
+    background-color: #fffdee;
+}
+
+.login .login_bd .login_pannel .account {
+    width: 303px;
+    margin: 0 auto;
+}
+
+.login .login_bd .login_pannel .account span {
+    float: left;
+    width: 38px;
+    height: 36px;
+    margin: 20px 0px 0px;
+    background-color: #cfcdcd;
+    text-align: center;
+}
+.login .login_bd .login_pannel .account .yonghuming::after{
+    content: '\e958';
+    font-family: 'icomoon';
+    font-size: 22px;
+    color: #fff;
+    line-height: 36px;
+}
+.login .login_bd .login_pannel .account .password::after {
+    content: '\e98d';
+    font-family: 'icomoon';
+    font-size: 20px;
+    color: #fff;
+    line-height: 36px;
+}
+.login .login_bd .login_pannel .account input {
+    float: left;
+    width: 260px;
+    height: 36px;
+    margin: 20px 0px 0px ;
+    padding-left: 10px;
+    color: #cfcdcd;
+    border: 1px solid #cfcdcd;
+}
+
+.auto_login {
+    width: 300px;
+    height: 20px;
+    line-height: 20px;
+    margin: 20px auto;
+}
+.login_btn{
+    width: 303px;
+    height: 41px;
+    margin: 0 auto;
+}
+.login_btn input{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: #fff;
+    background-color: #c81623;
+}
+.login_other{
+    width: 303px;
+    height: 35px;
+    line-height: 35px;
+    margin: 20px auto 0;
+}
+.login_other img {
+    height: 35px;
+}
+.login_other a{
+    float: right;
+    color: #1474af;
+    font-size: 14px;
+}
+/* 登录界面主体 end */
+
+/* 底部模块 start */
+.mod_copyright {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.mod_copyright .links a {
+    margin: 0 5px;
+}
+
+.mod_copyright .copyright {
+    margin-top: 15px;
+}
+ /* 底部模块 end */

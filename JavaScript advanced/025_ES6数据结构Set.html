@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数据结构Set，类似于数组，但其中的值唯一，没有重复
+        // 多见于电商网站搜索历史的存储
+
+        // Set本身是一个构造函数，用来生成数据结构
+        const trySet = new Set();
+        console.log(trySet.size); // 0 存储数据量为0
+
+        // Set可以接受一个数组作为参数来进行初始化
+        const newSet = new Set([1, 2]);
+        console.log(newSet.size); //2
+
+
+        // 利用Set进行数组去重
+        let arr = [1, 1, 2, 2, 3, 3];
+        const set1 = new Set(arr);
+        console.log(set1.size);
+        console.log(set1);
+
+        // Set实例方法
+        const s = new Set();
+        s.add("a").add("b").add("c"); // 向数据结构中添加值，可链式调用
+        console.log(s);
+
+        s.delete("b"); // 删除特定值
+        console.log(s);
+
+        console.log(s.has("b")); // 判断是否有特定值，返回布尔值
+
+        s.clear(); // 清空所有值
+        console.log(s);
+
+        // 遍历Set数据结构
+        const traverseSet = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        traverseSet.forEach(value => console.log(value));
+    </script>
+</body>
+
+</html>

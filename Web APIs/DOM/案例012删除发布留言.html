@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .comment {
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        textarea {
+            resize: none;
+            outline: none;
+        }
+
+        ul {
+            margin-top: 20px;
+        }
+
+        li {
+            background-color: pink;
+            margin: 10px 0;
+        }
+
+        li a {
+            float: right;
+            line-height: 26px;
+            font-size: 14px;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="comment">
+        <textarea name="" id="" cols="30" rows="10" placeholder="留下一条评论吧！"></textarea>
+        <button>发布</button>
+        <ul>
+            <li>沙发
+                <a href="javascript:;">x删除</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var comment = document.querySelector('textarea');
+        var btn = comment.nextElementSibling;
+        var commentArea = btn.nextElementSibling;
+
+        btn.onclick = function () {
+            if (comment.value == '') {
+                alert('评论不能为空哦！');
+                return false;
+            } else {
+                // 创建元素
+                var newComment = document.createElement('li');
+                // 加入评论内容
+                newComment.innerHTML = comment.value + "<a href='javascript:;'>x删除</a>";
+                // 添加元素
+                commentArea.insertBefore(newComment, commentArea.children[0]);
+                comment.value = '';
+            }
+            var del = document.querySelectorAll('a');
+            for (var i = 0; i < del.length; i++) {
+                del[i].onclick = function () {
+                    commentArea.removeChild(this.parentNode);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

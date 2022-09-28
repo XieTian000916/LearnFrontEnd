@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: palevioletred;
+        }
+    </style>
+    <script src="../Learn_jQuery/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 高阶函数是对其他函数进行操作的函数
+        // 它接受函数作为参数或将函数作为返回值输出
+
+
+        // function fn1(callback) {
+        //     callback && callback();
+        // }
+        // fn1(function () { alert("hi") });
+
+
+        // 或
+
+
+        // function fn2() {
+        //     return function () { }
+        // }
+        // fn2();
+
+
+        // 上述例子中的fn就是一个高阶函数
+
+        $("div").animate({ left: 500 }, 2000, function () {
+            $("div").css("backgroundColor", "pink");
+        })
+    </script>
+</body>
+
+</html>

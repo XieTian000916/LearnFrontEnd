@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .denglu {
+            position: relative;
+            text-align: center;
+            font-size: 30px;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .login_bg {
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .3);
+            z-index: 2;
+        }
+
+        .login_box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 300px;
+            background-color: #fff;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+        }
+
+        .title {
+            height: 30px;
+            margin: 10px auto;
+            cursor: move;
+        }
+
+        .close {
+            position: absolute;
+            right: -5px;
+            top: -5px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            color: red;
+            background-color: #fff;
+            border: 1px solid #666;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .type_area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-right: 200px;
+            flex: .4;
+        }
+
+        .type_area .user {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 150px;
+            height: 30px;
+            align-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="denglu">点击登录</div>
+    <div class="login_bg">
+        <div class="login_box">
+            <div class="title">会员登录</div>
+            <div class="close">X</div>
+            <div class="type_area">
+                <div class="user">用户名：<input type="text" placeholder="请输入用户名"></div>
+                <div class="password">密码：<input type="text" placeholder="请输入密码"></div>
+            </div>
+            <button>登录</button>
+        </div>
+    </div>
+    <script>
+        var body = document.querySelector('body');
+        var login_bg = document.querySelector('.login_bg');
+        var denglu = document.querySelector('.denglu');
+        var close = document.querySelector('.close');
+        var title = document.querySelector('.title');
+        var box = document.querySelector('.login_box')
+        var h = window.innerHeight;
+        // console.log(h);
+        login_bg.style.height = h + 'px';
+
+        denglu.addEventListener('click', function () {
+            login_bg.style.display = 'block';
+        });
+        close.addEventListener('click', function () {
+            login_bg.style.display = 'none';
+        });
+
+        title.addEventListener('mousedown', function (e) {
+            var x = e.pageX - box.offsetLeft;
+            var y = e.pageY - box.offsetTop;
+            function move(e) {
+                var moveX = e.pageX - x;
+                var moveY = e.pageY - y;
+                box.style.left = moveX + 'px';
+                box.style.top = moveY + 'px';
+            }
+            document.addEventListener('mousemove', move);
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move);
+            })
+        })
+    </script>
+</body>
+
+</html>

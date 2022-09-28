@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {
+            position: relative;
+            /* perspective: 500px; */
+            width: 800px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .nav_box {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 200px;
+            height: 50px;
+            background-color: skyblue;
+            transition: all .5s;
+            transform-style: preserve-3d;
+        }
+
+        .nav_box:hover {
+            transform: rotateX(90deg);
+        }
+
+        .nav .nav_box span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .up {
+            background-color: blueviolet;
+            /* 直立的盒子向前走保证盒子中心旋转 */
+            transform: translateZ(25px);
+        }
+
+        .down {
+            top: 25px;
+            background-color: cornflowerblue;
+            transform: rotateX(270deg)
+        }
+
+        .second {
+            top: 100px;
+            left: 300px;
+        }
+
+        .thrid {
+            top: 100px;
+            left: 550px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav_box">
+            <span class="up">性感荷官</span>
+            <span class="down">在线发牌</span>
+        </div>
+        <div class="nav_box second">
+            <span class="up">是兄弟</span>
+            <span class="down">就来砍我</span>
+        </div>
+        <div class="nav_box thrid">
+            <span class="up">哔哩哔哩</span>
+            <span class="down">干杯[]~(￣▽￣)~*</span>
+        </div>
+    </div>
+</body>
+
+</html>

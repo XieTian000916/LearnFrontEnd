@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			background-color: pink;
+			text-align: center;
+		}
+	</style>
+	<script src="jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>切换</button>
+	<div>显隐动效</div>
+	<script>
+		$(function () {
+			$('button').eq(0).click(function () {
+				// 显示效果
+				// show([speed,[easing],[fn]]);
+				// speed:slow\normal\fast\?ms
+				// easing:swing(defult)\linear
+				// fn:回调函数，动画完成时执行，每个元素执行一次
+				$('div').show('fast', 'swing');
+			});
+			$('button').eq(1).click(function () {
+				// 隐藏效果
+				// hide([speed,[easing],[fn]]);
+				// speed:slow\normal\fast\?ms
+				// easing:swing(defult)\linear
+				// fn:回调函数，动画完成时执行，每个元素执行一次
+				$('div').hide('fast');
+			});
+			$('button').eq(2).click(function () {
+				// 切换效果(效果在显示和隐藏之间切换）
+				// toggle([speed,[easing],[fn]]);
+				// speed:slow\normal\fast\?ms
+				// easing:swing(defult)\linear
+				// fn:回调函数，动画完成时执行，每个元素执行一次
+				$('div').toggle('slow');
+			});
+		});
+		// 由于动画效果比较一般，实际开发中通常不加参数直接使用
+	</script>
+</body>
+
+</html>

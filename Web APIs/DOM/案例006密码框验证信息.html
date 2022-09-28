@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?vct5y');
+            src: url('fonts/icomoon.eot?vct5y#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?vct5y') format('truetype'),
+                url('fonts/icomoon.woff?vct5y') format('woff'),
+                url('fonts/icomoon.svg?vct5y#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .normal {
+            font-size: 15px;
+        }
+
+        .normal::before {
+            content: '\ea0c';
+            font-family: 'icomoon';
+            font-size: 15px;
+            color: skyblue;
+        }
+
+        .wrong {
+            font-size: 15px;
+            color: red;
+        }
+
+        .wrong::before {
+            content: '\ea0f';
+            font-family: 'icomoon';
+            color: red;
+            font-size: 15px;
+        }
+
+        .correct {
+            font-size: 15px;
+            color: green;
+        }
+
+        .correct::before {
+            content: '\ea10';
+            font-family: 'icomoon';
+            color: green;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="password" name="" id="">
+    <span></span>
+    <script>
+        var mima = document.querySelector('input');
+        var tishi = document.querySelector('span');
+        mima.onclick = function () {
+            if (mima.value == '') {
+                tishi.innerHTML = '请输入长度在6-16位之间的密码';
+                tishi.className = 'normal';
+            }
+        }
+        mima.onblur = function () {
+            if (mima.value.length < 6 || mima.value.length > 16) {
+                tishi.innerHTML = '格式错误，请重新输入！';
+                tishi.className = 'wrong';
+            } else {
+                tishi.innerHTML = '格式正确！';
+                tishi.className = 'correct';
+            }
+        }
+    </script>
+</body>
+
+</html>

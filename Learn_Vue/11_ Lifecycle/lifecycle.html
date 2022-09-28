@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lifecycle</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        常用生命周期钩子：
+        1、mounted：发送Ajax请求、启动定时器、绑定自定义事件、订阅消息等初始化操作
+        2、beforeDestroy：清除定时器、解绑自定义事件、取消订阅等收尾工作
+
+        关于销毁Vue实例：
+        1、销毁后借助Vue开发者工具看不到任何信息
+        2、销毁后自定义事件会失效，但原生DOM事件依然有效
+        3、一般不会在beforeDestroy中操作数据，即便操作数据也不会再触发页面的更新流程了
+     -->
+    <div id="root">
+        <h1 :style="{opacity}">Learn Vue.js</h1>
+        <button @click="opacity=1">change opacity to 1</button>
+        <button @click="stopInterval">stop fluctuation</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                opacity: 1,
+            },
+            methods: {
+                stopInterval() {
+                    this.$destroy();
+                    document.querySelector('button').disabled = true;
+                }
+            },
+            // 生命周期的四对（八个）钩子函数如下
+            beforeCreate() {
+                /* 发生在数据监测、数据代理之前
+                   此时无法通过vm访问到data、methods */
+            },
+            created() {
+                /* 初始化：数据监测、数据代理已经完成
+                   此时可以通过vm访问到data、methods */
+            },
+            beforeMount() {
+                /* 此时呈现的是未经编译的DOM结构
+                   所有对DOM的操作最终都不奏效 */
+            },
+            mounted() {
+                // Vue完成模板解析并放入初始真实DOM后调用此钩子
+                // 一般在此开启定时器、发送网络请求、订阅消息、绑定自定义事件等初始化操作
+                this.timer = setInterval(() => {
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) {
+                        this.opacity = 1;
+                    }
+                }, 20);
+            },
+            beforeUpdate() {
+                // 此时页面和数据尚未保持同步
+            },
+            updated() {
+                // 完成同步数据
+            },
+            beforeDestroy() {
+                // 此时el、data、methods等仍能访问和调用，但是页面不会再改变
+                clearInterval(this.timer);
+            },
+            destroyed() {
+                // 一般不使用此钩子
+            },
+        })
+    </script>
+</body>
+
+</html>

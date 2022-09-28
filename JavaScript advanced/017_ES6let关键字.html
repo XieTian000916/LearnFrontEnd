@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            let关键字声明变量具有块级作用域
+            var不具备这一特点
+        */
+        // if (true) {
+        //     let num = 114514;
+        //     var abc = 666;
+        //     console.log(num); // 114514
+        //     console.log(abc);
+        // }
+        // console.log(num); // num is not defined
+        // console.log(abc); // 正常输出666
+
+
+
+        // 使用let防止循环变量变成全局变量
+        // for (var i = 0; i <= 7; i++) {
+        //     console.log("正在循环");
+        //     if (i == 7) {
+        //         console.log("循环结束");
+        //     }
+        // }
+        // console.log(i);// 仍可访问 输出8
+
+        // for (let j = 0; j <= 7; j++) {
+        //     console.log("正在循环");
+        //     if (j == 7) {
+        //         console.log("循环结束");
+        //     }
+        // }
+        // console.log(j); // j is not defined
+
+        // let关键字声明的变量没有变量提升
+        // 必须先声明再使用
+        // console.log(x);
+        // let x = "先声明再使用！" //Cannot access 'x' before initialization
+
+        // let声明变量具有暂时性死区特性
+        // var tmp = 123;
+        // var test = 456;
+        // if (true) {
+        //     console.log(test); // 456
+        //     console.log(tmp); // Cannot access 'tmp' before initialization
+        //     // 在块级作用域中使用let声明变量，变量和块级作用域绑定，不会向外查找
+        //     let tmp = 123;
+        // }
+
+        // an example
+        var arr = [];
+        for (var i = 0; i < 2; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        arr[0](); // 2
+        arr[1](); // 2
+        var arr1 = [];
+        for (let j = 0; j < 2; j++) {
+            arr1[j] = function () {
+                console.log(j);
+            }
+        }
+        // 变量j与块级作用域绑定，循环产生了不同的块级作用域
+        arr1[0](); // 0
+        arr1[1](); // 1
+    </script>
+</body>
+
+</html>

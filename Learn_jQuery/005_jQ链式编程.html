@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	<button>click</button>
+	<button>click</button>
+	<button>click</button>
+	<button>click</button>
+	<button>click</button>
+	<button>click</button>
+	<script src="jquery-3.6.0.min.js"></script>
+	<script>
+		$("button").click(function () {
+			// $(this).css("backgroundColor", "pink");
+			// $(this).siblings().css("backgroundColor", "");
+
+			// 链式编程缩减代码量
+			$(this).css("backgroundColor", "pink").siblings().css("backgroundColor", "");
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.findGoods{
+    width: 800px;
+    margin: 50px auto 0;
+}
+input{
+    width: 70px;
+}
+.searchBox{
+    width: 600px;
+    margin: 0 auto;
+}
+.goodsList{
+    margin: 30px auto;
+    width: 600px;
+    border: 2px solid #000;
+    text-align: center;
+}

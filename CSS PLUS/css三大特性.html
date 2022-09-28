@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: rebeccapurple !important;
+            font: 32px/1.5 'microsoft yahei';
+        }
+
+        div {
+            color: aquamarine;
+            font-size: 24px;
+            /* 1、层叠性，就近执行，只会覆盖重复的样式设置 */
+        }
+
+        /* 复合选择器权重叠加，指定越明确，权重越高 */
+        div p {
+            color: antiquewhite;
+        }
+
+        .text {
+            color: black;
+        }
+
+        #wenben {
+            color: cornflowerblue !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>TEST\TEST\TEST
+        <p>测试/测试/测试</p>
+        <!--2、继承性，子标签会继承父标签的！某些！样式（text-,font-,line-,以及color属性）-->
+    </div>
+    <div class="text" id="wenben" style="color: green">test\test\test</div>
+    <!--3、优先级 继承《元素标签《类、伪类《行内样式style=“”《！important-->
+</body>
+
+</html>

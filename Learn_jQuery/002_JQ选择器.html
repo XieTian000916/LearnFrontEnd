@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+        <style></style>
+        <script src="jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+        <div>我是div</div>
+        <div class="nav">我是nav</div>
+        <p id="para">我是p</p>
+        <ul>
+            <li>ul的li</li>
+            <li>ul的li</li>
+            <li>ul的li</li>
+            <li>ul的li</li>
+            <li>ul的li</li>
+        </ul>
+        <ol>
+            <li>ol的li</li>
+            <li>ol的li</li>
+            <li>ol的li</li>
+            <li>ol的li</li>
+            <li>ol的li</li>
+        </ol>
+        <script>
+            $(function(){
+                // jQuery选择器类似css选择器的用法
+                console.log($('div'));// 获取全部div标签
+                console.log($('.nav'));// 获取指定类名的标签
+                console.log($('#para'));// 获取指定id的标签
+                console.log($('div,p,ul,ol'));// 同时选取多个元素
+
+                console.log($('ul>li'));// 层级子代选择器，>号获取亲儿子，不包括孙辈
+                console.log($('ol li'));// 层级后代选择器，包括孙辈
+            })
+        </script>
+    </body>
+</html>

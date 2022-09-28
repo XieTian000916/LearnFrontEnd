@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function tryit(x, y) {
+            console.log("have a try");
+            console.log(this);
+            console.log(x + y);
+        }
+        let who = {
+            name: "kim"
+        }
+        // 1. 可以作为调用函数的方法
+        // tryit.call();
+
+        // 2.可以改变函数中的this的指向
+        // tryit.call(who)
+
+        // 3.可以传递参数
+        // tryit.call(who, 1, 2);
+    </script>
+</body>
+
+</html>

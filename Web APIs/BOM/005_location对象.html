@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <script>
+        // location属性用于获取或设置窗体URL，并且可以解析URL
+        // 这个属性的返回值是一个对象，也称为location对象
+
+
+        // 协议：//主机【：端口号】/路径/【？参数】#片段
+        // location.href         获取或设置整个URL*
+        // location.host         返回主机（域名）
+        // location.port         返回端口号（未写端口号则返回空字符串）一般为80
+        // location.pathname     返回路径
+        // location.search       返回参数*
+        // location.hash         返回片段，#后面内容
+
+        // 常见方法
+        var btn=document.querySelector('button');
+        btn.addEventListener('click',function(){
+            // location.assign()   跳转页面，保留记录，可返回
+            // location.assign('http://www.baidu.com');
+
+            // location.replace()   跳转，不保留记录，不可返回
+            // location.replace('https://www.bilibili.com');
+
+            // location.reload   约等于刷新
+            location.reload(); // 参数为true进行强制刷新 ctrl+f5
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 删除数组元素（变相筛选数组）
+        var old_Arr = [0, 22, 33, 0, 0, 0, 0, 0, 0];
+        var new_Arr = [];
+        for (i = 0; i < old_Arr.length; i++) {
+            if (old_Arr[i] > 0) {
+                new_Arr[new_Arr.length] = old_Arr[i];
+            }
+        }
+        console.log(new_Arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

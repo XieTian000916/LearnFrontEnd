@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>binding HTML classes</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        * {
+            margin-bottom: 50px;
+        }
+
+        .sty1 {
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            border: 5px solid pink;
+        }
+
+        .sty2 {
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            background: linear-gradient(to right, transparent, skyblue);
+        }
+
+        .sty3 {
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            border: 5px solid rgba(255, 192, 203, 0.4);
+            border-radius: 30px;
+            background: linear-gradient(to top left, pink, skyblue);
+        }
+
+        .sty4 {
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            background: linear-gradient(to right, rgb(69, 134, 243), rgb(235, 67, 52), rgb(251, 189, 6), rgb(53, 170, 83));
+        }
+
+        .sty5 {
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            background:
+                linear-gradient(217deg, rgba(69, 134, 243, .8), rgba(69, 134, 243, 0) 70.71%),
+                linear-gradient(127deg, rgba(53, 170, 83, .8), rgba(53, 170, 83, 0) 70.71%),
+                linear-gradient(336deg, rgba(235, 67, 52, .8), rgba(235, 67, 52, 0) 70.71%);
+        }
+
+        .sty6 {
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 50% 0,
+                    rgba(235, 67, 52, .8), rgba(235, 67, 52, 0) 70.71%),
+                radial-gradient(circle at 6.7% 75%,
+                    rgba(69, 134, 243, .8), rgba(69, 134, 243, 0) 70.71%),
+                radial-gradient(circle at 93.3% 75%,
+                    rgba(251, 189, 6, .8), rgba(251, 189, 6, 0) 70.71%) beige;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 绑定class样式-字符串写法-适用：样式类名不确定，需要动态指定 -->
+        <div class="sty1" :class="sty" @click="changeStyle">{{txt}}</div>
+
+        <!-- 绑定class样式-数组写法-适用：样式个数、类名都不确定，需要动态指定 -->
+        <div class="sty1" :class="styArr">{{txt}}</div>
+
+        <!-- 绑定class样式-对象写法-适用：样式个数、类名都确定，需要动态指定用不用 -->
+        <div class="sty1" :class="styObj">{{txt}}</div>
+
+        <!-- 绑定style样式，不常用 -->
+        <div class="sty1" :style="styleObject">{{txt}}</div>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                txt: "TEST",
+                sty: "sty2",
+                styArr: ["sty2", "sty3", "sty4", "sty5", "sty6"],
+                styObj: {
+                    sty2: true,
+                    sty3: true
+                },
+                styleObject: {
+                    // key不允许自由指定
+                    // 推荐采用驼峰代替烤串
+                    fontSize: '40px',
+                    color: 'pink'
+                }
+            },
+            methods: {
+                changeStyle() {
+                    const arr = ["sty2", "sty3", "sty4", "sty5", "sty6"];
+                    let index = Math.floor(Math.random() * 5);
+                    this.sty = arr[index];
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

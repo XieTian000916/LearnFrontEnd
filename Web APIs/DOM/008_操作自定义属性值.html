@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 实际开发中会自定义属性 -->
+    <!-- 元素有内置属性也可以自定义属性 -->
+    <div class="class" id="id" zidingyi="try"></div>
+    <span data-first="one" data-sec="two" data-thrid="three" data-new-method="666"></span>
+    <script>
+        // 获取方法1、element.属性
+        var div = document.querySelector('div')
+        var span = document.querySelector('span')
+        console.log(div.className);
+        console.log(div.id);
+        console.log(div.zidingyi);// 输出undefined
+        // 获取方法2、element.getAttribute('属性')  可以获取自定义属性
+        console.log(div.getAttribute('id'));
+        console.log(div.getAttribute('class'));
+        console.log(div.getAttribute('zidingyi'));// 可以正常返回
+
+
+        // 设置属性值的方法
+        // 1、element.属性='值' （仅用于内置属性值）
+        div.id = 'newID';
+        console.log(div.id);
+        // 2、element.setAttribute('属性','值')   通用
+        div.setAttribute('zidingyi', 'test');
+        console.log(div.getAttribute('zidingyi'));
+
+
+        // 移除属性
+        // element.removeAttribute
+        div.removeAttribute('zidingyi');
+
+
+        // H5自定义属性
+        // H5规定自定义属性以data-开头
+        // 如<div data-index='1'></div>
+        console.log(span.getAttribute('data-first'));
+        // H5新增获取自定义属性方法
+        console.log(span.dataset.sec);// 此方法可省略前缀
+        // 所有data开头的自定义属性存在dataset中
+        console.log(span.dataset);
+        // 由多个-连接的单词转换成驼峰命名法获取
+        console.log(span.dataset.newMethod);
+    </script>
+</body>
+
+</html>

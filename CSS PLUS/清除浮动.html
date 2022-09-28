@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1200px;
+            background-color: pink;
+            margin: 100px auto;
+            border: 1px solid cornflowerblue;
+        }
+
+        .box1 {
+            width: 1200px;
+            height: 400px;
+            background-color: burlywood;
+            margin: 0 auto;
+        }
+
+        .box .fudong1 {
+            float: left;
+            width: 400px;
+            height: 400px;
+            background-color: palevioletred;
+        }
+
+        .box .fudong2 {
+            float: left;
+            width: 400px;
+            height: 400px;
+            background-color: plum;
+        }
+
+        /* 1.额外标签法、隔墙法（w3c推荐的做法） */
+        .clear1 {
+            clear: both;
+            /* 新添加的标签必须是块级元素 */
+            /* 缺点：需要添加标签，结构化差，实际不推荐 */
+        }
+
+        /* 2.父级添加overflo属性 */
+        .clear2 {
+            overflow: hidden;
+            /* 缺点：hidden属性为隐藏，有溢出部分会被切掉，实际不推荐 */
+        }
+
+        /* 3.父级添加after伪元素 */
+        .clear3::after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+            /* 升级版隔墙法 */
+        }
+
+        .clear3 {
+            /* IE6\IE7专有 */
+            *zoom: 1;
+            /* 无增加标签，结构简单
+               但是需要照顾低版本浏览器 
+               2019网易、阿里在用*/
+        }
+
+        /* 4.父级添加双伪元素 */
+        .clear4::before,
+        .clear4::after {
+            content: "";
+            display: table;
+        }
+
+        .clear4::after {
+            clear: both;
+        }
+
+        .clear4 {
+            *zoom: 1;
+            /* 代码更简洁
+               需要照顾低版本浏览器
+               2019小米、腾讯在用 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="fudong1">flot1</div>
+        <div class="fudong2">flot2</div>
+        <div class="clear1"></div>
+    </div>
+
+    <div class="box1"></div>
+
+    <div class="box clear2">
+        <div class="fudong1">flot1</div>
+        <div class="fudong2">flot2</div>
+    </div>
+
+    <div class="box1"></div>
+
+    <div class="box clear3">
+        <div class="fudong1">flot1</div>
+        <div class="fudong2">flot2</div>
+    </div>
+
+    <div class="box1"></div>
+
+    <div class="box clear4">
+        <div class="fudong1">flot1</div>
+        <div class="fudong2">flot2</div>
+    </div>
+
+    <div class="box1"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="day">2022/6/23</div>
+    <ul>
+        <li>JavaScript1</li>
+        <li>JavaScript2</li>
+        <li>JavaScript3</li>
+        <li>JavaScript4</li>
+        <li>JavaScript5</li>
+    </ul>
+    <ol id="orderlist">
+        <li>JAVA</li>
+        <li>JAVA</li>
+        <li>JAVA</li>
+        <li>JAVA</li>
+        <li>JAVA</li>
+    </ol>
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    </div>
+    <script>
+        // 文档页面从上往下加载，先有标签才能进行操作，所以js写在标签下面
+        // 先找到文档再操作
+
+
+        // getElementById()   根据标签id获取元素
+        // 参数为 大小写敏感的字符串
+        var day = document.getElementById('day');
+        console.log(day);// 结果打印整行div代码
+        console.log(typeof day);// 返回的是个对象
+        console.dir(day);// 打印返回对象的详细信息
+
+        // getElementsByTagName()  根据标签名获取元素
+        var lis = document.getElementsByTagName('li');// 返回获取的元素对象的集合,伪数组形式存储
+        console.log(lis);
+        console.log(lis[0]);
+
+        // 获取一个不存在的标签，返回空伪数组
+        console.log(document.getElementsByTagName('span'));
+
+        // 获取某个指定父元素中的子元素
+        var getol = document.getElementById('orderlist');
+        console.log(getol.getElementsByTagName('li'));
+        console.log(getol.getElementsByTagName('li')[0]);
+
+        // HTML5新增方法
+        // 1.getElementByClassName()
+        console.log(document.getElementsByClassName('.box'));
+        // 2.querySelector 返回指定选择器的第一个对象
+        console.log(document.querySelector('li'));
+        // 3.querySelectorAll() 返回指定选择器的所有元素对象
+        console.log(document.querySelectorAll('li'));
+
+
+        // 获取特殊元素
+        // 1、body标签
+        console.log(document.body);
+        // 2、HTML标签
+        console.log(document.documentElement);
+    </script>
+</body>
+
+</html>

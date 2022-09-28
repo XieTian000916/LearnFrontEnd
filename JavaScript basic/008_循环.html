@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // for循环
+        // 语法结构
+        //        for (初始化变量；条件表达式；操作表达式) {
+        //            循环体；      
+        //        }
+        // 初始化变量：通常是用var声明的一个普通变量，用作计数器
+        // 条件表达式：决定每一次循环是否执行，也即终止条件
+        // 操作表达式：循环后执行，用于更新计数器（递增或递减）
+        // 重复输出100次内容
+        for (var i = 1; i <= 100; i++) {
+            console.log('Hello World!');
+        }
+
+        // 断点调试: 先设置断点,后刷新浏览器生效
+
+        // 1~100累加
+        for (var o = 1, sum = 0; o <= 100; o++) {
+            sum = sum + o;//sum += i;
+        }
+        console.log(sum);
+        // 求1~100所有数的平均值
+        console.log(sum / 100);
+        // 求1~100所有奇数和偶数的和
+        for (var p = 0, ji = 0, ou = 0; p <= 100; p++) {
+            if (p % 2 == 0) {
+                ou += p;
+            } else {
+                ji += p;
+            }
+        }
+        console.log(ji);
+        console.log(ou);
+        // 求1~100之间所有能被3整除的数的和
+        for (var s = 0, t = 0; s <= 100; s++) {
+            if (s % 3 == 0) {
+                t += s;
+            } else {
+
+            }
+        }
+        console.log(t);
+
+        console.log('--------------------------------------------------');
+
+        // 双重for循环
+        //     for（外层的初始化变量；外层的条件表达式；外层的操作表达式）{
+        //         for（里层的初始化变量；里层的条件表达式；里层的操作表达式）{
+        //             执行语句
+        //         }
+        //     }
+
+        // 利用双重for循环打印用户输入的星星数
+        // var hang = prompt('要打印几行星星？');
+        // var lie = prompt('要打印几列星星？');
+        // var str = '';
+        // for (i = 1; i <= hang; i++) {
+        //     for (j = 1; j <= lie; j++) {
+        //         str = str + '※'
+        //     }
+        //     str = str + '\n';
+        // }
+        // console.log(str);
+
+        //打印倒三角形
+        var str = '';
+        for (i = 1; i <= 10; i++) {
+            for (j = i; j <= 10; j++) {
+                str = str + '※'
+            }
+            str = str + '\n';
+        }
+        console.log(str);
+
+        console.log('--------------------------------------------------');
+
+        // while循环
+        //      while（条件表达式） {
+        //          循环体；
+        //          操作表达式；（更新计数器，防止死循环）
+        //      }
+        
+
+        // do while循环
+        //    do {
+        //        循环体
+        //    } while (条件表达式);
+        // dowhile 先执行一次循环体，再判断，若条件表达式为真则继续循环，否则退出
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

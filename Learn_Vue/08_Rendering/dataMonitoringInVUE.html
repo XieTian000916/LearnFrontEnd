@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data monitoring in vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- 
+        1、vue会检测data中所有层级的数据
+        2、vue通过getter和setter实现数据监测，需要在new Vue（）中就传入需要监测的数据
+            （1）vue实例中后追加的属性vue默认不监测
+            （2）后添加的数据需要做响应式处理可以使用一下API
+                Vue.set(给谁添加，'添加的属性名'，'添加的属性值');
+                vm.$set(给谁添加，'添加的属性名'，'添加的属性值');
+            ！！！注意：Vue.set()&vm.$set()不能给vm或vm根数据对象添加属性！！！
+        3、vue中的数组不具有getter和setter，Vue 将被侦听的数组的变更方法进行了包裹，所以它们也将会触发视图更新。
+        这些被包裹过的方法包括：
+        push();
+        pop();
+        shift();
+        unshift();
+        splice();
+        sort();
+        reverse();
+        4、替换数组
+        变更方法，顾名思义，会变更调用了这些方法的原始数组。相比之下，也有非变更方法，例如 filter()、concat() 和 slice()。它们不会变更原始数组，而总是返回一个新数组。当使用非变更方法时，可以用新数组替换旧数组：
+        example1.items = example1.items.filter(function (item) {
+            return item.message.match(/Foo/)
+        })
+    -->
+</head>
+
+<body>
+    <div id="root">
+        <h1>Learn Vue.js</h1>
+        <hr>
+        <h2>Student Info</h2>
+        <button @click="student.age++">age+1</button>
+        <button @click="addSex">add sex (Deafult:male)</button>
+        <button @click="student.sex='unknown'">change sex</button>
+        <button @click="addFriend">add a firend on listTop</button>
+        <button @click="changeFirstFriendInfo">change first friend's name</button>
+        <button @click="addHobby">add a hobby</button>
+        <button @click="changeFirstHobby">change first hobby</button>
+
+        <h3>Name:{{student.name}}</h3>
+        <h3>Age:{{student.age}}</h3>
+        <h3 v-show="student.sex">Sex:{{student.sex}}</h3>
+        <h3>Hobby</h3>
+        <ul>
+            <li v-for="h,index in student.hobby" :key="index">
+                {{h}}
+            </li>
+        </ul>
+        <h3>Friends</h3>
+        <ul>
+            <li v-for="f,index in student.friends" :key="index">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                student: {
+                    name: 'Tom',
+                    age: 18,
+                    hobby: ['smoke', 'drink', 'perm'],
+                    friends: [
+                        { name: 'Jerry', age: 18 },
+                        { name: 'Tony', age: 18 },
+                    ],
+                }
+            },
+            methods: {
+                addSex() {
+                    // Vue.set(this.student,'sex','male');
+                    vm.$set(this.student, 'sex', 'male');
+                },
+                addFriend() {
+                    this.student.friends.unshift({ name: 'Jimmy', age: 18 });
+                },
+                changeFirstFriendInfo() {
+                    this.student.friends[0].name = "Kim";
+                    this.student.friends[0].age = 38;
+                },
+                addHobby() {
+                    this.student.hobby.push('learn Vue');
+                },
+                changeFirstHobby() {
+                    // this.student.hobby.splice(0, 1, 'drive');
+                    // vm.$set(this.student.hobby, 0, 'drive');
+                    Vue.set(this.student.hobby, 0, 'drive');
+
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

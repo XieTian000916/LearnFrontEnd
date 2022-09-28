@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oneWayDataBinding</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        one-way data binding: <input type="text" v-bind:value="num">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                num: "114514"
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            background-color: pink;
+            text-align: center;
+            font-size: 30px;
+            color: whitesmoke;
+        }
+
+        .change {
+            background-color: royalblue;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            // 事件处理on绑定一个或多个事件
+
+            // 1、不同事件同一操作
+            // $('div').on('mouseover mouseleave', function () {
+            //     $(this).toggleClass('change');
+            // })
+
+            // 2、不同事件不同操作
+            // $('div').on({
+            //     // 采用对象的形式进行设置
+            //     mouseenter: function () {
+            //         $(this).addClass('change');
+            //     },
+            //     mouseleave: function () {
+            //         $(this).removeClass('change');
+            //     },
+            //     click: function () {
+            //         $(this).css('backgroundColor', 'skyBlue')
+            //     }
+            // });
+
+
+            // 事件委派
+            $('ul').on('click', 'li', function () {
+                // 点击小li事件会冒泡到父元素
+                alert('click!');
+            });
+            // 可以给动态创建的元素绑定事件
+            $('ol').on('click', 'li', function () {
+                alert('clicked!');
+            });
+            var li = $('<li>后来添加的li</li>');
+            $('ol').append(li);
+
+
+            // off解绑事件
+            // $('element').off(); // 解绑该元素的所有事件
+            // $('element').off('click'); // 解绑该元素的指定事件，off后是侦听函数名
+            $('ul').off('click', 'li'); // 解绑事件委托
+
+            // 有些事件只需要触发一次，可以使用one
+            $('span').one('click', function () {
+                alert('已经结束嘞！');
+                $(this).html('事件已触发')
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div>test</div>
+    <ul>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+    </ul>
+    <ol>
+
+    </ol>
+    <span>点击这个span只会触发一次事件</span>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 模板字符串 ``
+        // 1、解析变量
+        let myname = "ZhangSan";
+        console.log(`Helo!My name is ${myname}.`);
+        // 2、多行书写
+        let obj = {
+            uname: "Lisa",
+            age: 18
+        }
+        let html = `
+        <div>
+            <span>${obj.uname}</span>
+            <span>${obj.age}</span>
+        </div>`
+        console.log(html);
+        // 3、调用函数
+        let fn = () => { return "调用了函数" };
+        console.log(`使用模板字符串${fn()}`);
+
+        // 实例方法startsWith() & endsWith()
+        let str = "ABC";
+        console.log(str.startsWith("AB"));
+        console.log(str.endsWith("D"));
+
+        // 实例方法repeat()
+        console.log(str.repeat(2));
+    </script>
+</body>
+
+</html>

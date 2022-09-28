@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .vedio {
+            position: relative;
+            left: 50%;
+            margin-left: -580px;
+            width: 1160px;
+            height: 332px;
+        }
+
+        .vedio .cover {
+            display: none;
+            position: absolute;
+            /* z-index: 1; */
+            top: 0;
+            left: 0;
+            width: 1160px;
+            height: 332px;
+            background-color: rgba(0, 0, 0, .6);
+        }
+
+        .vedio:hover .cover {
+            display: block;
+        }
+
+        .vedio .cover a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            margin: 141px 555px;
+            border-radius: 25px;
+            color: #fff;
+            background-color: pink;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="vedio">
+        <img src="kaguya sama~love is war.jpg" alt="">
+        <div class="cover">
+            <a href="#">||</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;/*vh就是当前屏幕可视高度的1%，设置高度后就可以使align-items生效*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            /* margin: 0 auto; */
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 普通函数按照代码顺序执行
+    回调函数是等待某个动作执行完再回头调用这个函数
+    定时器、click等都是回调函数 -->
+    <div>广告</div>
+    <script>
+        var div =document.querySelector('div');
+        setTimeout(function(){
+            div.style.display='none';
+        },5000);
+    </script>
+</body>
+</html>

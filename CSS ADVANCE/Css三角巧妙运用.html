@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .price {
+            width: 280px;
+            height: 25px;
+            border: 1px solid red;
+        }
+
+        .price .pricebox {
+            float: left;
+            position: relative;
+            width: 130px;
+            height: 25px;
+            line-height: 25px;
+            color: #fff;
+            background-color: red;
+        }
+
+        .price .pricebox i {
+            position: absolute;
+            right: 0;
+            margin-left: 1px;
+            width: 0;
+            height: 0;
+            /* 制作一个梯形 */
+            border-color: transparent white transparent transparent;
+            border-style: solid;
+            border-width: 25px 10px 0 10px;
+        }
+
+        .price span {
+            text-decoration: line-through;
+            color: #ccc;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="price">
+        <div class="pricebox">
+            ￥114514.00
+            <i></i>
+        </div>
+        <span>￥199999.00</span>
+    </div>
+</body>
+
+</html>

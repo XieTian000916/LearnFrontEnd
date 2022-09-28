@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom directive</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        自定义指令：
+        需求1：定义一个指令会把绑定后的数值放大十倍
+        需求2：定义一个指令可以让其绑定的input元素自动获得焦点
+    -->
+    <div id="root">
+        <h3>当前n的值是：{{n}}</h3>
+        <h3>放大后n的值是：<span v-big="n"></span></h3>
+        <button @click="n++">点击n+1</button>
+        <hr>
+        <input type="text" v-vfocus:value="n">
+    </div>
+
+    <script>
+        // 全局自定义指令   Vue.directive('指令名'，{指令内容});
+        Vue.directive('vfocus', {
+            // 指令与元素成功绑定时
+            bind(ele, binding) {
+                ele.value = binding.value;
+            },
+            // 指令所在元素被插入页面时
+            inserted(ele, binding) {
+                ele.focus();
+            },
+            // 指令所在的模板更新时
+            update(ele, binding) {
+                ele.value = binding.value;
+            }
+        });
+
+        Vue.directive('big', function (ele, binding) {
+            ele.innerText = binding.value * 10;
+        });
+
+        let vm = new Vue({
+            el: '#root',
+            data: {
+                n: 1
+            },
+            // directives: {
+            // 简单定义：使用函数
+            // 函数被调用的时机
+            // 1、指令与元素成功绑定时   2、指令所在的模板被重新解析时
+            // 'big':function(ele, binding) {
+            //     ele.innerText = binding.value * 10;
+            // },
+            // big(ele, binding) {
+            //     ele.innerText = binding.value * 10;
+            // },
+
+            // 完整定义指令：对象形式
+            // 'vfocus': {
+            //     // 指令与元素成功绑定时
+            //     bind(ele, binding) {
+            //         ele.value = binding.value;
+            //     },
+            //     // 指令所在元素被插入页面时
+            //     inserted(ele, binding) {
+            //         ele.focus();
+            //     },
+            //     // 指令所在的模板更新时
+            //     update(ele, binding) {
+            //         ele.value = binding.value;
+            //     }
+            // }
+            // }
+        })
+    </script>
+</body>
+
+</html>

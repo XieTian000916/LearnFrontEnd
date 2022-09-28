@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var compare = prompt('想要比较几个值？');
+        var arr = [];
+        for (i = 0; i < compare; i++) {
+            arr[i] = parseFloat(prompt('请输入第' + (i + 1) + '个值'));
+        }
+        function getArrmax(Arr) {
+            var arrMax = Arr[0];
+            for (j = 1; j < Arr.length; j++) {
+                if (Arr[j] > arrMax) {
+                    arrMax = Arr[j];
+                }
+            }
+            return arrMax;
+        }
+        var re = getArrmax(arr);
+        alert('其中最大的值为' + re);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

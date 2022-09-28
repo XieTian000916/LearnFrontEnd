@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 当不确定有多少参数进行传递的时候，可以用arguments来获取
+        // arguments是所有函数都内置的一个内置对象
+        // arguments中存储了所有传递的实参
+        function fn() {
+            console.log(arguments);
+            console.log(arguments.length);
+        }
+        fn(1, 2, 3);
+        fn(1, 2, 3, 4, 5);
+        // arguments以伪数组的方式输出
+        // 1、具有数组的长度属性
+        // 2、按照索引的方式进行存储
+        // 3、没有真正数组的一些方法，如pop()、push()等
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

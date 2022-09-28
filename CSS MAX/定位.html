@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 5000px;
+        }
+
+        /* 1. 静态定位 static 默认方式，即无定位 */
+        /* 格式：选择器{ position: static;} */
+        /* 按照标准流摆放，无边偏移  几乎不用*/
+
+        /* 2. 相对定位 relative 相对于原来的位置移动元素 */
+        /* 格式：选择器{ position: relative; } */
+        /* 不脱标 继续占有原来的位置 通常给绝对定位！当爹！*/
+        .box1 {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: plum;
+        }
+
+        /* 3. 绝对定位 absolute 相对于祖先元素来移动 */
+        /* 格式：选择器{ position: abusolute; } */
+        /* 无父元素或父元素无定位则浏览器（HTML文档）为准进行定位 */
+        /* 祖先元素有定位（静态除外）则参照最近一级祖先元素来移动 */
+        .grandpa {
+            position: relative;
+            left: 200px;
+            width: 800px;
+            height: 800px;
+            background-color: aqua
+        }
+
+        .father {
+            width: 600px;
+            height: 600px;
+            background-color: paleturquoise;
+        }
+
+        .son {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .daughter {
+            /* 绝对定位脱标，不在占有原来的位置，由后面的同级盒子顶上 */
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine
+        }
+
+        /*  关于！子绝父相！ */
+        /* 子盒子用绝对定位自由布局，且不占有位置
+           父盒子用相对定位限制子盒子移动范围 并且占有位置，防止后面的盒子顶上*/
+        .rankpic {
+            position: relative;
+            width: 233px;
+            height: 350px;
+            margin-top: 50px;
+            background-color: bisque;
+        }
+
+        .rank {
+            position: absolute;
+            top: 3px;
+            right: -5px;
+            font-size: 16px;
+            color: red;
+            background-color: #fff;
+            border: 3px solid orange;
+        }
+
+        .rankpic img {
+            width: 100%
+        }
+
+        /* 4. 固定定位 元素固定于可视窗口，页面滚动时不改变位置（例：垃圾广告） */
+        /* 格式：选择器{ position: fix; } */
+        /* 可视窗口即浏览器放大缩小 */
+        .ad {
+            position: fixed;
+            bottom: 20px;
+            right: 50px;
+            width: 150px;
+            height: 300px;
+            background-color: cadetblue;
+        }
+
+        .ad p {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 50px;
+        }
+
+        /* 5. 粘性定位（兼容性差） */
+        /* 通常通过Javascript来实现 */
+        .nav {
+            position: sticky;
+            top: 0px;
+            width: 800px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: bisque;
+        }
+
+        p {
+            width: 150px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="grandpa">
+        <div class="father">
+            <div class="son"></div>
+            <div class="daughter"></div>
+        </div>
+    </div>
+    <div class="rankpic">
+        <div class="rank">1st</div>
+        <img src="C:\Users\SUPERrolling\Desktop\学学前端吧\day3 CSS\steve zhou.jpg" alt="">
+    </div>
+    <div class="ad">
+        <p>传奇归来<br>顶级私服<br>一刀999，装备可换钱<br>是兄弟就来砍我</p>
+    </div>
+    <div class="nav">
+        <input type="text" value="type to search">
+        <input type="button" value="🔍">
+    </div>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+    <p>TEST</p>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section,p{
+            width: 300px;
+            height: 100px;
+            display: flex;
+            background-color: bisque;
+        }
+        section div{
+            flex: 1;
+            background-color: pink;
+        }
+
+        p span:nth-child(1){
+            width: 30px;
+            height: 100px;
+            background-color: red;
+        }
+        p span:nth-child(3){
+            width: 30px;
+            height: 100px;
+            background-color: royalblue;
+        }
+        p span:nth-child(2){
+            flex: 1;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </section>
+
+    <p>
+        <span></span>
+        <span></span>
+        <span></span>
+    </p>
+</body>
+</html>

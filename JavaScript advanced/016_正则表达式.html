@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expression</title>
+</head>
+
+<body>
+    <script>
+        // 正则表达式（Regular Expression）是用于匹配字符串中字符组合的模式
+        // 在JavaScript中正则表达式也是对象
+        // 常用于表单验证（匹配）、敏感词过滤（替换）、搜索词联想（提取）。。。
+
+        // 用对象创建正则
+        let regExp = new RegExp(/123/);
+        // 用字面量创建正则(常用)
+        let REGEXP = /abc/;
+
+        // 检测是否符合表达式 test()正则对象方法，返回true或者false
+        // console.log(regExp.test("12345"));// true
+        // console.log(regExp.test("45123"));// true
+        // console.log(regExp.test("14253"));// false
+        // console.log("------------------");
+
+
+        // 边界符 ^  $
+
+        // ^ 必须以该字符后的限定内容开头
+        // regExp = /^123/
+        // console.log(regExp.test("123ab"));// true
+        // console.log(regExp.test("ab123"));// false
+        // console.log(regExp.test("1a2b3"));// false
+        // console.log("------------------");
+
+        // $ 必须以该字符前的限定内容结尾
+        // regExp = /123$/
+        // console.log(regExp.test("123ab"));// false
+        // console.log(regExp.test("ab123"));// true
+        // console.log(regExp.test("1a2b3"));// false
+        // console.log("------------------");
+
+        // 精确匹配   只通过^$之间的内容 
+        // regExp = /^123$/
+        // console.log(regExp.test("123"));// true
+        // console.log(regExp.test("123123"));// false
+        // console.log(regExp.test("123abc123"));// false
+        // console.log("-------------------");
+
+
+        // 字符类 [] 表示有一系列字符可供选择，只需匹配其中一个即可
+
+        // REGEXP = /[abc]/; //包含a或b或c
+        // console.log(REGEXP.test("apple")); //true
+        // console.log(REGEXP.test("blance")) //true
+        // console.log(REGEXP.test("carbon")) //true
+        // console.log(REGEXP.test("depart")) //true
+        // console.log(REGEXP.test("enable")) //true
+        // console.log("-------------------") //true
+
+        // REGEXP = /^[abc]/; //以a或b或c开头
+        // console.log(REGEXP.test("apple")); //true
+        // console.log(REGEXP.test("blance")); //true
+        // console.log(REGEXP.test("carbon")); //true
+        // console.log(REGEXP.test("depart")); //true
+        // console.log(REGEXP.test("enable")); //false
+        // console.log("-------------------"); //false
+
+        // REGEXP = /[abc]$/; //以a或b或c结尾
+        // console.log(REGEXP.test("apple")); //false
+        // console.log(REGEXP.test("blance")) //false
+        // console.log(REGEXP.test("carbon")) //false
+        // console.log(REGEXP.test("depart")) //false
+        // console.log(REGEXP.test("enable")) //false
+
+        // 字符类 ：范围符 [-]
+        let onlyLetter = /[a-z]/; // 是范围内字母就返回true
+        // console.log(onlyLetter.test("a")); // true
+        // console.log(onlyLetter.test("z")); // true
+        // console.log(onlyLetter.test("az")) // true
+        // console.log(onlyLetter.test("A")); // faslse
+        // console.log(onlyLetter.test("Z")); // faslse
+        // console.log(onlyLetter.test("AZ")); // faslse
+        // console.log(onlyLetter.test("114514")); // faslse
+
+        // 字符组合
+        onlyLetter = /[a-zA-Z0-9]/;
+        // console.log(onlyLetter.test("a")); // true
+        // console.log(onlyLetter.test("z")); // true
+        // console.log(onlyLetter.test("az")) // true
+        // console.log(onlyLetter.test("A")); // true
+        // console.log(onlyLetter.test("Z")); // true
+        // console.log(onlyLetter.test("AZ")); //true
+        // console.log(onlyLetter.test("114514")); // true
+
+        // [^] 方括号内部的^表示取反、
+        onlyLetter = /[^a-zA-Z0-9]/;
+        // console.log(onlyLetter.test("a")); // false
+        // console.log(onlyLetter.test("z")); // false
+        // console.log(onlyLetter.test("az")) // false
+        // console.log(onlyLetter.test("A")); // false
+        // console.log(onlyLetter.test("Z")); // false
+        // console.log(onlyLetter.test("AZ")); //false
+        // console.log(onlyLetter.test("114514")); // false
+
+        // 量词符：用于设定某个模式出现的次数
+        let rep = /^a$/
+
+        // * 相当于 >=0 目标内容可以出现也可以不出现
+        rep = /^a*$/
+        // console.log(rep.test(""));
+        // console.log(rep.test("a"));
+        // console.log(rep.test("aa"));
+        // console.log(rep.test("aaa"));
+        // console.log(rep.test("aaaaaaaaaaaaa"));
+
+        // + 相当于 >=1 目标内容至少要出现一次
+        rep = /^a+$/
+        // console.log(rep.test(""));
+        // console.log(rep.test("a"));
+        // console.log(rep.test("aa"));
+        // console.log(rep.test("aaa"));
+        // console.log(rep.test("aaaaaaaaaaaaa"));
+
+        // ? 相当于 1||0 目标内容最多出现一次
+        rep = /^a?$/
+        // console.log(rep.test(""));
+        // console.log(rep.test("a"));
+        // console.log(rep.test("aa"));
+        // console.log(rep.test("aaa"));
+        // console.log(rep.test("aaaaaaaaaaaaa"));
+
+        // {n} 精确重复n次
+        rep = /^a{3}$/
+        // console.log(rep.test(""));
+        // console.log(rep.test("a"));
+        // console.log(rep.test("aa"));
+        // console.log(rep.test("aaa"));
+        // console.log(rep.test("aaaaaaaaaaaaa"));
+        // {n,} 重复n次或更多
+        rep = /^a{3,}$/
+        // console.log(rep.test(""));
+        // console.log(rep.test("a"));
+        // console.log(rep.test("aa"));
+        // console.log(rep.test("aaa"));
+        // console.log(rep.test("aaaaaaaaaaaaa"));
+        // {n,m} 只能重复n到m次
+        rep = /^a{3,6}$/
+        // console.log(rep.test(""));
+        // console.log(rep.test("a"));
+        // console.log(rep.test("aa"));
+        // console.log(rep.test("aaa"));
+        // console.log(rep.test("aaaaaaaaaaaaa"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建类 class(公共属性,共同点)
+        class star {
+            constructor(uname, age) {
+                this.uname = uname;
+                this.age = age;
+            }
+            // 创建公共方法(函数)
+            act(work){
+                console.log(this.uname + work);
+            }
+        }
+        // 利用类创建对象(特指某一个)
+        let zzh = new star('渣渣灰', '?');
+        let wyz = new star('无颜祖', '?');
+        zzh.act("贪玩蓝月");
+        wyz.act("收手吧");
+    </script>
+</body>
+
+</html>

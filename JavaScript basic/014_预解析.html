@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js引擎运行js代码分为两步
+        // 1、预解析：把j中所有var和function提升到当前作用域的最前面
+        // 2、代码执行：按照书写顺序从上往下执行
+        // 预解析注意事项：
+        // 变量和函数的预解析只把声明提升，不提升赋值操作，也不会调用函数
+        console.log(num);
+        var num = 10;    // 运行结果为undefined
+        // ↓实际运行情况
+        // var num;
+        // console.log(num);
+        // num = 10;
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

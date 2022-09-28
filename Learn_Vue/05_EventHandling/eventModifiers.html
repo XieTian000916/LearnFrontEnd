@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event modifiers</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        * {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Learn {{txt}}</h1>
+        <div class="demo0">
+            <a href="https://baidu.com" @click.prevent="showInfo($event)">Baidu</a> .prevent阻止默认事件
+        </div>
+        <div class="demo1" @click="showInfo($event)">
+            <button @click="showInfo($event)">click</button> 点击按钮产生两次弹窗（冒泡）
+        </div>
+        <div class="demo2" @click="showInfo($event)">
+            <button @click.stop="showInfo($event)">click</button> .stop阻止事件冒泡
+        </div>
+        <div class="demo3">
+            <button @click.once="showInfo($event)">click</button> .once只触发一次事件
+        </div>
+        <div class="demo4" @click.capture="showMsg($event,1)">
+            <!-- 原本输出2 1 变为1 2 -->
+            <button @click="showMsg($event,2)">click</button> .capture使用事件捕获
+        </div>
+        <div class="demo3" @click,self="showInfo($event)">
+            <button @click="showInfo($event)">click</button> .self &nbsp&nbsp&nbsp 只有event.target是当前操作元素时才触发事件
+        </div>
+        <!-- .passive 不常用 -->
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                txt: "Vue.js"
+            },
+            methods: {
+                showInfo(e) {
+                    // e.preventDefault(); // js原生写法，阻止默认事件
+                    // e.stopPropagation(); //js原生写法，阻止冒泡
+                    alert("clicked")
+                },
+                showMsg(e, n) {
+                    alert(n)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

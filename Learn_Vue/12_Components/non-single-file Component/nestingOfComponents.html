@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nesting of components</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script>
+        const greet = {
+            template: `
+                <h1>Welcome!Start to learn {{lang}}.js now!</h1>
+            `,
+            data() {
+                return {
+                    lang: 'Vue',
+                }
+            },
+        }
+
+        const student = {
+            template: `
+                <div>
+                    <h3>Name:{{name}}</h3>
+                    <h3>Age:{{age}}</h3>
+                </div>
+            `,
+            data() {
+                return {
+                    name: 'Kokomi',
+                    age: 18,
+                }
+            },
+        }
+
+        const school = {
+            template: `
+                <div>
+                    <h2>School Name:{{sname}}</h2>
+                    <h2>Address:{{address}}</h2>
+                    <student></student>
+                </div>
+            `,
+            data() {
+                return {
+                    sname: 'BIPT',
+                    address: 'Beijing'
+                }
+            },
+            components: {
+                student
+            }
+        }
+
+        const app = {
+            template: `
+                <div>
+                    <greet></greet>
+                    <school></school>
+                </div>
+            `,
+            components: {
+                school,
+                greet,
+            }
+        }
+
+        new Vue({
+            template: `
+                <app></app>
+            `,
+            el: '#root',
+            components: {
+                app
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .promo {
+            position: relative;
+            top: 50%;
+            margin-top: 200px;
+            left: 50%;
+            margin-left: -385px;
+            width: 790px;
+            height: 400px;
+        }
+
+        .promo .prev {
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 0 25px 25px 0;
+            color: #fff;
+            background-color: rgba(0, 0, 0, .3);
+            text-decoration: none;
+        }
+
+        .promo .next {
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 25px 0 0 25px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, .3);
+            text-decoration: none;
+            text-align: right;
+        }
+
+        .promo .promo-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -40px;
+            width: 80px;
+            height: 15px;
+            line-height: 15px;
+            color: #fff;
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 7.5px;
+            z-index: 1;
+        }
+
+        .promo .promo-nav li {
+            float: left;
+            /* display: inline-block; */
+            width: 10px;
+            height: 10px;
+            line-height: 20px;
+            margin-left: 8px;
+            color: #fff;
+            background-color: #fff;
+            border-radius: 50%
+        }
+
+        .promo .ad {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-radius: 5px 0 0 0;
+            color: #000;
+            background-color: gainsboro;
+        }
+
+        .promo .promo-nav .selected {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="promo">
+        <a href="#"><img src="case-ad-img.jpg" alt=""></a>
+        <a href="#" class="prev">←</a>
+        <a href="#" class="next">→</a>
+        <ul class="promo-nav">
+            <li></li>
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="ad">广告</div>
+    </div>
+</body>
+
+</html>

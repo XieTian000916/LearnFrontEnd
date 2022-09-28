@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //数组  单个变量下存储多个、多种数据
+        //创建方法
+        // 1、var 数组名 = new Array();
+        // 2、var 数组名 = [];   (常用)
+        var arr1 = [666, 888, 'batman', true];
+        //获取数组元素
+        //索引：用来访问数组元素的序号（从零开始）
+        // array1 = [666, 888, 'batman', true];
+        //     索引号：0    1      2       3
+        // 获取第三个元素
+        console.log(arr1[2]);
+
+        console.log('--------------------------');
+
+        // 运用for循环遍历数组
+        var arr2 = ['batman', 'superman', 'joker'];
+        for (i = 0; i < 3; i++) {
+            console.log(arr2[i]);
+        }
+
+        // 统计数组长度
+        console.log(arr2.length);
+
+        //计算数组和及平均值
+        var sum = 0;
+        var aver;
+        var arr3 = [1, 2, 3, 19, 8, 27];
+        for (i = 0; i < arr3.length; i++) {
+            sum += arr3[i];
+        }
+        aver = sum / arr3.length;
+        console.log('数组元素的和为：' + sum + '平均值为：' + aver);
+
+        //输出数组中的最大值
+        var arr4 = [37, 666, 203, 54, 78, 99];
+        var max_Num = arr4[0];
+        for (i = 1; i < arr4.length; i++) {
+            if (arr4[i] > max_Num) {
+                max_Num = arr4[i];
+            } else {
+
+            }
+        }
+        console.log('数组中的最大值为' + max_Num);
+
+        //数组转换为分割字符串
+        var arr5 = ['HTML5', 'CSS3', 'JavaScript', 'vue', 'react'];
+        var str = '';
+        for (i = 0; i < arr5.length - 1; i++) {
+            str += arr5[i] + '|';
+        }
+        str += arr5[arr5.length - 1];// 最后一个元素不加分隔符
+        console.log(str);
+
+        console.log('--------------------------');
+
+        // 新增数组元素
+        // 1、修改数组长度
+        var arr6 = ['red', 'green', 'blue'];
+        arr6.length = 5;
+        console.log(arr6);
+        console.log(arr6[3]);// 数据类型为undefined
+        console.log(arr6[4]);// 数据类型为undefined
+        // 2、修改索引号，追加或覆盖数组元素
+        arr6[3] = 'pink';
+        arr6[4] = 'purple';
+        arr6[0] = '覆盖试试';// 原有的元素内容被覆盖
+        console.log(arr6);
+
+        // 新数组存入数字1~100
+        var arr7 = [];
+        for (i = 0; i < 100; i++) {
+            arr7[i] = i + 1;
+        }
+        console.log(arr7);
+
+        console.log('--------------------------');
+
+        // 筛选数组
+        var arr_Old = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+        var arr_New = [];
+        j = 0;// 方法1、借用一个变量作为新数组的元素下标
+        for (i = 0; i < arr_Old.length; i++) {
+            if (arr_Old[i] > 50) {
+                arr_New[j] = arr_Old[i];
+                j++;
+            }
+        }
+        console.log(arr_New);
+        var oldArr = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+        var newArr = [];
+        for (i = 0; i < oldArr.length; i++) {
+            if (oldArr[i] > 50) {
+                newArr[newArr.length] = oldArr[i];// 方法2、直接用新数组长度来充当元素下标，空数组长度为0恰好作为起始下标号
+            }
+        }
+        console.log(newArr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

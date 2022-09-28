@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives v-text</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Learn Vue.js</h1>
+        <hr>
+        <h2>{{greet}}</h2>
+        <!-- 该指令会向其所在的节点中渲染文本内容 -->
+        <!-- 注意：v-text会替换掉节点中的内容 -->
+        <h3 v-text="greet">该内容将被替换</h3>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el:'#root',
+            data:{
+                greet:"Hello!"
+            }
+        })
+    </script>
+</body>
+
+</html>

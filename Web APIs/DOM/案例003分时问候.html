@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>上午好！</div>
+    <img src="../../CSS 就业班/imgs/Eula.jpg" alt="" title="游击骑士，率先出击！">
+    <script>
+        var tupian = document.querySelector('img');
+        var wenhou = document.querySelector('div');
+
+        var shijian = new Date();
+        var h = shijian.getHours();
+
+        if (h <= 12) {
+            tupian.src = '../../CSS 就业班/imgs/Eula.jpg';
+            tupian.title = "游击骑士，率先出击！";
+            wenhou.innerText = '上午好！'
+        } else if (h <= 18) {
+            tupian.src = '../../CSS 就业班/imgs/Raiden Shogun.jpg';
+            tupian.title = "侍奉你的将军吧！";
+            wenhou.innerText = '下午好！'
+        } else {
+            tupian.src = '../../CSS 就业班/imgs/KujoSara.jpg';
+            tupian.title = "有什么事？";
+            wenhou.innerText = '晚上好！'
+        }
+    </script>
+</body>
+
+</html>

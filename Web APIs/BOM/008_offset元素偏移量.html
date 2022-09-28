@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: pink;
+        }
+
+        .son {
+            width: 50px;
+            height: 50px;
+            background-color: palevioletred;
+            margin: 50px;
+            padding: 20px;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // offsrt可以  动态地  得到元素的位置(偏移)、大小等
+        // 获得元素距离带有定位父元素的位置
+        // 获得元素自身的大小
+        // ！返回的值不带单位！
+
+
+        var div_father = document.querySelector('.father');
+        var div_son = document.querySelector('.son');
+        // element.offsetTop和offsetLeft(只有上和左，没有下和右)
+        console.log(div_father.offsetTop);
+        console.log(div_father.offsetLeft);
+        console.log(div_son.offsetLeft);// 祖先盒子无一有定位会跟body走 150
+
+        // element.offsetWidth和offsetHeight
+        // 返回值为padding + border + width
+        console.log(div_son.offsetWidth);
+        console.log(div_son.offsetHeight);
+
+        // element.offsetParent  返回带有定位的父亲，无定位返回body
+        console.log(div_son.offsetParent);
+    </script>
+</body>
+
+</html>

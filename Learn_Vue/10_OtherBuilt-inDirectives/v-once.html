@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>directive v-once</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- v-once使模板只渲染一次后就作为静态内容呈现，在特定场景下提升效率 -->
+        <h1 v-once>初始化的值是：{{n}}</h1>
+        <h1>当前的值是：{{n}}</h1>
+        <button @click="n++">点我加一</button>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                n: 666
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 只有定位的盒子才有z-index属性 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        .a {
+            position: relative;
+            top: 50px;
+            left: 500px;
+            z-index: 1;
+            width: 800px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .b {
+            position: absolute;
+            top: 20px;
+            right: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+        }
+
+        .c {
+            position: fixed;
+            top: 0;
+            right: 500px;
+            z-index: 2;
+            width: 200px;
+            height: 500px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">z-index=1</div>
+    <div class="b">z-index=auto</div>
+    <div class="c">z-index=2</div>
+</body>
+
+</html>

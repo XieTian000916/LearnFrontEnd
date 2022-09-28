@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6中类没有变量提升，必须定义在最前面
+        class Guy {
+            constructor(uname, age){
+                this.uname=uname;
+                this.age=age;
+            }
+            who() {
+                // 类中共同的属性和方法要加this使用
+                console.log(this.uname);
+            }
+            old() {
+                // 类中共同的属性和方法要加this使用
+                console.log(this.age);
+            }
+        }
+        let jimiy=new Guy("jimiy", 18);
+        jimiy.who();
+        jimiy.old();
+    </script>
+</body>
+</html>

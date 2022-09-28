@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="CASE005login.html">登录界面</a>
+    <div></div>
+    <script>
+        console.log(location.search);
+        var params = location.search.substring(1);
+        console.log(params);
+        // 用split再次分割
+        var arr = params.split('=');
+        console.log(arr);
+        // 把传递的数据写入div中
+        var div = document.querySelector('div');
+        div.innerHTML = arr[1] + '！欢迎光临！';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100px;
+            height: 50px;
+        }
+
+        .moudal {
+            width: 700px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #939597;
+        }
+
+        .title {
+            float: left;
+            font-size: 36px;
+            font-style: italic;
+        }
+
+        i {
+            float: right;
+            margin-right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .contain {
+            width: 700px;
+            padding-left: 100px;
+            position: absolute;
+            top: 40%;
+            /* transform: translate(0, -50%); */
+            font-size: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="login">login</button>
+    <button id="del">delete</button>
+    <!-- <div class="moudal">
+        <span class="title"></span>
+        <i>X</i>
+        <div class="contain"></div>
+    </div> -->
+    <script>
+        function Moudal(title = '', contain = '') {
+            this.title = title;
+            this.contain = contain;
+            this.moudalBox = document.createElement("div");
+            this.moudalBox.className = "moudal";
+            this.moudalBox.innerHTML = `
+                <span class="title">${this.title}</span>
+                <i>X</i>
+                <div class="contain">${this.contain}</div>
+            `;
+        }
+        Moudal.prototype.open = function () {
+            document.body.appendChild(this.moudalBox);
+            document.querySelector("i").addEventListener("click", () => {
+                this.close();
+            });
+        }
+        Moudal.prototype.close = function () {
+            document.body.removeChild(this.moudalBox)
+        }
+        document.querySelector("#login").addEventListener("click", () => {
+            let m = new Moudal("提示", "请先注册！");
+            m.open();
+        });
+        document.querySelector("#del").addEventListener("click", () => {
+            let m = new Moudal("警告", "您没有删除权限！");
+            m.open();
+        });
+    </script>
+</body>
+
+</html>

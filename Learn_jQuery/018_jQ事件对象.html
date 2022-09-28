@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $(document).on('click', function () {
+                console.log('点击了document');
+            });
+            $('div').on('click', function (e) {
+                // console.log(e);
+                console.log('点击了div');
+                // 点击事件会向上冒泡
+                e.stopPropagation();
+            });
+            // 更多事件对象内容可以参见 WEB APIs
+        });
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>collect form data</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <form @submit.prevent="submit">
+            <label for="account">Account:</label><input type="text" id="account" autofocus v-model.trim="userInfo.account"><br>
+            <label for="pswd">Password:</label><input type="password" id="pswd" v-model="userInfo.psw"><br>
+            <label for="age">Age:</label><input type="number" id="age" v-model.number="userInfo.age"><br>
+            Gender:<input type="radio" name="gender" value="male" v-model="userInfo.gender">Male<input type="radio" name="gender" value="female" v-model="userInfo.gender">Female<br>
+            Hobby:
+            <input type="checkbox" v-model="userInfo.hobby" value="vue">Learn Vue
+            <input type="checkbox" v-model="userInfo.hobby" value="vuex">Learn Vuex
+            <input type="checkbox" v-model="userInfo.hobby" value="vueRouter">Learn Vue Router
+            <br>
+            Home: <select v-model="userInfo.home">
+                <option value="">click to select</option>
+                <option value="china">China Mainland</option>
+                <option value="hongkong">HongKong</option>
+                <option value="taiwan">Taiwan</option>
+            </select><br>
+            Other information:
+            <textarea style="resize: none;" rows="5" cols="20" v-model.lazy="userInfo.other"></textarea><br>
+            <input type="checkbox" v-model="userInfo.agree">I've read and accept <a href="javascript:;">《User's Aggrement》</a><br>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                userInfo: {
+                    account: '',
+                    psw: '',
+                    age: undefined,
+                    gender: '',
+                    hobby: [],
+                    home: '',
+                    other: '',
+                    agree: ''
+                }
+            },
+            methods: {
+                submit() {
+                    alert('successfully submitted');
+                    console.log(JSON.stringify(this.userInfo));
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

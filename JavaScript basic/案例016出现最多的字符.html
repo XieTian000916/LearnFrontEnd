@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'jvftjhxjdjtyuijhbjvnk';
+        function findMost(str) {
+            var obj = {};
+            for (i = 0; i < str.length; i++) {
+                var chars = str.charAt(i);
+                if (obj[chars]) {
+                    obj[chars]++;
+                } else {
+                    obj[chars] = 1;
+                }
+            }
+            var count = 0;
+            var ch = '';
+            for (var k in obj) {
+                if (obj[k] > count) {
+                    count = obj[k];
+                    ch = k;
+                }
+            }
+            return '出现次数最多的是' + ch + ',出现了' + count + '次'
+        }
+        console.log(findMost(str));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

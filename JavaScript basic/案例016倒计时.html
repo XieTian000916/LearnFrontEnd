@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function countDown(times) {
+            var nowTime = +new Date();// 当前时间戳
+            var inputTime = +new Date(times);// 用户自定义时间
+            var time = (inputTime - nowTime) / 1000;// 除1000把毫秒转化成秒
+            var d = parseInt(time / 60 / 60 / 24);// day
+            var h = parseInt(time / 60 / 60 % 24);// hour
+            h = h > 10 ? h : '0' + h;
+            var m = parseInt(time / 60 % 60);// minute
+            m = m > 10 ? m : '0' + m;
+            var sec = parseInt(time % 60);// second
+            sec = sec > 10 ? sec : '0' + sec;
+            return d + '天' + h + '小时' + m + '分' + sec + '秒';
+        }
+        console.log(countDown('2022/6/21 18:00:00'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 1.用display设置可见性 */
+
+        .box1 {
+            /* 隐藏元素后不占位，后面的标签会顶上 */
+            /* display: none; */
+            width: 300px;
+            height: 300px;
+            background-color: palevioletred;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        /* 2.用visibility：visible;
+               visibility：hidden;来设置可见性 */
+
+        .box3 {
+            /* 隐藏元素后继续占位 */
+            visibility: hidden;
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        .box4 {
+            width: 300px;
+            height: 300px;
+            background-color: paleturquoise;
+        }
+
+        .box5 {
+            /* 溢出属性overflow */
+            /* visible 可见 溢出盒子内容可见 */
+            /* hidden  溢出内容不可见 （！！！有定位的盒子慎用！！！）*/
+            /* scroll  加滚动条，不论是否溢出 */
+            /* auto    溢出则加滚动条，不溢出则不加 */
+            overflow: auto;
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">display功能测试</div>
+    <div class="box2">display功能测试</div>
+    <div class="box3">visibility功能测试</div>
+    <div class="box4">visibility功能测试</div>
+    <div class="box5">
+        overflow功能测试;overflow功能测试;overflow功能测试;
+        overflow功能测试;overflow功能测试;overflow功能测试;
+        overflow功能测试;overflow功能测试;overflow功能测试;
+        overflow功能测试;overflow功能测试;overflow功能测试;
+        overflow功能测试;overflow功能测试;overflow功能测试;
+        overflow功能测试;overflow功能测试;overflow功能测试;
+        overflow功能测试;overflow功能测试;overflow功能测试;
+    </div>
+</body>
+
+</html>

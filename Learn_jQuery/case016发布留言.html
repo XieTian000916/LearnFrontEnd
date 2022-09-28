@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .comment_box {
+            width: 800px;
+            height: 100vh;
+            margin: 0 auto;
+            background-color: pink;
+        }
+
+        textarea {
+            resize: none;
+            outline: none;
+        }
+
+        a {
+            float: right;
+        }
+
+        ul li {
+            width: 700px;
+            height: 40px;
+            border-bottom: 1px dashed whitesmoke;
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            // 点击发布添加新的留言
+            $('button').on('click', function () {
+                var li = $('<li></li>');
+                li.html($('textarea').val() + '<a href="javascript:;"">删除</a>');
+                $('ul').prepend(li);
+                li.slideDown();
+                $('textarea').val('');
+            });
+            // 删除操作
+            $('ul').on('click', 'a', function () {
+                $(this).parent().slideUp(function(){
+                    // 此处为回调函数
+                    $(this).remove();
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="comment_box">
+        <h2>留言板</h2>
+        <textarea name="" id="" cols="80" rows="10" placeholder="在此输入留言"></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+</body>
+
+</html>

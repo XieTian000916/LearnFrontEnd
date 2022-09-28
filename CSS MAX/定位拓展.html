@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 给绝对定位的盒子居中 */
+            position: absolute;
+            left: 50%;
+            /* 盒子紧贴页面右半边最左侧 */
+            margin-left: -200px;
+            /* 移回一半盒宽实现居中 */
+            top: 50%;
+            /* 纵向居中同理 */
+            margin-top: -200px;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        /* 行内元素添加绝对/固定定位可直接给高和宽 */
+        /* 块级元素添加绝对/固定定位可以不给高宽，大小默认是内容大小 */
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

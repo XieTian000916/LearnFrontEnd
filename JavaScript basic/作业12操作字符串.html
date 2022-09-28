@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'abaasdffggghhjjkkgfddsssss3444343'
+        // 字符串长度
+        console.log(str.length);
+        // 取出0、3、5、9位置的字符
+        console.log(str.charAt(0));
+        console.log(str.charAt(3));
+        console.log(str.charAt(5));
+        console.log(str.charAt(9));
+        // 查找i、从i、c、b是否存在于字符串
+        console.log(str.indexOf('i'));
+        console.log(str.indexOf('c'));
+        console.log(str.indexOf('b'));
+        // 将g替换为22，ss替换为b
+        while (str.indexOf('g') !== -1) {
+            console.log(str.replace('g', '22'));
+            str = str.replace('g', '22');
+        }
+        while (str.indexOf('ss') !== -1) {
+            console.log(str.replace('ss', 'b'));
+            str = str.replace('ss', 'b');
+        }
+        // 取得索引位1-5的字符串
+        console.log(str.substr(1, 5));
+        // 找出以上字符串中出现次数最多的字符
+        function findMost(str) {
+            var obj = {};
+            for (var i = 0; i < str.length; i++) {
+                var chars = str.charAt(i)
+                if (obj[chars]) {
+                    obj[chars]++;
+                } else {
+                    obj[chars] = 1;
+                }
+            }
+            var count = 0;
+            var ch = '';
+            for (var k in obj) {
+                if (obj[k] > count) {
+                    count = obj[k];
+                    ch = k;
+                }
+            }
+            return '出现次数最多的是' + ch + ',出现了' + count + '次'
+        }
+        console.log(findMost(str));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

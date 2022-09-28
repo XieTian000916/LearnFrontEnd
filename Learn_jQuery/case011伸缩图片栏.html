@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            width: 600px;
+            height: 600px;
+        }
+
+        .wapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1050px;
+            /* background-color: pink; */
+            /* background: url(img/yuanshen_logo.png) rgba(255, 192, 203, .3); */
+            overflow: hidden;
+        }
+
+        .wapper ul {
+            overflow: hidden;
+        }
+
+        .wapper ul li {
+            position: relative;
+            float: left;
+            width: 200px;
+            height: 600px;
+            margin-right: 10px;
+        }
+
+        .wapper ul li.first.current {
+            width: 600px;
+        }
+
+        .first .small {
+            background: url(img/RaidenShogun.jpg) -770px -110px no-repeat;
+        }
+
+        .second .small {
+            background: url(img/Eula.jpg) -980px -250px no-repeat;
+        }
+
+        .third .small {
+            background: url(img/KujoSara.jpg) -480px 0px no-repeat;
+        }
+
+        .wapper .current a .big {
+            display: block;
+        }
+
+        .wapper ul li.current a .small {
+            display: none;
+        }
+
+        .wapper ul li .big {
+            width: 600px;
+            display: none;
+        }
+
+        .wapper ul li .small {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 600px;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $('ul>li').mouseenter(function () {
+                $(this).stop().animate({
+                    width: 600
+                }).find('.small').stop().fadeOut().siblings('.big').stop().fadeIn();
+                $(this).siblings('li').stop().animate({
+                    width: 200
+                }).find('.small').stop().fadeIn().siblings('.big').stop().fadeOut();
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wapper">
+        <ul>
+            <li class="first current">
+                <a href="javascript:;">
+                    <span class="small"></span>
+                    <img src="img/RaidenShogun.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li class="second">
+                <a href="javascript">
+                    <span class="small"></span>
+                    <img src="img/Eula.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li class="third">
+                <a href="javascript">
+                    <span class="small"></span>
+                    <img src="img/KujoSara.jpg" alt="" class="big">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var cun = 0;
+        var qu = 0;
+        sum = 100;
+        do {
+            var caozuo = prompt('1.存钱\n2.取钱\n3.显示余额\n4.退出');
+            switch (caozuo) {
+                case '1':
+                    cun = prompt('请输入存款金额');
+                    sum += parseFloat(cun);
+                    alert('已存入￥' + cun);
+                    break;
+                case '2':
+                    qu = prompt('请输入取款金额');
+                    if (sum - parseFloat(qu) >= 0) {
+                        sum -= parseFloat(qu);
+                        alert('取款成功，还剩余额￥' + sum);
+                    } else {
+                        alert('余额不足！您只有￥' + sum + '可取余额');
+                    }
+                    break;
+                case '3':
+                    alert('您的余额为￥' + sum);
+                    break;
+                case '4':
+                    alert('您正在退出');
+                    break;
+                default:
+                    alert('请输入正确的操作码！')
+                    break;
+            }
+        } while (caozuo != 4);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>DIV</div>
+    <span>SPAN</span>
+    <script>
+        var div = document.querySelector('div');
+        // nextSibling 下一个兄弟节点
+        console.log(div.nextSibling);// 元素节点、文本节点都包含在内
+        // previousSibling 上一个兄弟节点
+        console.log(div.previousSibling);
+
+        // 选出兄弟元素节点
+        console.log(div.nextElementSibling);
+        console.log(div.previousElementSibling);// 没有则返回为空 null
+    </script>
+</body>
+</html>

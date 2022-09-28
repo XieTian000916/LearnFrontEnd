@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text"> <button>搜索</button>
+    <script>
+        // trim()方法会删除字符串！两侧 ！的空格
+        // 返回值是一个新的字符串，不影响原字符串本身
+        // let str = "   have a try   "
+        // let newStr = str.trim();
+        // console.log(newStr);
+
+
+        // 可以利用trim方法优化搜索框判空的体验
+        let searchBox = document.querySelector("input");
+        let btn = document.querySelector("button");
+        btn.addEventListener('click', function () {
+            var searchValue = searchBox.value.trim();
+            // trim方法可以保证只键入空格依然会提示错误
+            if (searchValue === "") {
+                alert("内容不能为空");
+            } else {
+                console.log(searchValue);
+                searchBox.value = "";
+            }
+        });
+    </script>
+</body>
+
+</html>

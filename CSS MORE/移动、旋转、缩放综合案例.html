@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动、旋转、缩放综合案例</title>
+    <style>
+        body {
+            background: url(imgs/yuanshen_logo.png) rgba(255, 192, 203, .3);
+        }
+
+        body>div {
+            margin: 20px;
+        }
+
+        img {
+            width: 750px;
+            height: 750px;
+        }
+
+        .coverbox1 {
+            position: relative;
+            width: 150px;
+            height: 180px;
+            overflow: hidden;
+            transition: all 1s;
+        }
+
+        .coverbox1:hover {
+            transform: translate(500px, -50px) scale(.8);
+            width: 750px;
+            height: 994px;
+            overflow: visible;
+        }
+
+        .RaidenShogun {
+            position: absolute;
+            top: -60px;
+            left: -380px;
+            width: 750px;
+            height: 994px;
+            background-color: rgba(138, 43, 226, .3);
+        }
+
+        .coverbox2 {
+            position: relative;
+            width: 150px;
+            height: 180px;
+            overflow: hidden;
+            transition: all 1s;
+        }
+
+        .coverbox2:hover {
+            transform: translate(500px, -50px) scale(.8);
+            width: 750px;
+            height: 1150px;
+            overflow: visible;
+        }
+
+        .Eula {
+            position: absolute;
+            top: -80px;
+            left: -300px;
+            width: 750px;
+            height: 1150px;
+            background-color: rgba(135, 206, 235, .3);
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="coverbox1">
+        <div class="RaidenShogun">
+            <img src="imgs/Raiden Shogun.jpg" alt="">
+            <h3>一心净土 · 雷电将军<br>
+                厌离浮世泡影，欣求净土常道</h3>
+            <p>稻妻全土毋容置疑的统治者。<br>
+                担负着「御建鸣神主尊大御所」之威名，许稻妻民众以亘古不变之「永恒」。<br>
+                以无情的稻光击碎爱执，以孤独的心铸就净土…<br>
+                在这漫长岁月中，永恒之道黑暗而遥远，然而，将军殿下从不犹疑——
+                不变的恒常，仅在斫去杂音之后才显现其「寂」之本质。
+            </p>
+        </div>
+    </div>
+    <div class="coverbox2">
+        <div class="Eula">
+            <img src="imgs/Eula.jpg" alt="">
+            <h3>浪花骑士· 优菈<br>
+                于旋舞之时，斩断罪人的枷锁</h3>
+            <p>作为西风骑士团「游击小队」的队长与声名显赫的「浪花骑士」，优菈长期率部在外巡逻，斩获过诸多功勋。驻扎在高山深涧中的骑士们时常成为魔物的突袭目标，优菈能用最为迅速的支援排除险情，化解危机，她也屡次率队主动进攻，捣毁深渊教团的据点，将阴谋扼杀于萌芽状态。<br>
+                可优菈的身世尤为特殊，诸多矛盾盘根错节——她是劳伦斯家族的末裔，被蒙德民众视为罪人之血的具象。这样的她却在多年前与家族决裂，加入了西风骑士团。碍于难以消除的偏见，优菈并未得到公正的对待。在蒙德民众眼里，她始终是「外人」，甚至——「危险人物」。<br>
+                多年来的经历促使优菈塑起无形之盾，保护自己免受无妄之灾。「复仇」一词，或许是这面盾牌最为外显的一角。唯有抛去流言蜚语，试着接受她待人处世的逻辑，才能认识到这位少女复杂外壳下的原貌吧。</p>
+        </div>
+    </div>
+</body>
+
+</html>

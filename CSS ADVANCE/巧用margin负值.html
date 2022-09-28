@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框无缝衔接</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 412px;
+            /* 增加宽度=横向盒子数x边框像素值 */
+            height: 406px;
+            /* 增加高度=纵向盒子数x边框像素值 */
+            margin: 100px 20px;
+            background-color: pink;
+        }
+
+        .box ul li {
+            float: left;
+            list-style: none;
+            width: 100px;
+            height: 200px;
+            border: 3px solid gray;
+            margin-left: -3px;
+            margin-top: -3px;
+        }
+
+        /* 指针移入区域显示边框 */
+        .box ul li:hover {
+            position: relative;
+            border-color: red;
+        }
+
+        /* 盒子无浮动则直接使当前盒子变为相对定位 */
+        /* 盒子有浮动则提高z-index的等级 */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+    </div>
+</body>
+
+</html>

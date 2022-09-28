@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpolations</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备好容器 -->
+    <div id="root">
+        <h1>插值语法</h1>
+        <h3>hello,{{txt}}</h3>
+        <hr> <!-- 分隔线 -->
+    </div>
+
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                txt:"Vue.js"
+            }
+        })
+    </script>
+</body>
+
+</html>

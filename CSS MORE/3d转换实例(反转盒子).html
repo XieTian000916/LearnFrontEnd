@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            perspective: 1000px;
+        } */
+        .box {
+            position: relative;
+            top: 400px;
+            left: 45%;
+            /* transform: translate(-50%,-50%); */
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: pink;
+            text-align: center;
+            transition: all 2s;
+            transform-style: preserve-3d;
+        }
+
+        .box>div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            font-size: 30px;
+            text-align: center;
+            line-height: 200px;
+            color: #fff;
+            backface-visibility: hidden;
+        }
+
+        .box div.front {
+            background-color: blueviolet;
+            z-index: 1;
+        }
+
+        .box div.back {
+            background-color: brown;
+            font-weight: 700;
+            transform: rotateY(180deg);
+        }
+
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="front">是兄弟</div>
+        <div class="back">就来砍我！</div>
+    </div>
+</body>
+
+</html>

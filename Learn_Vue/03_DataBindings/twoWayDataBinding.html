@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oneWayDataBinding</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- one-way data binding: <input type="text" v-bind:value="num"><br> -->
+        <!-- 使用v-model进行双向绑定 -->
+        <!-- two-way data binding: <input type="text" v-model:value="num"> -->
+        <!-- 注意！ v-model只能用于表单类元素（具有value值） -->
+
+        <!-- 使用简写 -->
+        one-way data binding: <input type="text" :value="num"><br>
+        <!-- 因为v-model默认收集value值，所以可以省去“：value” -->
+        two-way data binding: <input type="text" v-model="num">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                num: "114514"
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .w {
+            width: 1400px;
+            margin: 0 auto;
+            font-size: larger;
+            color: royalblue;
+        }
+
+        .banner {
+            height: 600px;
+            margin-top: 100px;
+            background-color: antiquewhite;
+        }
+
+        .recommend {
+            height: 250px;
+            margin-top: 50px;
+            background-color: bisque;
+        }
+
+        .floor>div {
+            height: 500px;
+            background-color: pink;
+            margin: 30px auto;
+        }
+
+        .fixbox {
+            position: fixed;
+            top: 600px;
+            left: 20px;
+            display: none;
+        }
+
+        .fixbox ul {
+            display: flex;
+            flex-flow: column nowrap;
+            /* justify-content: space-between; */
+            width: 100px;
+            height: 200px;
+            background-color: white;
+        }
+
+        .fixbox ul li {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            flex: 1;
+            border: 1px solid black;
+        }
+
+        .current {
+            background-color: #c81623;
+            color: whitesmoke;
+            /* border : 1px solid whitesmoke; */
+        }
+
+        .footer {
+            width: 100%;
+            height: 300px;
+            line-height: 300px;
+            background-color: #666;
+            text-align: center;
+            margin-top: 200px;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            var recom_Top = $('.recommend').offset().top;
+            var bannerTop = $('.banner').offset().top;
+            // 添加节流阀
+            var flag = true;
+            // console.log(recom_Top);
+            function seeFixbox() {
+                if ($(document).scrollTop() >= bannerTop) {
+                    $('.fixbox').fadeIn();
+                } else {
+                    $('.fixbox').fadeOut();
+                }
+            }
+            function changeLisBGC() {
+                // if ($(document).scrollTop() >= recom_Top) {
+                //     $('.fixbox li').eq(0).addClass('current').siblings('li').removeClass('current');
+                // } else {
+                //     $('.fixbox li').eq(0).removeClass('current');
+                // }
+                // if ($(document).scrollTop() >= $('.dianqi').offset().top) {
+                //     $('.fixbox li').eq(1).addClass('current').siblings('li').removeClass('current');
+                // } else {
+                //     $('.fixbox li').eq(1).removeClass('current');
+                // }
+                // if ($(document).scrollTop() >= $('.shouji').offset().top) {
+                //     $('.fixbox li').eq(2).addClass('current').siblings('li').removeClass('current');
+                // } else {
+                //     $('.fixbox li').eq(2).removeClass('current');
+                // }
+                // if ($(document).scrollTop() >= $('.diannao').offset().top) {
+                //     $('.fixbox li').eq(3).addClass('current').siblings('li').removeClass('current');
+                // } else {
+                //     $('.fixbox li').eq(3).removeClass('current');
+                // }
+                $('.floor .w').each(function (i, ele) {
+                    if ($(document).scrollTop() >= $(ele).offset().top) {
+                        $('.fixbox li').eq(i).addClass('current').siblings('li').removeClass('current');
+                    } else {
+                        $('.fixbox li').eq(i).removeClass('current');
+                    }
+                });
+            }
+            seeFixbox();
+            $(window).scroll(function () {
+                seeFixbox();
+                // console.log($(window).height());
+                // var ViewHeight = $(window).height();
+                // console.log($(document).height());
+                // console.log($(document.body).height());
+                // var DOCHeight = $(document).height();
+                // var DOCBodyHeight = $(document.body).height();
+                if (flag) {
+                    changeLisBGC();
+                }
+            });
+            $('.fixbox li').click(function () {
+                // 点击事件触发即关闭节流阀，阻止滚动时改变背景色
+                flag = false;
+                // console.log($(this).index());
+                var chose = $(this).index();
+                if (chose == 4) {
+                    $(this).addClass('current').siblings('li').removeClass('current');
+                    $('body, html').animate({
+                        scrollTop: 0
+                    }, function () {
+                        // 动画结束，利用动画的回调函数重新打开节流阀
+                        flag = true;
+                        $('.fixbox li').eq(4).removeClass('current');
+                    });
+                } else {
+                    $('html,body').animate({
+                        scrollTop: $('.floor .w').eq(chose).offset().top
+                    }, function () {
+                        // 动画结束，利用动画的回调函数重新打开节流阀
+                        flag = true;
+                    });
+                    $(this).addClass('current').siblings('li').removeClass('current');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="banner w">banner位</div>
+    <div class="recommend w">今日推荐</div>
+    <div class="floor">
+        <div class="dianqi w">家用电器</div>
+        <div class="shouji w">手机通讯</div>
+        <div class="diannao w">电脑办公</div>
+        <div class="jiaju w">精品家具</div>
+    </div>
+    <div class="fixbox">
+        <ul>
+            <li>家用电器</li>
+            <li>手机通讯</li>
+            <li>电脑办公</li>
+            <li>精品家具</li>
+            <li>↑返回顶部</li>
+        </ul>
+    </div>
+    <div class="footer">footer</div>
+</body>
+
+</html>

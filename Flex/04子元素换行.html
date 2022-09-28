@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* flex-warp         设置子元素是否换行 */
+        div {
+            display: flex;
+            width: 1200px;
+            height: 800px;
+            background-color: pink;
+            /* 默认不换行  强制改变子元素样式放入一行 */
+            /* flex-wrap: nowrap; */
+
+            /* 设置换行 */
+            /* flex-wrap: wrap; */
+
+            /* 翻转排列，行间顺序翻转，行内顺序不变 */
+            flex-wrap: wrap-reverse;
+        }
+
+        div span {
+            width: 350px;
+            height: 200px;
+            margin-right: 10px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+    </div>
+</body>
+</html>

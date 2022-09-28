@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询商品</title>
+    <link rel="stylesheet" href="findGoods_style.css">
+</head>
+
+<body>
+    <div class="findGoods">
+        <div class="searchBox">
+            <span>按照价格：</span>
+            <input type="text" class="min">
+            <span>-</span>
+            <input type="text" class="max">
+            <button class="byPrice">搜索</button>
+            <span>按照商品名称：</span>
+            <input type="text" class="gName">
+            <button class="byName">查询</button>
+            <button class="reset">Reset</button>
+        </div>
+        <table class="goodsList" border="" cellSpacing="0">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>商品名</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script src="findGoods_script.js"></script>
+</body>
+
+</html>

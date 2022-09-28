@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 迭代（遍历）方法：forEach()  map()  filter()  some()  every()
+
+
+        // array.forEach(function(currentValue, index, arr){})  当前项的值  当前项的索引  数组对象本身
+        let arr = [1, 2, 3];
+        let sum = 0;
+        arr.forEach(function (cValue, index, array) {
+            console.log("当前元素：" + cValue);
+            console.log("当前索引号：" + index);
+            console.log("当前数组：" + array);
+            sum += cValue;
+        });
+        console.log(sum);
+
+
+        // array.filter(function(currentValue, index, arr){})  当前项的值  当前项的索引  数组对象本身
+        // 直接返回一个新数组
+        // 新数组的元素是指定数组中符合条件的所有元素，主要用于筛选数组
+        arr = [1, 7, 9, 114514];
+        // 返回的数组需要变量来接受
+        let newArr = arr.filter(function (cVAlue, index) {
+            return cVAlue % 2 === 0;// 返回偶数
+        });
+        console.log(newArr);
+
+
+        // array.some(function(currentValue, index, arr){})  当前项的值  当前项的索引  数组对象本身
+        // 返回布尔值，有符合条件的元素就返回true，没有返回false，查到即停止
+        let flag = arr.some(function (cValue) {
+            return cValue > 10;
+        });
+        console.log(flag);
+    </script>
+</body>
+
+</html>

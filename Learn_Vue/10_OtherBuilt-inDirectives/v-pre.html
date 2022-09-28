@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>directive v-once</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- v-pre使模板跳过其所在节点的编译过程，提升效率 -->
+        <h1 v-pre>这句代码无需使用vue</h1>
+        <h1 v-pre>当前的值是：{{n}}</h1>
+        <button @click="n++">点我加一</button>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                n: 666
+            },
+        })
+    </script>
+</body>
+</html>

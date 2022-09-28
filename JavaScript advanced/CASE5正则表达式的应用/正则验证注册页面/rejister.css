@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    outline: none;
+}
+
+body {
+    /* background-color: skyblue; */
+    background: url(img/RaidenShogunAndYaeMiko.png) no-repeat;
+}
+
+.rej_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 800px;
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 20px;
+    backdrop-filter: blur(1px);
+}
+
+h1 {
+    text-align: center;
+    margin: 70px 0;
+}
+
+.title {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+.uname_box,
+.psw_box,
+.tel_box,
+.agree_box,
+.rej_btn,
+.varicode_box {
+    margin: 0px 0 50px;
+}
+
+.uname,
+.psw,
+.tel,
+.vericode {
+    width: 350px;
+    height: 40px;
+}
+
+button {
+    margin-left: 10px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.test {
+    display: block;
+    margin-left: 105px;
+    font-size: 16px;
+}
+
+.agree_box {
+    margin-left: 80px;
+}
+
+.agree_box a {
+    color: #4586F3;
+}
+
+.agree_box a:hover {
+    text-decoration: underline;
+}
+
+.rej_btn {
+    width: 200px;
+    margin-left: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    background-color: #EB4334;
+    cursor: pointer;
+}
+
+.right {
+    color: green;
+}
+
+.wrong {
+    color: red;
+    font-weight: 700;
+}

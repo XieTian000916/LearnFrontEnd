@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // onload 窗口加载事件
+        // window.onload是窗口加载事件，当文档内容完全加载完成会触发该事件（包括图像、脚本文件、CSS等），就调用处理函数
+        // window.onload=functionn(){}   ||   window.daaEventListener("load",function(){});
+
+
+        window.addEventListener("load", function(){
+            var btn =document.querySelector('button');
+            btn.addEventListener("click", function(){
+                alert('been clicked');
+            });
+        });
+
+
+        // 当页面元素较多，加载事件较长，load会影响用户体验
+        // 使用DOMComtentLoaded执行更快（无需等待图片、flash、css加载完毕）
+        window.addEventListener("load", function () {
+                alert('11');
+            });
+        document.addEventListener("DOMContentLoaded", function(){
+            alert('22');
+        });
+        // 22 先弹出，后弹出11，DOMContentLoaded执行更快
+    </script>
+    <!-- js语句在元素上方也能正常执行 -->
+    <button>click</button>
+</body>
+</html>

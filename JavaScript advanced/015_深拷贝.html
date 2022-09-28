@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 深拷贝每一级别的数据都会拷贝
+        let exp = {
+            id: 1,
+            name: "sky",
+            msg: {
+                age: 22,
+                height: 173,
+                weight: 120
+            },
+            skills: ["Html5", "CSS3", "JavaScript", "Python"]
+        };
+        let o = {};
+        // 封装函数遍历每一层级进行深拷贝（递归方法）
+        function deepCopy(newObj, oldObj) {
+            for (k in oldObj) {
+                let item = oldObj[k];
+                if (item instanceof Array) {
+                    // 数组也属于对象，数组判断在对象判断之前进行
+                    newObj[k] = [];
+                    deepCopy(newObj[k], item);
+                } else if (item instanceof Object) {
+                    newObj[k] = {};
+                    deepCopy(newObj[k], item);
+                } else {
+                    // 以上都不是则为普通数据类型
+                    newObj[k] = item;
+                }
+            }
+        }
+        deepCopy(o, exp)
+        console.log(o);
+        o.msg.age = 18;
+        console.log(exp);
+    </script>
+</body>
+
+</html>

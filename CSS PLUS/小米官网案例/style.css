@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    height: 40px;
+    background-color: #333;
+}
+
+.nav .innav {
+    width: 1226px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: transparent;
+}
+
+.nav .innav a {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    color: #b0b0b0;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.nav .innav span {
+    height: 40px;
+    line-height: 40px;
+    margin: 0 3.6px;
+    color: #424242;
+    font-size: 12px;
+}
+
+.nav .innav .navl {
+    float: left;
+}
+
+.nav .innav .navr {
+    float: right;
+}
+
+.nav .innav .shoppingcart {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+}
+
+.sitehead {
+    height: 100px;
+    width: 1226px;
+    /* line-height: 100px; */
+    margin: 0 auto;
+}
+
+
+
+.sitehead .logo {
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    background: url(imgs/logo.png) no-repeat;
+    background-size: contain;
+}
+
+
+.sitehead .categorybar {
+    display: inline-block;
+    /* height: 100px; */
+    margin-left: 152px;
+}
+
+.sitehead .categorybar a {
+    display: inline-block;
+    padding: 0 10px;
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.sitehead .search {
+    /* display: inline-block; */
+    height: 100px;
+    line-height: 100px;
+    float: right;
+    border-collapse: collapses;
+}
+
+.sitehead .search .searchbox {
+    width: 223px;
+    height: 48px;
+    float: left;
+    margin: 26px 0;
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.sitehead .search .searchbutton {
+    width: 52px;
+    height: 50px;
+    margin: 0;
+    padding: 1px 6px;
+    border: 1px solid #e0e0e0;
+    border-left: 0px;
+    background-color: white;
+}
+
+.category {
+    width: 1226px;
+    height: 460px;
+    margin: 100px auto 14px;
+    background: url(imgs/banner1.jpg) no-repeat;
+    background-size: contain;
+    /* background-color: pink; */
+}
+
+.category ul {
+    float: left;
+    width: 234px;
+    height: 420px;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, .3);
+    /* background-color: palevioletred; */
+}
+
+.category ul a {
+    display: block;
+    width: 204px;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+}
+
+.category ul a:hover {
+    background-color: #ff6700;
+}
+
+.banner {
+    width: 1226px;
+    height: 170px;
+    margin: 0 auto;
+}
+
+.banner ul {
+    /* display: inline-block; */
+    float: left;
+    margin-right: 14.6px;
+    width: 234px;
+    height: 170px;
+    background-color: #5f5750;
+}
+
+.banner ul a {
+    display: inline-block;
+    width: 57.5px;
+    height: 85px;
+    margin: 0 8px;
+    line-height: 85px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #cfccca;
+}
+
+.banner ul a:hover {
+    color: white;
+}
+
+.banner div {
+    margin-right: 14.6px;
+}
+
+.banner .ad1 {
+    /* display: inline-block; */
+    float: left;
+    width: 316px;
+    height: 170px;
+    background: url(imgs/banner2.jpg);
+    background-size: contain;
+}
+
+.banner .ad2 {
+    display: inline-block;
+    /* float: left; */
+    width: 316px;
+    height: 170px;
+    background: url(imgs/banner3.jpg);
+    background-size: contain;
+}
+
+.banner .ad3 {
+    /* display: inline-block; */
+    float: left;
+    margin: 0;
+    width: 316px;
+    height: 170px;
+    background: url(imgs/banner4.jpg);
+    background-size: contain;
+}
+
+.banner2 {
+    width: 1226px;
+    height: 120px;
+    margin: 52px auto;
+    background: url(imgs/banner5.jpg);
+    background-size: contain;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 方括号   字符集合   匹配其中的任意字符即可
+        let reg = /^[abc]$/;
+        console.log(reg.test('a'));
+        console.log(reg.test('b'));
+        console.log(reg.test('c'));
+
+        console.log("-----------");
+
+        // 大括号   量词符     表示字符可重复的次数
+        reg = /^abc{3}$/;   // 就近匹配，只让c重复3次
+        console.log(reg.test('abcabcabc'));
+        console.log(reg.test('abccc'));
+
+        console.log("-----------");
+
+        // 小括号   表示优先级
+        reg = /^(abc){3}$/;
+        console.log(reg.test('abcabcabc'));
+        console.log(reg.test('abccc'));
+
+
+        // 正则验证工具 https://c.runoob.com/
+    </script>
+</body>
+
+</html>

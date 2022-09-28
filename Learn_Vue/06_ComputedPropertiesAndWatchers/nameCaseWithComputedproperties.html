@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>name case - computedproperties</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Learn Vue.js</h1>
+        firstName: <input type="text" v-model="first_n"><br>
+        lastName: <input type="text" v-model="last_n"><br>
+        fullName: <span>{{fullName}}</span>
+    </div>
+
+    <script>
+
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                first_n: "",
+                last_n: "",
+            },
+            computed: {
+                /* fullName: {
+                    // 只要fullName被读取，get就会被调用，且返回值就作为fullName的值
+                    get() {
+                        // Vue已经帮我们把this指向了Vue实例
+                        // 计算属性具有缓存，调用一次多次使用
+                        // get被调用的时机：1、初次读取时   2、所依赖的数据改变时
+                        return this.first_n + this.last_n;
+                    },
+                    // 可写可不写
+                    // 确定此属性只被读取不被修改可以省略（通常不修改）
+                    // set在计算属性被修改时调用
+                    // set(){
+
+                    // }
+                } */
+
+                // 简写
+                fullName() {
+                    return this.first_n + this.last_n;
+                }
+                /* 
+                !只有在只读取不修改的情况下才能采用简写形式
+                ！！简写为函数，该函数直接作为get（）被调用
+                */
+            }
+        })
+    </script>
+</body>
+
+</html>

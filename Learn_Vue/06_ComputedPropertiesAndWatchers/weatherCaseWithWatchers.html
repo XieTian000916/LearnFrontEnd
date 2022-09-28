@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather case with watchers</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Learn Vue.js</h1>
+        <h3>Today is {{info}}</h3>
+        <button @click="change()">click to change weather</button>
+        <hr>
+        <h3>deep watch</h3>
+        <div>a的值是:{{num.a}}</div>
+        <button @click="num.a++">点此a+1</button>
+        <div>b的值是:{{num.b}}</div>
+        <button @click="num.b++">点此b+1</button>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                isHot: true,
+                num: {
+                    a: 1,
+                    b: 2
+                }
+            },
+            methods: {
+                change() {
+                    this.isHot = !this.isHot;
+                }
+            },
+            computed: {
+                info() {
+                    return this.isHot ? "hot" : "cold";
+                }
+            },
+            // 使用监视的一种方式
+            /* watch: {
+                // 被监视数据的名称
+                isHot: {
+                    // 被监视数据发生改变时会调用handler
+                    handler(newValue, oldValue) {
+                        console.log(newValue, oldValue);
+                    },
+                    immediate: true // 初始化时让handler调用一下
+                }
+
+                // 当监视对象只需配置handler时可以进行简写
+                isHot(newValue, oldValue){
+                    console.log(newValue, oldValue);
+                }
+            } */
+        });
+
+        // 使用监视的第二种方式
+        // Vue实例.$watch("被监视对象"，{配置对象})
+        /* vm.$watch("isHot", {
+            // 被监视数据发生改变时会调用handler
+            handler(newValue, oldValue) {
+                console.log(newValue, oldValue);
+            },
+            // immediate: true // 初始化时让handler调用一下
+        }); */
+
+        // 简写
+        vm.$watch("isHot", function (newValue, oldValue) {
+            console.log(newValue, oldValue);
+        })
+
+        // 深度监视
+        vm.$watch("num", {
+            // 被监视数据发生改变时会调用handler
+            handler() {
+                console.log("num changed");
+            },
+            // immediate: true, // 初始化时让handler调用一下
+            deep: true, // 开启深度监视,监视多级结构中某个属性的变化
+        });
+    </script>
+</body>
+
+</html>

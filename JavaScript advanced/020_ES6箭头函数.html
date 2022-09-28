@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6中新增的定义函数的方式
+        // () => {}   简化函数定义方式
+
+        // example
+        const fn = () => {
+            console.log("这是一个箭头函数");
+        }
+        fn();
+
+        // 函数体中只有一句代码且代码执行结果就是返回值，可以省略大括号
+        // 传统定义方法
+        function sum(num1, num2) {
+            // return num1 + num2;
+            console.log(num1 + num2);
+        }
+        // console.log(sum(1, 2));
+        sum(1, 2)
+        // 使用箭头函数
+        const plus = (num1, num2) => console.log(num1 * num2);
+        // console.log(plus(7, 7));
+        plus(7, 7);
+
+        // 当形参只有一个时，小括号亦可以省略
+        const print = p => console.log(p);
+        print("p");
+
+
+        //箭头函数不绑定this，箭头函数中的this指向的是 函数定义位置的上下文this
+        const obj = { name: "kim" }
+        function test() {
+            // console.log(this);
+            return () => {
+                console.log(this);
+            }
+        }
+        const resTest = test.call(obj);
+        resTest();
+
+
+        // an example
+        var duixiang1 = {
+            age: 18,
+            log: () => {
+                console.log(this);
+            }
+        }
+        duixiang1.log();
+
+        let duixiang2 = {
+            age: 18,
+            log: () => {
+                console.log(this);
+            }
+        }
+        duixiang2.log();
+    </script>
+</body>
+
+</html>

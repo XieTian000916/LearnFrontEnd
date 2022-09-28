@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data agent in vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 通过Object.defineProperty()把对象中所有属性添加到vm上
+         为每一个添加到vm上的属性都指定一个getter和setter
+         再getter和setter内部去操作data中对应的值
+    -->
+    <div id="demo">
+        <h1>Hello,{{txt}}</h1>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#demo',
+            data: {
+                txt: "Vue.js"
+            }
+        })
+    </script>
+</body>
+
+</html>

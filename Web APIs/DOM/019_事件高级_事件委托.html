@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>点我弹窗</li>
+        <li>点我弹窗</li>
+        <li>点我弹窗</li>
+        <li>点我弹窗</li>
+        <li>点我弹窗</li>
+        <li>点我弹窗</li>
+    </ul>
+    <script>
+        // 事件委托：每个子节点不单独设置事件监听器，而是设置在父节点上，利用冒泡原理影响每个子节点
+        // 只操作一次dom，提高程序性能
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            // e.target可以获取当前点击元素
+            e.target.style.backgroundColor = 'pink';
+            alert('这是一个弹窗');
+        })
+    </script>
+</body>
+
+</html>

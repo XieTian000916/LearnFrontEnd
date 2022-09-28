@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 实现动画必须加定位 */
+            position: absolute;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            background-color: pink;
+            text-align: center;
+        }
+
+        span {
+            /* 实现动画必须加定位 */
+            position: absolute;
+            left: 0;
+            top: 250px;
+            display: block;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            margin: 0 0 20px 0;
+            background-color: plum;
+            text-align: center;
+        }
+
+        .start {
+            position: absolute;
+            top: 220px;
+        }
+
+        .back {
+            position: absolute;
+            top: 220px;
+            left: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>animeTEST</div>
+    <button class="start">start</button>
+    <button class="back">back</button>
+    <span>animeTEST</span>
+    <script>
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var btnStart = document.querySelector('.start');
+        var btnBack = document.querySelector('.back');
+        // obj-进行动画的目标元素
+        // target-移动的目标距离
+        function animation(obj, target, callback) {
+            // 启动前清除以前的定时器
+            clearInterval(obj.timer);
+            // 更改step参数实现动画匀速、缓动等效果
+            var step = (target - obj.offsetLeft) / 100
+            // 三元表达式判断正负后取整（永远往大了取）
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            // obj.timer给每个元素单独的计时器
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                } else {
+                    // 更改step参数实现动画匀速、缓动等效果
+                    obj.style.left = obj.offsetLeft + step + 'px';
+                }
+            }, 10);
+        }
+        // animation(div, 200);
+        // animation(span,400);
+        btnStart.addEventListener('click', function () {
+            animation(span, 800, function () {
+                alert('动画已完成');// 函数也可以作为参数传入
+            });
+        });
+        btnBack.addEventListener('click', function () {
+            animation(span, 0, function () {
+                alert('动画已完成');
+            });
+        });
+    </script>
+</body>
+
+</html>

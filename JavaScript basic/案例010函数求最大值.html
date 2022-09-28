@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 求两个值中的最大值
+        function getMax(num1, num2) {
+            return num1 > num2 ? num1 : num2;
+        }
+        console.log(getMax(3, 100));
+        console.log(getMax(3, 666));
+
+        // 求数组中的最大值
+        var arr = [7, 3, 4, 2, 1, 5, 8, 6, 9];
+        function getMAx_in_array(funcArr) {
+            var maxNum = funcArr[0];
+            for (i = 1; i <= funcArr.length - 1; i++) {
+                if (funcArr[i] > maxNum) {
+                    maxNum = funcArr[i];
+                }
+            }
+            return maxNum;
+        }
+        console.log(getMAx_in_array(arr));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

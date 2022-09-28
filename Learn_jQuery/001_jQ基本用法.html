@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			// 等待页面加载完毕再执行JavaScript代码
+			// $(function(){
+			//     // 隐藏div
+			//     $('div').hide();
+			// })
+
+			// jQuery对象和原生JavaScript的DOM对象的转换
+			// var myDIV = document.querySelector("div");
+			// $("div");
+			// console.dir(myDIV);
+			// console.dir($("div")); // jQuery对象以伪数组形式存储
+
+			// DOM对象转jQuery对象
+			// $("div"); // 未获取的直接用$取得位jQuery对象
+			// $(myDIV); // 已获取的直接用$包装成jQuery对象
+			// $(myDIV).hide();
+
+			//jQuery对象转DOM
+			// 以数组的index值调用jQuery伪数组中的元素即可完成转换
+			// $("div")[0].style.display = "none";
+		</script>
+	</body>
+</html>

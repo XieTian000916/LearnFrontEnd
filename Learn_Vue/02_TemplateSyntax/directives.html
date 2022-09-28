@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备好容器 -->
+    <div id="root">
+        <h1>指令语法</h1>
+        <h3>my Github Repositories : {{url}}</h3>
+        <a v-bind:href="url" target="_blank">my Github Repositories</a><br>
+        <!-- "v-bind: 可以被简写成  ":" -->
+        <a :href="url" target="_blank">my Github Repositories</a>
+        <hr> <!-- 分隔线 -->
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                url: "https://github.com/LyingRhino/LearnFrontEndDevelopment"
+            }
+        })
+    </script>
+</body>
+
+</html>

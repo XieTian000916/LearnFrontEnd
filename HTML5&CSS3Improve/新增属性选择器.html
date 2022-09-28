@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 必须是input标签同时带有value属性 */
+        input[value] {
+            color: #c3c3c3;
+        }
+
+        input[type="text"] {
+            color: pink;
+        }
+
+        /* 选出以icon开头的div标签 */
+        div[class^=icon] {
+            color: red;
+        }
+
+        /* 选出以3结尾的section标签 */
+        /* 注意不要以纯数字结尾 */
+        section[class$=three3] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1、用属性选择器就可以不用类或id选择器 -->
+    <!-- 2、属性选择器还可以选出属性=特定值的某些元素(重点) -->
+    <input type="text" name="" id="" value="type here">
+    <input type="password" name="" id="">
+    <!-- 3、选出以某些属性值开头的元素 -->
+    <div class="icon1">1</div>
+    <div class="icon2">2</div>
+    <div class="icon3">3</div>
+    <div class="icon4">4</div>
+    <div>5</div>
+    <!-- 4、选出以某些属性值结尾的元素 -->
+    <section class="icon-one1">one</section>
+    <section class="icon-teo2">two</section>
+    <section class="icon-three3">three</section>
+</body>
+
+</html>

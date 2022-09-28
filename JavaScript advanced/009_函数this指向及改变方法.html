@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //          调用方式                        this指向
+        //     普通函数调用（window.fn()）           window
+        //     构造函数调用                         实例对象，原型对象里的方法也指向原型对象
+        //     对象方法调用                         指向该方法所属的对象
+        //     事件绑定方法                         绑定该事件的对象
+        //     定时器函数                           window
+        //     立即执行函数                         window
+
+        // 函数内改变this指向    call()    apply()    bind()
+
+        // call() 主要作用：实现继承
+        function Father(x, y, z) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+        function Son(x, y, z) {
+            Father.call(this, x, y, z);
+        }
+
+        // apply(thisArg, [argsArray])  apply()中传递的值必须包含在数组中   主要作用：操作数组
+        let arr = [1, 10, 9, 114514];
+        let mathMax = Math.max.apply(Math, arr);
+        let mathMin = Math.min.apply(Math, arr);
+        console.log(mathMax);
+        console.log(mathMin);
+
+        // bind() 能改变this指向，不能调用函数
+        // 返回值是原函数改变this指向后的新函数
+        var tryBind = {
+            data: 666
+        }
+        function fn(x, y) {
+            console.log(this);
+            console.log(x + y);
+        }
+        var f = fn.bind(tryBind, 1, 2);
+        f();
+    </script>
+</body>
+
+</html>

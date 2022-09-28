@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num; //只声明，未赋值，不确定属于哪种数据类型
+        num = 10; //数字型
+        // js的变量数据类型只在程序运行中，根据等号右边的值来确定
+        num = 'nowstr' //现在是字符串型
+        num = 10 //现在又变回数字型
+        // js是动态语言 变量的数据类型是可以变化的
+
+        // 数字前加0表示八进制
+        // 数字前加0x表示十六进制
+        // 控制台自动转换十进制
+        var num8 = 011
+        var num16 = 0xa
+        console.log(num8);
+        console.log(num16);
+        // 数字型的最大值
+        console.log(Number.MAX_VALUE);
+        // 数字型的最小值
+        console.log(Number.MIN_VALUE);
+        // 无穷大
+        console.log(Number.MAX_VALUE * 2);
+        // 无穷小
+        console.log(-Number.MAX_VALUE * 2);
+        // 非数字输出
+        console.log('number' - 100); //输出为NaN
+        // 判断非数字
+        // isNaN()
+        // 是数字返回false
+        // 非数字返回true
+        console.log(isNaN('number'));
+        console.log(isNaN(800000));
+
+
+        // 字符串型
+        var strMsg = "I'm 'batman'!" //用外单内双或外双内单实现字符串嵌套
+        console.log(strMsg);
+        // 字符串转义符 必须写在字符串引号中生效
+        // \n  换行 n = newline
+        // \\  斜杠 \
+        // \'  单引号
+        // \"  双引号
+        // \t  tab缩进
+        // \b  空格 b = blank
+
+        // length属性获取字符串长度
+        console.log(strMsg.length);
+        // 字符串拼接  ‘+’
+        // 字符串+任意数据类型，结果强制转换为字符串
+        console.log(12 + 12);
+        console.log('12' + 12);
+        console.log(strMsg + 666);
+
+
+        // 布尔型
+        var buer1 = true;
+        var buer2 = false;
+        console.log(buer1 + 1);//true  在运算中当作1使用
+        console.log(buer2 + 1);//false 在运算中当作0使用
+
+
+        // 未定义数值类型
+        var weiding;
+        console.log(weiding);
+        console.log(weiding + 1);//undefind+数字 最后结果为NaN
+        console.log(weiding + buer1);//布尔真值运算中视为数字 最后结果为NaN
+
+
+        // null 空值
+        var kong = null;
+        console.log(kong + 1);//空值加上数值视为0与数值相加
+
+
+        // 获取变量数据类型
+        // typeof
+        console.log(typeof num);     //输出number
+        console.log(typeof strMsg);  //输出string
+        console.log(typeof buer1);   //输出boolean
+        console.log(typeof weiding); //输出undefined
+        console.log(typeof kong);    //输出object   ！！！
+        //prompt 取来的变量值是！！！字符型！！！
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

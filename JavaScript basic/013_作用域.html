@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JavaScript作用域：代码名字（即变量）在某个范围内起作用和效果
+        // 目的是提高程序可靠性   ！！！减少命名冲突！！！
+
+        // es6之前版本  全局作用域/局部作用域
+        // 全局：整个script标签或是整个js文件
+        // 局部：函数内部就是局部作用域，变量名只在函数内部起作用和效果
+
+        // 关于执行效率
+        // 全局：浏览器关闭后才销毁，占用内存
+        // 局部：函数执行完后即销毁，不占内存
+
+
+        // 作用域链
+        var num = 10;
+        var chain = '这是作用域链的效果';
+        function func() {
+            var num = 20;
+            function inFunc() { // 内部函数可以访问外部函数的变量，层层向上查找，遵循就近原则
+                console.log(num);
+                console.log(chain);
+            }
+            inFunc();
+        }
+        func();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sigline{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* 1.强制一行内显示文本 */
+            white-space: nowrap;
+            /* 2.超出部分隐藏 */
+            overflow: hidden;
+            /* 3.文字用省略号代替溢出部分 */
+            text-overflow: ellipsis;
+        }
+        .multiline{
+            width: 200px;
+            height: 55px;
+            background-color: palegoldenrod;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* 以下代码存在兼容性问题 */
+            /* 仅支持webkit内核浏览器 */
+            /* 弹性伸缩盒子模型显示 */
+            display: -webkit-box;
+            /* 文本行数设置 */
+            -webkit-line-clamp: 2;
+            /* 设置或检索伸缩盒子对象的子元素的排列方式 */
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div class="sigline">
+        单行文本溢出省略
+    </div>
+    <div class="multiline">
+        多行文本溢出省略
+        多行文本溢出省略
+        多行文本溢出省略
+        多行文本溢出省略
+    </div>
+</body>
+</html>

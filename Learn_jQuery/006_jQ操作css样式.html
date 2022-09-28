@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+		.test {
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			background-color: pink;
+			text-align: center;
+		}
+
+		.try {
+			margin: 0 auto;
+			width: 300px;
+			height: 300px;
+			line-height: 300px;
+			background-color: plum;
+			text-align: center;
+			transition: all 1s;
+		}
+
+		.current {
+			color: white;
+			background-color: pink;
+			transform: rotate(360deg);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="test">TEST</div>
+	<div class="try">try</div>
+	<script src="jquery-3.6.0.min.js"></script>
+	<script>
+		// 参数只写属性名则返回属性值
+		console.log($(".test").css("width"));
+		// 单个样式修改
+		$(".test").css("lineHeight", "200px");
+		// 多个样式修改用对象的形式
+		$(".test").css({
+			width: 500,
+			height: 500,
+			// 中间用-相连的属性改为驼峰命名法
+			lineHeight: "500px",
+			color: "white",
+			fontSize: "30px",
+		});
+
+		// 设置类样式
+		// 添加类
+		// $(".try").addClass("current");
+		// 删除类
+		// $(".try").removeClass("current");
+		// 切换类（没有就加上，有就删除）
+		$(".try").click(function () {
+			$(".try").toggleClass("current");
+		});
+	</script>
+</body>
+
+</html>

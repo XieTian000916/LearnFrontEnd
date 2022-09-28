@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        分手了，最近没有怎么哭了，我现在慢慢变好了吧！
+        以前有多快乐，现在就有多难过。从人间烟火的日常，到红着眼睛告别，消失在彼此的世界里，很痛，也很难。
+        今天是肯德基疯狂星期四，v我50，抚慰我支离破碎的心。
+    </div>
+    <script>
+        var div=document.querySelector('div');
+        // 使用scroll相关属性可以动态地得到元素地大小、滚动距离等
+        // element.scrollTop     返回被卷去的上侧距离，返回数值不带单位
+        console.log(div.scrollTop);
+        // element.scrollLeft    返回被卷去的左侧距离，返回数值不带单位
+        console.log(div.scrollLeft);
+        // element.scrollWidth   返回自身实际宽度（内容宽度），不含边框，返回值不带单位
+        console.log(div.scrollWidth);
+        // element.scrollHeight  返回自身实际高度（内容高度），不含边框，返回值不带单位
+        console.log(div.scrollHeight);
+    </script>
+</body>
+</html>

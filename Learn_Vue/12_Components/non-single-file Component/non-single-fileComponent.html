@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>non-single-file component</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <learning></learning>
+        <!-- step3:使用组件标签写入页面结构 -->
+        <person></person>
+    </div>
+
+    <script>
+        // step1:创建组件
+        const person = Vue.extend({
+            // 使用template配置组件结构
+            template: `
+                <div>
+                    <h3>Name:{{name}}</h3>
+                    <h3>Age:{{age}}</h3>
+                </div>
+            `,
+            data() {
+                return {
+                    name: 'Yoona',
+                    age: 32,
+                }
+            },
+        });
+
+        const learn = Vue.extend({
+            // 使用template配置组件结构
+            template: `
+                <h1>Learn {{lang}}.js</h1>
+            `,
+            data() {
+                return {
+                    lang: 'Vue',
+                }
+            },
+        });
+
+        // 简写版本
+        // const 组件名 = {options}
+
+        // step2:注册组件（全局注册）
+        // Vue.component('组件名', 组件);
+        Vue.component('learning', learn);
+
+        new Vue({
+            el: '#root',
+            // step2:注册组件（局部注册）
+            components: {
+                person, // 应为person:person,同名可简写
+            }
+        });
+    </script>
+</body>
+
+</html>

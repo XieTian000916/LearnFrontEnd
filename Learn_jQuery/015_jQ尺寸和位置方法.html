@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+
+        .one {
+            width: 200px;
+            height: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 10px solid royalblue;
+            background-color: orange;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        .dad {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            /* top: 360px; */
+            left: 360px;
+            background-color: pink;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: palevioletred;
+        }
+
+        .forTop {
+            width: 1200px;
+            height: 800px;
+            margin: 500px auto;
+            background-color: skyblue;
+            cursor: pointer;
+        }
+
+        .back {
+            position: fixed;
+            top: 500px;
+            right: 50px;
+            width: 50px;
+            height: 100px;
+            background-color: bisque;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            // 尺寸操作
+            // 以下参数为空，返回相应值（数字型）
+            // 参数为数字，修改相应值（不必跟单位）
+
+            // width & height 获取匹配元素的高宽
+            console.log($('.one').width());
+            console.log($('.one').height());
+            $('.one').width(300);
+
+            // innerWidth & innerHeight 获取匹配元素的高宽，包含padding
+            console.log($('.one').innerWidth());
+
+            // outerWidth & outerHeight 获取匹配元素的高宽，包含padding、border
+            console.log($('.one').outerWidth());
+
+            // outerWidth（true） & outerHeight（true） 获取匹配元素的高宽，包含padding、border、margin
+            console.log($('.one').outerWidth(true));
+
+
+
+            // 位置操作
+
+            // 获取和修改相对于文档的位置(与父级是否有定位无关)
+            console.log($('.son').offset());// 获取到的是一个对象
+            console.log($('.son').offset().top);
+            console.log($('.son').offset().left);
+            // 修改（以对象的方式进行）
+            $('.son').offset({
+                top: 470,
+                left: 470
+            });
+
+
+            // 获取相对于有定位的父级的位置
+            console.log($('.son').position());
+            // !只能获取，无法修改
+
+
+            // scrollTop()获取被卷去的头部的值
+            var boxTop = $('.forTop').offset().top;
+            $(window).scroll(function () {
+                if ($(document).scrollTop() >= boxTop) {
+                    $('.back').fadeIn();
+                } else {
+                    $('.back').fadeOut();
+                }
+            });
+            $('.back').click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 2000);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="one">TEST</div>
+    <div class="dad">
+        <div class="son"></div>
+    </div>
+    <div class="forTop"></div>
+    <div class="back">back to top</div>
+</body>
+
+</html>

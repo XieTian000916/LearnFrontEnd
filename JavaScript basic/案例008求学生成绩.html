@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var numStu = parseFloat(prompt('有几个学生?'));
+        for (var i = 1, mark = 0, score = 0; i <= numStu; i++) {
+            mark = parseFloat(prompt('请输入第' + i + '个学生的成绩'));
+            score += mark;
+        }
+        var outPut = score / numStu;
+        alert('学生的平均成绩是' + outPut);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

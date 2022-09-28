@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="pinglun" cols="50" rows="10" style="resize: none;"></textarea>
+    <button>Submit</button>
+    <div class="comment"></div>
+    <script>
+        let text = document.querySelector("textarea");
+        let btn = document.querySelector("button");
+        let div = document.querySelector(".comment");
+        btn.addEventListener("click", function () {
+            // 正则参数：/表达式/[switch]
+            // 三种匹配模式：g全局匹配   i忽略大小写   gi全局匹配+忽略大小写
+            let chineseFilter = text.value.replace(/傻逼/g, "**");// 过滤一些中文
+            let outputText = chineseFilter.replace(/sb|av|uc/gi, "**");// 过滤一些英文
+            div.innerHTML = outputText;
+        });
+    </script>
+</body>
+
+</html>

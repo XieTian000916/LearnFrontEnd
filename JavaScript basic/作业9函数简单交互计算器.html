@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        while (true) {
+            var calWay = prompt('想要进行哪种运算？\n+、-、*、/、q（退出计算器）');
+            if (calWay != '+' && calWay != '-' && calWay != '*' && calWay != '/' && calWay != 'q') {
+                alert('不能进行这种运算捏>_<');
+                break;
+            } else if (calWay == 'q') {
+                alert('您正在退出');
+                break;
+            }
+            var num1 = parseFloat(prompt('请输入第一个数（注意运算顺序）'));
+            var num2 = parseFloat(prompt('请输入第二个数（注意运算顺序）'));
+            function doCal(funcNum1, funcNum2) {
+                var result;
+                switch (calWay) {
+                    case '+':
+                        result = funcNum1 + funcNum2;
+                        return result;
+                    case '-':
+                        result = funcNum1 - funcNum2;
+                        return result;
+                    case '*':
+                        result = funcNum1 * funcNum2;
+                        return result;
+                    case '/':
+                        result = funcNum1 / funcNum2;
+                        return result;
+                }
+            }
+            var re = doCal(num1, num2);
+            alert(re);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

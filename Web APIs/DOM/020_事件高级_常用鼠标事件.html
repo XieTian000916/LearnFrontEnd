@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+    </style>
+</head>
+
+<body>
+    这是一段文字
+    <script>
+        // 禁止右键菜单
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        // 禁止鼠标选中
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        });
+        // 获取鼠标在页面中的坐标
+        document.addEventListener('click', function (e) {
+            // 可视区的坐标  同一位置不随页面滚动改变参数
+            console.log(e.clientX);
+            console.log(e.clientY);
+            // 文档页面坐标  随页面滚动改变
+            console.log(e.pageX);
+            console.log(e.pageY);
+            // 电脑屏幕坐标  同一位置不改变参数
+            console.log(e.screenX);
+            console.log(e.screenY);
+        })
+    </script>
+</body>
+
+</html>

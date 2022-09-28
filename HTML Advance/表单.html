@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="xxx.php" method="get">
+        <!-- 文本框，输入文本 -->
+        user name:<input type="text" name="mingzi" value="type your name"> <br>
+        <!-- 密码框，输入密码，内容不可见 -->
+        password:<input type="password" name="mima"> <br>
+        <!-- 单选按钮，可实现多选 需给相同的name值-->
+        gender: Man<input type="radio" name="xingbie" value="man">
+                Woman<input type="radio" name="xingbie" value="woman">
+                Secreat<input type="radio" name="xingbie" value="secreat" checked="cheaked"> <br>
+        <!-- 复选框,可以实现多选 -->
+        hobby: eat<input type="checkbox" name="aihao" value="eat">
+               sleep<input type="checkbox" name="aihao" value="slep">
+               beatbean<input type="checkbox" name="aihao" value="beatbean"> <br>
+        <!-- 还原为初始状态 -->
+        <input type="reset" value="Reset">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- 提交信息 -->
+        <input type="submit" value="Register">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- 普通按钮,需后期开发 -->
+        <input type="button" value="a normal button"> <br>
+        <!-- 上传文件按钮 -->
+        uplode your file:<input type="file">
+    </form>
+</body>
+</html>

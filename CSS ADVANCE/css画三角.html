@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .triangle {
+            width: 0;
+            height: 0;
+            /* 照顾兼容性 */
+            line-height: 0;
+            font-size: 0;
+            border-top: 50px solid pink;
+            border-right: 50px solid palevioletred;
+            border-bottom: 50px solid plum;
+            border-left: 50px solid purple;
+        }
+
+        .toptri {
+            position: relative;
+            top: 100px;
+            width: 120px;
+            height: 200px;
+            line-height: 0;
+            font-size: 0;
+            background-color: skyblue;
+        }
+
+        .toptri span {
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+            top: -20px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid transparent;
+            border-bottom-color: skyblue;
+        }
+
+        .righttri {
+            position: relative;
+            /* top: 200px; */
+            left: 200px;
+            width: 200px;
+            height: 120px;
+            line-height: 0;
+            font-size: 0;
+            background-color: pink;
+        }
+
+        .righttri span {
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            margin-top: -10px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid transparent;
+            border-left-color: pink;
+        }
+
+        .lefttri {
+            position: relative;
+            left: 50px;
+            width: 200px;
+            height: 120px;
+            /* margin-top: 50px; */
+            line-height: 0;
+            font-size: 0;
+            background-color: palevioletred;
+        }
+
+        .lefttri span {
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+            left: -20px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid transparent;
+            border-right-color: palevioletred;
+        }
+
+        .bottomtri {
+            position: relative;
+            width: 120px;
+            height: 200px;
+            background-color: cadetblue;
+        }
+
+        .bottomtri span {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            border: 10px solid transparent;
+            border-top-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="triangle"></div>
+    <div class="toptri">
+        <span></span>
+    </div>
+    <div class="righttri">
+        <span></span>
+    </div>
+    <div class="lefttri">
+        <span></span>
+    </div>
+    <div class="bottomtri">
+        <span></span>
+    </div>
+</body>
+
+</html>

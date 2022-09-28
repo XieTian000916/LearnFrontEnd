@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let test = {
+            id : 1,
+            name : "jack",
+            age : 3
+        }
+        // 获取对象所有键值的方法，返回的是一个数组
+        // let str = Object.keys(test);
+        // console.log(str);
+
+        // Object.defineProperty(obj, prop, descriptor)  目标对象，需定义或修改的键值，目标属性的特性    不可省略参数
+        // 可选参数： writable是否可重写  enumerable是否可被枚举  configurable是否可删除或再次修改特性    默认属性皆为false
+        Object.defineProperty(test, "hight", {
+            // descriptor以对象形式写入
+            value: 175,
+            enumerable: false //无法被遍历
+        });
+        console.log(Object.keys(test));
+        Object.defineProperty(test, "id", {
+            value: 10,
+            writable:false, // 添加writable为false后不可被修改
+            configurable: false // 无法被删除
+        })
+        console.log(test);
+        test.id=11;
+        test.hight=170;
+        delete test.name;
+        delete test.id;
+        console.log(test);// 以defineProperty方法写入的键值默认不可被修改
+    </script>
+</body>
+</html>

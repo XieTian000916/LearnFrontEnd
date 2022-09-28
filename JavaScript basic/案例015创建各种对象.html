@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 创建一个电脑对象
+        var computer = {
+            color: 'silver',
+            weight: '1.2Kg',
+            brand: 'Huawei',
+            model: 'matbookX Pro'
+        }
+        // 创建一个按钮对象
+        var btn = new Object();
+        btn.width = '200px';
+        btn.height = '200px';
+        btn.backgroundcolor = 'pink';
+        btn.click = function () {
+            console.log('open a new tab');
+        }
+        // 创建一个车的对象
+        function Car(brand, color, weight, use) {
+            this.brand = brand;
+            this.color = color;
+            this.weight = weight;
+            this.use = use
+        }
+        var benz_C_class = new Car('benz', 'green', '2t', 'zaike');
+
+
+        console.log(computer);
+        console.log(btn);
+        console.log(benz_C_class);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

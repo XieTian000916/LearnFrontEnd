@@ -1,0 +1,1 @@
+alert('开始学JavaScript T-T')

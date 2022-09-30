@@ -13,7 +13,7 @@ export default {
   name: "UsageOfProps",
   data() {
     return {
-      title: "Student Data",
+      title: "Usage Of Props",
       //   如需修改传入的值请设置一个中转变量进行接收
       myAge: this.age,
     };

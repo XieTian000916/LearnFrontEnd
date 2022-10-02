@@ -2,9 +2,9 @@
   <div id="app">
     <div class="todo-container">
       <div class="todo-warp">
-        <todo-header :addTodo="addTodo"/>
-        <todo-main :todos="todos"/>
-        <todo-footer/>
+        <todo-header :addTodo="addTodo" />
+        <todo-main :todos="todos" :checkboxChange="checkboxChange" />
+        <todo-footer />
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
 import TodoHeader from "./components/TodoHeader.vue";
 import TodoMain from "./components/TodoMain.vue";
 import TodoFooter from "./components/TodoFooter.vue";
-import {nanoid} from 'nanoid'
+import { nanoid } from "nanoid";
 
 export default {
   name: "App",
@@ -25,13 +25,20 @@ export default {
   },
   data() {
     return {
-      todos:[{id:nanoid(),title:'欢迎使用TodoList',done:true}]
-    }
+      todos: [{ id: nanoid(), title: "欢迎使用TodoList", done: true }],
+    };
   },
   methods: {
-    addTodo(todoObj){
+    addTodo(todoObj) {
       this.todos.unshift(todoObj);
-    }
+    },
+    checkboxChange(id) {
+      this.todos.forEach((todo) => {
+        if (todo.id == id) {
+          todo.done = !todo.done;
+        }
+      });
+    },
   },
 };
 </script>

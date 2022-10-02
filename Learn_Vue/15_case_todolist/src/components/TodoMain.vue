@@ -1,18 +1,23 @@
 <template>
   <ul class="todo-main">
-    <todo-item v-for="todoObj in todos" v-bind:key="todoObj.id" :todo="todoObj"/>
+    <todo-item
+      v-for="todoObj in todos"
+      v-bind:key="todoObj.id"
+      :todo="todoObj"
+      :checkboxChange="checkboxChange"
+    />
   </ul>
 </template>
 
 <script>
-import TodoItem from './TodoItem.vue'
+import TodoItem from "./TodoItem.vue";
 
 export default {
   name: "TodoMain",
-  components:{
-    TodoItem
+  components: {
+    TodoItem,
   },
-  props:['todos']
+  props: ["todos", "checkboxChange"],
 };
 </script>
 

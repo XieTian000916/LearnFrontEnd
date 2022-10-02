@@ -1,8 +1,12 @@
 <template>
   <li>
     <label>
-      <input type="checkbox" :checked="todo.done"/>
-      <span>{{todo.title}}</span>
+      <input
+        type="checkbox"
+        :checked="todo.done"
+        @change="changeCheck(todo.id)"
+      />
+      <span>{{ todo.title }}</span>
     </label>
     <button class="btn btn-danger" style="display: none">删除</button>
   </li>
@@ -11,7 +15,12 @@
 <script>
 export default {
   name: "TodoItem",
-  props:['todo']
+  props: ["todo", "checkboxChange"],
+  methods: {
+    changeCheck(id) {
+      this.checkboxChange(id);
+    },
+  },
 };
 </script>
 

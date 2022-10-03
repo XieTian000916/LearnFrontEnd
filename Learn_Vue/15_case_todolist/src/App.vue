@@ -22,7 +22,7 @@
 import TodoHeader from "./components/TodoHeader.vue";
 import TodoMain from "./components/TodoMain.vue";
 import TodoFooter from "./components/TodoFooter.vue";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 
 export default {
   name: "App",
@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      todos: [{ id: nanoid(), title: "欢迎使用TodoList", done: true }],
+      todos: JSON.parse(localStorage.getItem("todos")) || [],
     };
   },
   methods: {
@@ -65,6 +65,14 @@ export default {
         // 过滤出done值为非真的，即未完成项
         return !todo.done;
       });
+    },
+  },
+  watch: {
+    todos: {
+      deep: true, // 开启深度监视以监测存储的对象的内部变化
+      handler(val) {
+        localStorage.setItem("todos", JSON.stringify(val));
+      },
     },
   },
 };

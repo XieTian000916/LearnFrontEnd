@@ -1,6 +1,6 @@
 <template>
   <div class="todo-footer" v-show="total">
-    // 无待办事项时将不显示footer中的统计功能和清除按钮
+    <!-- 无待办事项时将不显示footer中的统计功能和清除按钮 -->
     <label>
       <input type="checkbox" v-model="checkAll" />
     </label>

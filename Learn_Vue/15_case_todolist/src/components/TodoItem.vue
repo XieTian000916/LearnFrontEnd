@@ -8,17 +8,20 @@
       />
       <span>{{ todo.title }}</span>
     </label>
-    <button class="btn btn-danger" style="display: none">删除</button>
+    <button class="btn btn-danger" @click="deleteItem(todo.id)">删除</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "TodoItem",
-  props: ["todo", "checkboxChange"],
+  props: ["todo", "checkboxChange", "deleteTodo"],
   methods: {
     changeCheck(id) {
       this.checkboxChange(id);
+    },
+    deleteItem(id) {
+      this.deleteTodo(id);
     },
   },
 };
@@ -57,5 +60,13 @@ li::before {
 
 li:last-child {
   border-bottom: none;
+}
+
+li:hover {
+  background-color: #ddd;
+}
+
+li:hover button {
+  display: block;
 }
 </style>

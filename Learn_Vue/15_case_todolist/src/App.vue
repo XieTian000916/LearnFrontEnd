@@ -3,8 +3,16 @@
     <div class="todo-container">
       <div class="todo-warp">
         <todo-header :addTodo="addTodo" />
-        <todo-main :todos="todos" :checkboxChange="checkboxChange" />
-        <todo-footer />
+        <todo-main
+          :todos="todos"
+          :checkboxChange="checkboxChange"
+          :deleteTodo="deleteTodo"
+        />
+        <todo-footer
+          :todos="todos"
+          :checkAllTodo="checkAllTodo"
+          :clearAllTodo="clearAllTodo"
+        />
       </div>
     </div>
   </div>
@@ -29,14 +37,33 @@ export default {
     };
   },
   methods: {
+    // 添加待办
     addTodo(todoObj) {
       this.todos.unshift(todoObj);
     },
+    // 勾选或取消
     checkboxChange(id) {
       this.todos.forEach((todo) => {
         if (todo.id == id) {
           todo.done = !todo.done;
         }
+      });
+    },
+    // 删除按钮功能
+    deleteTodo(id) {
+      if (confirm("确认删除该事项？")) {
+        this.todos = this.todos.filter((todo) => todo.id !== id);
+      }
+    },
+    // 全选或全不选
+    checkAllTodo(val) {
+      this.todos.forEach((todo) => (todo.done = val));
+    },
+    // 清除已完成事项
+    clearAllTodo() {
+      this.todos = this.todos.filter((todo) => {
+        // 过滤出done值为非真的，即未完成项
+        return !todo.done;
       });
     },
   },

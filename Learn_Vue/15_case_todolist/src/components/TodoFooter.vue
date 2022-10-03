@@ -1,16 +1,50 @@
 <template>
-  <div class="todo-footer">
+  <div class="todo-footer" v-show="total">
+    // 无待办事项时将不显示footer中的统计功能和清除按钮
     <label>
-      <input type="checkbox" />
+      <input type="checkbox" v-model="checkAll" />
     </label>
-    <span> <span>已完成0</span> / 全部2 </span>
-    <button class="btn btn-danger">清除已完成</button>
+    <span>
+      <span>已完成{{ doneCount }}</span> / 全部{{ total }}
+    </span>
+    <button class="btn btn-danger" @click="clearAll">清除已完成</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "TodoFooter",
+  props: ["todos", "checkAllTodo", "clearAllTodo"],
+  computed: {
+    // 计算全部的待办数量
+    total() {
+      return this.todos.length;
+    },
+    doneCount() {
+      /* return this.todos.reduce((pre, current) => {
+        return pre + (current.done ? 1 : 0);
+      }, 0); */
+      // 使用reduce数组方法进行条件统计
+      return this.todos.reduce(
+        (pre, current) => pre + (current.done ? 1 : 0),
+        0
+      );
+    },
+    checkAll: {
+      get() {
+        return this.doneCount === this.total && this.total > 0;
+      },
+      set(val) {
+        this.checkAllTodo(val);
+      },
+    },
+  },
+  methods: {
+    // 清除全部待办
+    clearAll() {
+      this.clearAllTodo();
+    },
+  },
 };
 </script>
 

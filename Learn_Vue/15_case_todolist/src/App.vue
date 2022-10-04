@@ -62,6 +62,13 @@ export default {
         return !todo.done;
       });
     },
+    changeTitle(id, title) {
+      this.todos.forEach((todo) => {
+        if (todo.id == id) {
+          todo.title = title;
+        }
+      });
+    },
   },
   watch: {
     todos: {
@@ -74,9 +81,10 @@ export default {
   mounted() {
     this.$bus.$on("checkboxChange", this.checkboxChange);
     this.$bus.$on("deleteTodo", this.deleteTodo);
+    this.$bus.$on("changeTitle", this.changeTitle);
   },
   beforeDestroy() {
-    this.$bus.$off(["checkboxChange", "deleteTodo"]);
+    this.$bus.$off(["checkboxChange", "deleteTodo", "changeTitle"]);
   },
 };
 </script>
@@ -114,6 +122,17 @@ body {
 
 .btn:focus {
   outline: none;
+}
+
+.btn-edit {
+  color: #fff;
+  background-color: #55bff0;
+  border: 1px solid #199dd1;
+}
+
+.btn-edit:hover {
+  color: #fff;
+  background-color: #199dd1;
 }
 
 .todo-container {

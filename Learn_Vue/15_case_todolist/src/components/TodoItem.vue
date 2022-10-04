@@ -6,9 +6,23 @@
         :checked="todo.done"
         @change="changeCheck(todo.id)"
       />
-      <span>{{ todo.title }}</span>
+      <span v-show="!todo.isEdit">{{ todo.title }}</span>
+      <input
+        type="text"
+        v-show="todo.isEdit"
+        :value="todo.title"
+        @blur="handelBlur(todo, $event)"
+        ref="inputTitle"
+      />
     </label>
     <button class="btn btn-danger" @click="deleteItem(todo.id)">删除</button>
+    <button
+      class="btn btn-edit"
+      v-show="!todo.isEdit"
+      @click="handelEdit(todo)"
+    >
+      编辑
+    </button>
   </li>
 </template>
 
@@ -25,7 +39,23 @@ export default {
       // this.deleteTodo(id);
       this.$bus.$emit("deleteTodo", id);
     },
+    handelEdit(todo) {
+      if (todo.hasOwnProperty.call(todo, "isEdit")) {
+        todo.isEdit = true;
+      } else {
+        this.$set(todo, "isEdit", true);
+      }
+      this.$nextTick(function () {
+        this.$refs.inputTitle.focus();
+      });
+    },
+    handelBlur(todo, e) {
+      todo.isEdit = false;
+      if (!e.target.value.trim()) return alert("内容不能为空！");
+      this.$bus.$emit("changeTitle", todo.id, e.target.value);
+    },
   },
+  mounted() {},
 };
 </script>
 

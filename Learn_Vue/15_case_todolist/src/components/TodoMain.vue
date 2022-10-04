@@ -4,8 +4,6 @@
       v-for="todoObj in todos"
       v-bind:key="todoObj.id"
       :todo="todoObj"
-      :checkboxChange="checkboxChange"
-      :deleteTodo="deleteTodo"
     />
   </ul>
 </template>
@@ -18,7 +16,7 @@ export default {
   components: {
     TodoItem,
   },
-  props: ["todos", "checkboxChange", "deleteTodo"],
+  props: ["todos" /*  "checkboxChange", "deleteTodo" */],
 };
 </script>
 

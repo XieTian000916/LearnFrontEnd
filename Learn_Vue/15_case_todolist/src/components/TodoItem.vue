@@ -15,13 +15,15 @@
 <script>
 export default {
   name: "TodoItem",
-  props: ["todo", "checkboxChange", "deleteTodo"],
+  props: ["todo" /* "checkboxChange", "deleteTodo" */],
   methods: {
     changeCheck(id) {
-      this.checkboxChange(id);
+      // this.checkboxChange(id);
+      this.$bus.$emit("checkboxChange", id);
     },
     deleteItem(id) {
-      this.deleteTodo(id);
+      // this.deleteTodo(id);
+      this.$bus.$emit("deleteTodo", id);
     },
   },
 };

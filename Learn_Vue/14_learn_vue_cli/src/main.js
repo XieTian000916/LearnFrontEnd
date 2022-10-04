@@ -14,5 +14,10 @@ Vue.mixin(hunru);
 Vue.use(usageOfPlugins);
 
 new Vue({
+  el: "#app",
   render: (h) => h(App),
-}).$mount("#app");
+  beforeCreate() {
+    // 借助生命周期钩子安装全局事件总线
+    Vue.prototype.$bus = this;
+  },
+});

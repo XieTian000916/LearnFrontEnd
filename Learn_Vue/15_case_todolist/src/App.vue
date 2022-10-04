@@ -2,16 +2,12 @@
   <div id="app">
     <div class="todo-container">
       <div class="todo-warp">
-        <todo-header :addTodo="addTodo" />
-        <todo-main
-          :todos="todos"
-          :checkboxChange="checkboxChange"
-          :deleteTodo="deleteTodo"
-        />
+        <todo-header @addTodo="addTodo" />
+        <todo-main :todos="todos" />
         <todo-footer
           :todos="todos"
-          :checkAllTodo="checkAllTodo"
-          :clearAllTodo="clearAllTodo"
+          @checkAllTodo="checkAllTodo"
+          @clearAllTodo="clearAllTodo"
         />
       </div>
     </div>
@@ -74,6 +70,13 @@ export default {
         localStorage.setItem("todos", JSON.stringify(val));
       },
     },
+  },
+  mounted() {
+    this.$bus.$on("checkboxChange", this.checkboxChange);
+    this.$bus.$on("deleteTodo", this.deleteTodo);
+  },
+  beforeDestroy() {
+    this.$bus.$off(["checkboxChange", "deleteTodo"]);
   },
 };
 </script>

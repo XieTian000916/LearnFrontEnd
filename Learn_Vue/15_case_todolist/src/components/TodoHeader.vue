@@ -13,7 +13,7 @@
 import { nanoid } from "nanoid";
 export default {
   name: "TodoHeader",
-  props: ["addTodo"],
+  // props: ["addTodo"],
   data() {
     return {
       title: "",
@@ -24,7 +24,8 @@ export default {
       if (this.title.trim()) {
         // 将用户输入的值包装成一个todo对象
         const todoObj = { id: nanoid(), title: this.title.trim(), done: false };
-        this.addTodo(todoObj);
+        // this.addTodo(todoObj);
+        this.$emit("addTodo", todoObj);
         this.title = "";
       } else {
         alert("输入不能为空");

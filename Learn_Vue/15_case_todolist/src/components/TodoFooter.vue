@@ -14,7 +14,7 @@
 <script>
 export default {
   name: "TodoFooter",
-  props: ["todos", "checkAllTodo", "clearAllTodo"],
+  props: ["todos" /* "checkAllTodo", "clearAllTodo" */],
   computed: {
     // 计算全部的待办数量
     total() {
@@ -35,14 +35,16 @@ export default {
         return this.doneCount === this.total && this.total > 0;
       },
       set(val) {
-        this.checkAllTodo(val);
+        // this.checkAllTodo(val);
+        this.$emit("checkAllTodo", val);
       },
     },
   },
   methods: {
     // 清除全部待办
     clearAll() {
-      this.clearAllTodo();
+      // this.clearAllTodo();
+      this.$emit("clearAllTodo");
     },
   },
 };

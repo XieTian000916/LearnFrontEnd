@@ -18,10 +18,18 @@
     <h3>ID:{{ idFromComponent }}</h3>
     <hr />
     <pub-sub />
+    <hr />
+    <animation-in-vue />
+    <hr />
+    <transition-in-vue />
+    <hr />
+    <thirdparty-animation-lib />
   </div>
 </template>
 
 <script>
+// 引入第三方库
+import pubsub from "pubsub-js";
 // 引入组件
 import UsageOfRef from "./components/UsageOfRef.vue";
 import UsageOfProps from "./components/UsageOfProps.vue";
@@ -29,9 +37,9 @@ import UseMixin1 from "./components/UseMixin1.vue";
 import UseMixin2 from "./components/UseMixin2.vue";
 import CustomEventsInVue from "./components/CustomEventsInVue.vue";
 import PubSub from "./components/PubSub.vue";
-
-// 引入第三方库
-import pubsub from "pubsub-js";
+import AnimationInVue from "./components/AnimationInVue.vue";
+import TransitionInVue from "./components/TransitionInVue.vue";
+import ThirdpartyAnimationLib from "./components/ThirdpartyAnimationLib.vue";
 
 export default {
   name: "App",
@@ -42,6 +50,9 @@ export default {
     UseMixin2,
     CustomEventsInVue,
     PubSub,
+    AnimationInVue,
+    TransitionInVue,
+    ThirdpartyAnimationLib,
   },
   data() {
     return {

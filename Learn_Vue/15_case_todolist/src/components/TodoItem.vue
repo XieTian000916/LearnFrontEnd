@@ -1,32 +1,40 @@
 <template>
-  <li>
-    <label>
-      <input
-        type="checkbox"
-        :checked="todo.done"
-        @change="changeCheck(todo.id)"
-      />
-      <span v-show="!todo.isEdit">{{ todo.title }}</span>
-      <input
-        type="text"
-        v-show="todo.isEdit"
-        :value="todo.title"
-        @blur="handelBlur(todo, $event)"
-        ref="inputTitle"
-      />
-    </label>
-    <button class="btn btn-danger" @click="deleteItem(todo.id)">删除</button>
-    <button
-      class="btn btn-edit"
-      v-show="!todo.isEdit"
-      @click="handelEdit(todo)"
-    >
-      编辑
-    </button>
-  </li>
+  <transition
+    name="animate__animated animate__bounce"
+    appear
+    enter-active-class="animate__fadeInLeft"
+    leave-active-class="animate__fadeOutRight"
+  >
+    <li>
+      <label>
+        <input
+          type="checkbox"
+          :checked="todo.done"
+          @change="changeCheck(todo.id)"
+        />
+        <span v-show="!todo.isEdit">{{ todo.title }}</span>
+        <input
+          type="text"
+          v-show="todo.isEdit"
+          :value="todo.title"
+          @blur="handelBlur(todo, $event)"
+          ref="inputTitle"
+        />
+      </label>
+      <button class="btn btn-danger" @click="deleteItem(todo.id)">删除</button>
+      <button
+        class="btn btn-edit"
+        v-show="!todo.isEdit"
+        @click="handelEdit(todo)"
+      >
+        编辑
+      </button>
+    </li>
+  </transition>
 </template>
 
 <script>
+import "animate.css";
 export default {
   name: "TodoItem",
   props: ["todo" /* "checkboxChange", "deleteTodo" */],

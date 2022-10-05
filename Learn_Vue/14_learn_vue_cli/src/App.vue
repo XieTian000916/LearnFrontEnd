@@ -24,6 +24,8 @@
     <transition-in-vue />
     <hr />
     <thirdparty-animation-lib />
+    <hr />
+    <configuring-proxy-server />
   </div>
 </template>
 
@@ -40,6 +42,7 @@ import PubSub from "./components/PubSub.vue";
 import AnimationInVue from "./components/AnimationInVue.vue";
 import TransitionInVue from "./components/TransitionInVue.vue";
 import ThirdpartyAnimationLib from "./components/ThirdpartyAnimationLib.vue";
+import ConfiguringProxyServer from "./components/ConfiguringProxyServer.vue";
 
 export default {
   name: "App",
@@ -53,6 +56,7 @@ export default {
     AnimationInVue,
     TransitionInVue,
     ThirdpartyAnimationLib,
+    ConfiguringProxyServer,
   },
   data() {
     return {

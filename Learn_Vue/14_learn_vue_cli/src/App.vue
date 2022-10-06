@@ -26,6 +26,8 @@
     <thirdparty-animation-lib />
     <hr />
     <configuring-proxy-server />
+    <hr />
+    <github-case />
   </div>
 </template>
 
@@ -43,6 +45,7 @@ import AnimationInVue from "./components/AnimationInVue.vue";
 import TransitionInVue from "./components/TransitionInVue.vue";
 import ThirdpartyAnimationLib from "./components/ThirdpartyAnimationLib.vue";
 import ConfiguringProxyServer from "./components/ConfiguringProxyServer.vue";
+import GithubCase from "./components/GithubCase.vue";
 
 export default {
   name: "App",
@@ -57,6 +60,7 @@ export default {
     TransitionInVue,
     ThirdpartyAnimationLib,
     ConfiguringProxyServer,
+    GithubCase,
   },
   data() {
     return {

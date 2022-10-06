@@ -1,5 +1,8 @@
 import Vue from "vue";
 import App from "./App.vue";
+// 引入elementUI
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
 
 // 在此进行全局混入
 import { hunru } from "./mixin";
@@ -12,6 +15,7 @@ Vue.mixin(hunru);
 
 // 使用插件
 Vue.use(usageOfPlugins);
+Vue.use(ElementUI);
 
 new Vue({
   el: "#app",

@@ -28,6 +28,19 @@
     <configuring-proxy-server />
     <hr />
     <github-case />
+    <hr />
+    <h1>Usage Of Slots</h1>
+    <usage-of-slots> 不指名的内容将放入默认插槽中 </usage-of-slots>
+    <usage-of-slots>
+      <template v-slot:forh1> 通过指名放入指定的插槽（已命名） </template>
+      <template v-slot:forh3> 通过指名放入指定的插槽（已命名） </template>
+      <template>在默认插槽中添加一些内容@@@</template>
+    </usage-of-slots>
+    <usage-of-slots>
+      <template v-slot:deafult="slotsProps">{{
+        slotsProps.slotsData
+      }}</template>
+    </usage-of-slots>
   </div>
 </template>
 
@@ -46,6 +59,7 @@ import TransitionInVue from "./components/TransitionInVue.vue";
 import ThirdpartyAnimationLib from "./components/ThirdpartyAnimationLib.vue";
 import ConfiguringProxyServer from "./components/ConfiguringProxyServer.vue";
 import GithubCase from "./components/GithubCase.vue";
+import UsageOfSlots from "./components/UsageOfSlots.vue";
 
 export default {
   name: "App",
@@ -61,6 +75,7 @@ export default {
     ThirdpartyAnimationLib,
     ConfiguringProxyServer,
     GithubCase,
+    UsageOfSlots,
   },
   data() {
     return {

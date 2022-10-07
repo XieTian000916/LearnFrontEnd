@@ -25,12 +25,13 @@ export default {
   methods: {
     addPerson() {
       const personObj = { id: nanoid(), name: this.pname };
-      this.$store.dispatch("addperson", personObj);
+      this.$store.dispatch("personAbout/addperson", personObj);
       this.pname = "";
     },
   },
   computed: {
-    ...mapState(["personlist", "sum"]),
+    ...mapState("personAbout", ["personlist"]),
+    ...mapState("countAbout", ["sum"]),
   },
 };
 </script>

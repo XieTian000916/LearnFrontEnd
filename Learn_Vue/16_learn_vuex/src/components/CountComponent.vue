@@ -42,17 +42,17 @@ export default {
     // decrease() {
     //   this.$store.dispatch("minus", this.n);
     // },
-    ...mapActions({ increase: "plus", decrease: "minus" }),
+    ...mapActions("countAbout", { increase: "plus", decrease: "minus" }),
     increaseOdd() {
       // 若没有网络请求或其他业务逻辑，组件中可直接越过actions，不写dispatch直接编写commit
       // 涉及逻辑判断更适合写入actions，此处只做调用，增加代码复用性
-      if (this.$store.state.sum % 2 !== 0) {
-        this.$store.dispatch("plus", this.n);
+      if (this.$store.state.countAbout.sum % 2 !== 0) {
+        this.$store.dispatch("countAbout/plus", this.n);
       }
     },
     increaseWait() {
       setTimeout(() => {
-        this.$store.dispatch("plus", this.n);
+        this.$store.dispatch("countAbout/plus", this.n);
       }, 2000);
     },
   },
@@ -72,12 +72,16 @@ export default {
     // 借助mapState生成计算属性，从state中读取数据
     // 使用ES6 ... 语法放入对象
     // 对象写法
-    ...mapState({ sum: "sum", lang: "lang", personlist: "personlist" }),
+    ...mapState("countAbout", {
+      sum: "sum",
+      lang: "lang",
+    }),
+    ...mapState("personAbout", { personlist: "personlist" }),
     // 数组写法(该写法两边方法名须相同)
     // ...mapState(["sum", "lang"]),
 
     // 借助mapGetters生成计算属性，从getters中读取数据
-    ...mapGetters({ bigSum: "bigSum" }),
+    ...mapGetters("countAbout", { bigSum: "bigSum" }),
     // ...mapGetters(["bigSum"]),
   },
   mounted() {

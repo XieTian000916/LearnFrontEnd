@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>one JSX case</title>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root"></div>
+
+    <!-- 注意引入的顺序 -->
+    <!-- 引入React核心库 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <!-- 引入react-dom用于支持React操作DOM -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- 引入babel用于将jsx转换为js -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 此处一定要写babel -->
+    <script type="text/babel">
+        const data = ['Angular', 'React', 'Vue'];
+        const VDOM = (
+            <div>
+                <h1>Front-end js framework list</h1>
+                <ul>
+                    {
+                        // 通过遍历的方式动态地放入数据
+                        data.map((item, index) => {
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
+            </div>
+        );
+
+        ReactDOM.render(VDOM, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

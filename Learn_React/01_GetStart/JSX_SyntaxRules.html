@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX syntax rules</title>
+    <style>
+        .fontColor {
+            color: #61DAFB;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="test"></div>
+
+    <!-- 注意引入的顺序 -->
+    <!-- 引入React核心库 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <!-- 引入react-dom用于支持React操作DOM -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- 引入babel用于将jsx转换为js -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 此处一定要写babel -->
+    <script type="text/babel">
+        const myID = '000916';
+        const useLang = 'React.js';
+
+        // 创建虚拟DOM
+        const VDOM = (
+            <div>
+                <h1 id="{myID}" className="fontColor" style={{ backgroundColor: 'yellow' }}>Learn {useLang}</h1>
+                <h2>JSX syntax rules</h2>
+                <input type="text" />
+            </div>
+        )
+        // 渲染虚拟DOM到页面
+        ReactDOM.render(VDOM, document.getElementById('test'));
+
+        /* JSX 语法规则
+            1.定义虚拟DOM时不要用引号
+            2.标签中混入js表达式时使用{}
+            3.指定类名时用className代替class
+            4.内联样式使用style={{ key: 'value' }}的形式书写,拼接词使用小驼峰
+            5.只有一个根标签
+            6.标签必须闭合(参见input标签写法)
+            7.关于标签首字母
+                (1)小写字母开头的会被转译成HTML中的元素
+                (2)大写字母开头的react将去渲染对应的组件
+        */
+    </script>
+</body>
+
+</html>

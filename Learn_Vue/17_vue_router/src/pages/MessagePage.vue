@@ -9,12 +9,16 @@
         </router-link> -->
         <!-- 对象写法(推荐) -->
         <router-link
+          replace
           :to="{
-            path: '/home/message/detail',
+            name: 'Detail',
+            //path: '/home/message/detail',
             query: { id: m.id, title: m.title },
           }"
           >{{ m.title }}
         </router-link>
+        <!-- 编程式路由导航：不借助router-link实现路由跳转 -->
+        <button @click="pushJump(m)">push跳转</button>
       </li>
     </ul>
     <hr />
@@ -34,6 +38,19 @@ export default {
         { id: nanoid(), title: "msg003" },
       ],
     };
+  },
+  methods: {
+    pushJump(m) {
+      // 编程式路由导航：不借助router-link实现路由跳转(push/replace/forward/back/go...)
+      this.$router.push({
+        name: "Detail",
+        //path: '/home/message/detail',
+        query: { id: m.id, title: m.title },
+      });
+    },
+  },
+  beforeDestroy() {
+    console.log("Message component will be destroyed");
   },
 };
 </script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State</title>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root"></div>
+
+    <!-- 注意引入的顺序 -->
+    <!-- 引入React核心库 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <!-- 引入react-dom用于支持React操作DOM -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- 引入babel用于将jsx转换为js -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        // 创建类式组件(必须继承)
+        class Weather extends React.Component {
+            // 使用构造器进行初始化
+            constructor(props) {
+                super(props);
+                this.state = {
+                    isHot: true
+                }
+                // 改变changeWeather中的this指向
+                this.cW = this.changeWeather.bind(this)
+            }
+
+            // 必须有一个render且具有返回值 
+            render() {
+                const { isHot } = this.state;
+                return (
+                    // react中的事件绑定(无括号)
+                    <h1 onClick={this.cW}>Today is {isHot ? 'Hot' : 'Cold'}</h1>
+                )
+            }
+            changeWeather() {
+                // console.log(this.state.isHot);
+                // this.state.isHot = !this.state.isHot;
+
+                // ！！！state的状态不可直接更改
+
+                const { isHot } = this.state;
+                // 调用React.Component原型上的方法更新state
+                this.setState({ isHot: !isHot });
+            }
+        }
+
+        ReactDOM.render(<Weather />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

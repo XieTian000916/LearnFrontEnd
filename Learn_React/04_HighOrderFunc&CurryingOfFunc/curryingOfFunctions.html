@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currying of functions</title>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id='root'></div>
+
+    <!-- 注意引入的顺序 -->
+    <!-- 引入React核心库 -->
+    <script src='https://unpkg.com/react@16/umd/react.development.js' crossorigin></script>
+    <!-- 引入react-dom用于支持React操作DOM -->
+    <script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js' crossorigin></script>
+    <!-- 引入babel用于将jsx转换为js -->
+    <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+
+    <!-- 此处一定要写babel -->
+    <script type='text/babel'>
+        // 受控组件
+        class Demo extends React.Component {
+            /*
+            在计算机科学中,柯里化（Currying）是把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数,
+            并且返回接受余下的参数且返回结果的新函数的技术
+            */
+            // 初始化状态
+            state = {
+                userName: '',
+                psw: ''
+            }
+
+            saveFormData = (dataType) => {
+                // 使用高阶函数进行柯里化
+                return (event) => {
+                    this.setState({ [dataType]: event.target.value });
+                }
+            }
+
+            handelSubmit = (event) => {
+                event.preventDefault();
+                const { userName, psw } = this.state;
+                alert(`用户名为:${userName}密码:${psw}`);
+            }
+
+            render() {
+                return (
+                    <form onSubmit={this.handelSubmit}>
+                        用户名：<input onChange={this.saveFormData('userName')} type="text" name="userName" /><br />
+                        密码：<input onChange={this.saveFormData('psw')} type="password" name="psw" /><br />
+                        <button>login</button>
+                    </form>
+                )
+            }
+        }
+        // 渲染虚拟DOM到页面
+        ReactDOM.render(<Demo />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

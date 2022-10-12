@@ -1,23 +1,17 @@
 <template>
-  <ApiSetup />
-  <ApiRef />
-  <ApiReactive />
   <ApiComputed />
+  <ApiWatch />
 </template>
 
 <script>
-import ApiSetup from './components/ApiSetup.vue';
-import ApiRef from './components/ApiRef.vue';
-import ApiReactive from './components/ApiReactive.vue'
 import ApiComputed from './components/ApiComputed.vue';
+import ApiWatch from './components/ApiWatch.vue';
 
 export default {
   name: 'App',
   components: {
-    ApiSetup,
-    ApiRef,
-    ApiReactive,
-    ApiComputed
+    ApiComputed,
+    ApiWatch
   }
 }
 </script>

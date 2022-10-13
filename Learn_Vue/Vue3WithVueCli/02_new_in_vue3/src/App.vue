@@ -5,6 +5,7 @@
   <ApiWatchEffect />
   <LifecycleInVue3 />
   <CustomHooks />
+  <ApiToRefs />
 </template>
 
 <script>
@@ -14,6 +15,7 @@ import ApiReactive from './components/ApiReactive.vue';
 import ApiWatchEffect from './components/ApiWatchEffect.vue';
 import LifecycleInVue3 from './components/LifecycleInVue3.vue';
 import CustomHooks from './components/CustomHooks.vue';
+import ApiToRefs from './components/ApiToRefs.vue';
 
 export default {
   name: 'App',
@@ -23,7 +25,8 @@ export default {
     ApiReactive,
     ApiWatchEffect,
     LifecycleInVue3,
-    CustomHooks
+    CustomHooks,
+    ApiToRefs
   }
 }
 </script>

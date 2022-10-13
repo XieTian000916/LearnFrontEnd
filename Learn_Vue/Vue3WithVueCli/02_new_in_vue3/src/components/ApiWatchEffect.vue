@@ -2,6 +2,7 @@
     <h1>ApiWatchEffect</h1>
     <h3>Adder</h3>
     <input type="text" v-model="addtion1"> + <input type="text" v-model="addtion2"> = <span>{{res}}</span>
+    <hr>
 </template>
 
 <script>
